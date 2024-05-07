@@ -19,7 +19,7 @@ class ProjectsView extends StatelessWidget {
             const SizedBox(
               height: defaultPadding,
             ),
-          const TitleText(prefix: 'Latest', title: 'Projects'),
+          const TitleText(prefix: 'Our', title: 'Courses'),
           const SizedBox(
             height: defaultPadding,
           ),

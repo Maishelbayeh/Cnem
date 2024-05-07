@@ -24,22 +24,22 @@ class NavigationButtonList extends StatelessWidget {
                   },
                   text: 'Home'),
               if (!Responsive.isLargeMobile(context))
-                NavigationTextButton(onTap: () {}, text: 'About us'),
+                NavigationTextButton(onTap: () {}, text: 'Courses'),
               NavigationTextButton(
                   onTap: () {
                     controller.animateToPage(1,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  text: 'Projects'),
+                  text: 'About us'),
               NavigationTextButton(
                   onTap: () {
                     controller.animateToPage(2,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  text: 'Certifications'),
-              NavigationTextButton(onTap: () {}, text: 'Achievements'),
+                  text: 'Contact with us'),
+              // NavigationTextButton(onTap: () {}, text: 'Achievements'),
             ],
           ),
         );

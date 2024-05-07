@@ -1,7 +1,8 @@
+import 'package:cenem/view/main/components/signUp_button.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/intro/components/side_menu_button.dart';
-import 'package:cenem/view/main/components/connect_button.dart';
+import 'package:cenem/view/main/components/signIn_button.dart';
 import '../../../res/constants.dart';
 import 'navigation_button_list.dart';
 
@@ -32,7 +33,7 @@ class TopNavigationBar extends StatelessWidget {
           ),
           const ConnectButton(),
           const Spacer(),
-          const ConnectButton(),
+          const SignupButton(),
           const Spacer(),
         ],
       ),
