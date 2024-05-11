@@ -17,7 +17,7 @@ class TitleText extends StatelessWidget {
         Text(
           '$prefix ',
           style: Theme.of(context).textTheme.titleMedium!.copyWith(
-              color: const Color.fromARGB(255, 13, 13, 13),
+              color: Colors.black,
               fontSize: !Responsive.isDesktop(context)
                   ? Responsive.isLargeMobile(context)
                       ? 20
@@ -39,7 +39,7 @@ class TitleText extends StatelessWidget {
                 child: Text(
                   title,
                   style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: Colors.black,
                       fontSize: !Responsive.isDesktop(context)
                           ? Responsive.isLargeMobile(context)
                               ? 20
@@ -51,7 +51,7 @@ class TitleText extends StatelessWidget {
             : Text(
                 title,
                 style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                    color: Color.fromARGB(255, 254, 252, 252),
+                    color: Colors.black,
                     fontSize: !Responsive.isDesktop(context)
                         ? Responsive.isLargeMobile(context)
                             ? 20

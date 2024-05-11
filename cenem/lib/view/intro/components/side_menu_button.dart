@@ -21,7 +21,7 @@ class MenuButton extends StatelessWidget {
                 width: defaultPadding * 2.0 * value,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
-                    color: const Color.fromARGB(255, 246, 245, 245),
+                    color: const Color.fromARGB(255, 251, 251, 251),
                     boxShadow: [
                       BoxShadow(
                           color: Colors.pinkAccent.withOpacity(.5),
