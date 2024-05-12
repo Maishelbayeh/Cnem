@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:cenem/model/certificate_model.dart';
+import 'package:cenem/view/certifications/components/managercard.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/getx_controllers/certification_controller.dart';
-import 'package:cenem/view/projects/components/title_text.dart';
 import 'package:get/get.dart';
 import '../../res/constants.dart';
 import '../../view model/responsive.dart';
@@ -20,24 +20,51 @@ class Certifications extends StatelessWidget {
             const SizedBox(
               height: defaultPadding,
             ),
-          const TitleText(prefix: 'Certifications & ', title: 'License'),
-          const SizedBox(
-            height: defaultPadding,
-          ),
-          Expanded(
-              child: Responsive(
-                  desktop: CertificateGrid(
-                    crossAxisCount: 3,
-                    ratio: 1.5,
+      
+          // const SizedBox(
+          //   height: defaultPadding,
+          // ),
+          Responsive(
+            desktop:
+                  Expanded(
+                    child: CertificateGrid(
+                      crossAxisCount: 2,
+                      ratio: 1.5,
+                      itemCount: 0,
+                    ),
+                  
+              
+            ),
+            largeMobile: Expanded(
+              child: Expanded(
+                child: CertificateGrid(
+                    crossAxisCount: 1, ratio: 1.2, itemCount: 0),
+              ),
+            ),
+            mobile: Expanded(
+              child:
+                  CertificateGrid(crossAxisCount: 1, ratio: 0.8, itemCount: 0),
+            ),
+            tablet: Expanded(
+              child: CertificateGrid(ratio: 2, crossAxisCount: 1, itemCount: 0),
+            ),
+            extraLargeScreen: Expanded(
+              child: Column(
+                children: [
+                  // Container(
+                  //   height: MediaQuery.of(context).size.height / 2.3,
+                  //   width: MediaQuery.of(context).size.width / 3,
+                  //   child: ManegerCard(),
+                  // ),
+                  // const SizedBox(height: 5),
+                  Expanded(
+                    child: CertificateGrid(
+                        crossAxisCount: 2, ratio: 2, itemCount: 0),
                   ),
-                  extraLargeScreen:
-                      CertificateGrid(crossAxisCount: 4, ratio: 1.6),
-                  largeMobile: CertificateGrid(crossAxisCount: 1, ratio: 1.8),
-                  mobile: CertificateGrid(crossAxisCount: 1, ratio: 1.4),
-                  tablet: CertificateGrid(
-                    ratio: 1.7,
-                    crossAxisCount: 2,
-                  )))
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );

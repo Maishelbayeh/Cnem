@@ -1,8 +1,8 @@
 import 'dart:async';
+//import 'package:cenem/view/intro/components/Icon.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/home/home.dart';
-import 'package:cenem/view/intro/components/Icon.dart';
 import 'package:cenem/view/splash/componenets/animated_loading_text.dart';
 
 class SplashView extends StatefulWidget {
@@ -34,10 +34,10 @@ class _SplashViewState extends State<SplashView> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            AnimatedImageContainer(
-              width: 100,
-              height: 100,
-            ),
+            // AnimatedImageContainer(
+            //   width: 100,
+            //   height: 100,
+            // ),
             SizedBox(
               height: defaultPadding,
             ),
