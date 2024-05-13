@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cenem/view/course/components/course_deatail.dart';
 import 'package:get/get.dart';
-import '../../../model/course_model.dart';
+
 import '../../../res/constants.dart';
 import '../../../view model/getx_controllers/courses_controller.dart';
 
