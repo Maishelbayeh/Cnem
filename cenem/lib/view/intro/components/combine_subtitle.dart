@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cenem/view/intro/components/subtitle_text.dart';
+import 'package:cenem/view/main/components/subtitle_text.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import '../../../view model/responsive.dart';
 
@@ -11,7 +11,7 @@ class CombineSubtitleText extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        const Responsive(
+        Responsive(
           desktop: AnimatedSubtitleText(
               start: 30, end: 40, text: 'ُE marketing with '),
           largeMobile: AnimatedSubtitleText(

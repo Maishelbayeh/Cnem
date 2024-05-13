@@ -1,3 +1,4 @@
+import 'package:cenem/view/onbonding/sign_in_dialog.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -12,7 +13,10 @@ class ConnectButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: defaultPadding),
       child: InkWell(
         onTap: () {
-          launchUrl(Uri.parse('https://wa.me/03054200605'));
+          showCustomDialog(
+            context,
+            onValue: (_) {},
+          );
         },
         borderRadius: BorderRadius.circular(defaultPadding + 10),
         child: Container(
