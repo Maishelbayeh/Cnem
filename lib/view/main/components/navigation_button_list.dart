@@ -1,0 +1,49 @@
+import 'package:cenem/view/video/video.dart';
+import 'package:flutter/material.dart';
+import 'package:cenem/view%20model/controller.dart';
+import 'package:cenem/view%20model/responsive.dart';
+
+import 'navigation_button.dart';
+
+class NavigationButtonList extends StatelessWidget {
+  const NavigationButtonList({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return TweenAnimationBuilder(
+      tween: Tween(begin: 0.0, end: 1.0),
+      duration: const Duration(milliseconds: 200),
+      builder: (context, value, child) {
+        return Transform.scale(
+          scale: value,
+          child: Row(
+            children: [
+              NavigationTextButton(
+                  onTap: () {
+                    controller.animateToPage(0,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
+                  },
+                  text: 'المقدمة'),
+              if (!Responsive.isLargeMobile(context))
+                NavigationTextButton(onTap: () {}, text: 'Courses'),
+              NavigationTextButton(
+                  onTap: () {
+                    controller.animateToPage(1,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
+                  },
+                  text: 'About us'),
+              NavigationTextButton(
+                  onTap: () {
+                    MaterialPageRoute(builder: (context) => Certifications());
+                  },
+                  text: 'Contact with us'),
+
+              // NavigationTextButton(onTap: () {}, text: 'Achievements'),
+            ],
+          ),
+        );
+      },
+    );
+  }
+}
