@@ -26,7 +26,7 @@ class AboutUS extends StatelessWidget {
             const Expanded(
               child: Center(
                 child:
-                    UserImageContainerWrapper(width: 80, height: 80, space: 10),
+                    UserImageContainerWrapper(width: 70, height: 70, space: 10),
               ),
             ),
           if (!Responsive.isDesktop(context) &&
