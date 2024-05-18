@@ -23,7 +23,7 @@ class TopNavigationBar extends StatelessWidget {
                     onTap: () => Scaffold.of(context).openDrawer(),
                   ),
           ),
-          // if(Responsive.isLargeMobile(context)) MenuButton(),
+          //if (Responsive.isLargeMobile(context)) MenuButton(),
           const Spacer(
             flex: 2,
           ),

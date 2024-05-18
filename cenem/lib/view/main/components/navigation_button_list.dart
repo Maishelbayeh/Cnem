@@ -1,3 +1,4 @@
+import 'package:cenem/view/video/video.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/controller.dart';
 import 'package:cenem/view%20model/responsive.dart';
@@ -22,7 +23,7 @@ class NavigationButtonList extends StatelessWidget {
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  text: 'Home'),
+                  text: 'المقدمة'),
               if (!Responsive.isLargeMobile(context))
                 NavigationTextButton(onTap: () {}, text: 'Courses'),
               NavigationTextButton(
@@ -34,11 +35,10 @@ class NavigationButtonList extends StatelessWidget {
                   text: 'About us'),
               NavigationTextButton(
                   onTap: () {
-                    controller.animateToPage(2,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
+                    MaterialPageRoute(builder: (context) => Certifications());
                   },
                   text: 'Contact with us'),
+
               // NavigationTextButton(onTap: () {}, text: 'Achievements'),
             ],
           ),

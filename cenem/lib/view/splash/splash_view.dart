@@ -35,8 +35,8 @@ class _SplashViewState extends State<SplashView> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             AnimatedImageContainer(
-              width: 100,
-              height: 100,
+              width: 150,
+              height: 200,
             ),
             SizedBox(
               height: defaultPadding,

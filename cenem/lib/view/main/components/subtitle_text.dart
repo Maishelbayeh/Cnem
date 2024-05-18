@@ -23,6 +23,7 @@ class AnimatedSubtitleText extends StatelessWidget {
       builder: (context, value, child) {
         return Text(
           text ?? 'o',
+          textDirection: TextDirection.rtl, // Set text direction here
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
               color: Color.fromARGB(255, 47, 47, 47),
               fontWeight: FontWeight.w900,
@@ -39,21 +40,21 @@ class AnimatedSubtitleText extends StatelessWidget {
                     ]
                   : [],
               height: 0,
-              fontSize: fontsize),
+              fontSize: value),
         );
       },
     );
   }
 }
 
-class coloredText extends StatelessWidget {
+class ColoredText extends StatelessWidget {
   final double start;
   final double end;
   final String text;
   final bool gradient;
   final double? fontsize;
-  const coloredText({
-    super.key,
+  const ColoredText({
+    Key? key,
     required this.start,
     required this.end,
     required this.text,
@@ -68,6 +69,7 @@ class coloredText extends StatelessWidget {
       builder: (context, value, child) {
         return Text(
           text,
+          textDirection: TextDirection.rtl, // Set text direction here
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
               color: Colors.white,
               fontWeight: FontWeight.w900,
@@ -84,7 +86,7 @@ class coloredText extends StatelessWidget {
                     ]
                   : [],
               height: 0,
-              fontSize: fontsize),
+              fontSize: value),
         );
       },
     );

@@ -19,7 +19,7 @@ class CoursesView extends StatelessWidget {
             const SizedBox(
               height: defaultPadding,
             ),
-          const TitleText(prefix: 'Our', title: 'Courses'),
+          //   const TitleText(prefix: 'Our', title: 'Courses'),
           const SizedBox(
             height: defaultPadding,
           ),
@@ -29,7 +29,7 @@ class CoursesView extends StatelessWidget {
                     crossAxisCount: 3,
                   ),
                   extraLargeScreen: CourseGrid(crossAxisCount: 4, ratio: 0.8),
-                  largeMobile: CourseGrid(crossAxisCount: 1, ratio: 1.0),
+                  largeMobile: CourseGrid(crossAxisCount: 1, ratio: 1.2),
                   mobile: CourseGrid(crossAxisCount: 1, ratio: 1.0),
                   tablet: CourseGrid(
                     ratio: 0.9,

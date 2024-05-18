@@ -11,22 +11,23 @@ class Introduction extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
+          const Expanded(
+            child: IntroBody(),
+          ),
           SizedBox(
             width: MediaQuery.sizeOf(context).width * 0.01,
           ),
-          if (!Responsive.isLargeMobile(context))
-            MenuButton(
-              onTap: () => Scaffold.of(context).openDrawer(),
-            ),
+          // if (!Responsive.isLargeMobile(context))
+          //   MenuButton(
+          //     onTap: () => Scaffold.of(context).openDrawer(),
+          //   ),
           SizedBox(
             width: MediaQuery.sizeOf(context).width * 0.02,
           ),
           if (!Responsive.isLargeMobile(context)) const SocialMediaIconList(),
+
           SizedBox(
             width: MediaQuery.sizeOf(context).width * 0.07,
-          ),
-          const Expanded(
-            child: IntroBody(),
           ),
         ],
       ),

@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../view model/getx_controllers/courses_controller.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+
 import 'sign_in_form.dart';
 
 // Assuming you have defined the Responsive widget in a separate file
@@ -77,22 +77,22 @@ Widget _buildDialog(
                 children: [
                   (kIsWeb && Responsive.isLargeMobile(context)
                       ? const Responsive(
-                          desktop: coloredText(
+                          desktop: ColoredText(
                               start: 30,
                               end: 40,
                               text: 'Sign In ',
                               gradient: true),
-                          largeMobile: coloredText(
+                          largeMobile: ColoredText(
                               start: 30,
                               end: 25,
                               text: 'Sign In ',
                               gradient: true),
-                          mobile: coloredText(
+                          mobile: ColoredText(
                               start: 25,
                               end: 20,
                               text: 'Sign In ',
                               gradient: true),
-                          tablet: coloredText(
+                          tablet: ColoredText(
                               start: 40,
                               end: 30,
                               text: 'Sign In ',
@@ -106,22 +106,22 @@ Widget _buildDialog(
                             ]).createShader(bounds);
                           },
                           child: const Responsive(
-                            desktop: coloredText(
+                            desktop: ColoredText(
                                 start: 30,
                                 end: 40,
                                 text: 'Sign In ',
                                 gradient: false),
-                            largeMobile: coloredText(
+                            largeMobile: ColoredText(
                                 start: 30,
                                 end: 25,
                                 text: 'Sign In ',
                                 gradient: false),
-                            mobile: coloredText(
+                            mobile: ColoredText(
                                 start: 25,
                                 end: 20,
                                 text: 'Sign In ',
                                 gradient: true),
-                            tablet: coloredText(
+                            tablet: ColoredText(
                                 start: 40,
                                 end: 30,
                                 text: 'Sign In ',

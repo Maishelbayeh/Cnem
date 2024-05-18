@@ -14,7 +14,7 @@ class CourseGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       padding: const EdgeInsets.symmetric(horizontal: 30),
-      itemCount: CourseList.length,
+      itemCount: courseList.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: crossAxisCount, childAspectRatio: ratio),
       itemBuilder: (context, index) {

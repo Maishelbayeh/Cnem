@@ -1,35 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:cenem/view/main/components/subtitle_text.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:cenem/view/main/components/subtitle_text.dart';
 import '../../../view model/responsive.dart';
 
 class CombineSubtitleText extends StatelessWidget {
-  const CombineSubtitleText({super.key});
+  const CombineSubtitleText({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Responsive(
-          desktop: AnimatedSubtitleText(
-              start: 30, end: 40, text: 'ُE marketing with '),
-          largeMobile: AnimatedSubtitleText(
-              start: 30, end: 25, text: 'E marketing with '),
-          mobile: AnimatedSubtitleText(
-              start: 25, end: 20, text: 'Emarketing with '),
-          tablet: AnimatedSubtitleText(
-              start: 40, end: 30, text: 'E marketing with '),
-        ),
         (kIsWeb && Responsive.isLargeMobile(context)
             ? const Responsive(
-                desktop: coloredText(
+                desktop: ColoredText(
                     start: 30, end: 40, text: 'Cnem ', gradient: true),
-                largeMobile: coloredText(
+                largeMobile: ColoredText(
                     start: 30, end: 25, text: 'Cnem ', gradient: true),
-                mobile: coloredText(
+                mobile: ColoredText(
                     start: 25, end: 20, text: 'Cnem ', gradient: true),
-                tablet: coloredText(
+                tablet: ColoredText(
                     start: 40, end: 30, text: 'Cnem ', gradient: true),
               )
             : ShaderMask(
@@ -40,13 +30,13 @@ class CombineSubtitleText extends StatelessWidget {
                   ]).createShader(bounds);
                 },
                 child: const Responsive(
-                  desktop: coloredText(
+                  desktop: ColoredText(
                       start: 30, end: 40, text: 'Cnem ', gradient: false),
-                  largeMobile: coloredText(
+                  largeMobile: ColoredText(
                       start: 30, end: 25, text: 'Cnem ', gradient: false),
-                  mobile: coloredText(
+                  mobile: ColoredText(
                       start: 25, end: 20, text: 'Cnem ', gradient: true),
-                  tablet: coloredText(
+                  tablet: ColoredText(
                       start: 40, end: 30, text: 'Cnem ', gradient: false),
                 ),
               ))

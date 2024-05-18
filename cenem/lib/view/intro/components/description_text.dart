@@ -14,7 +14,7 @@ class AnimatedDescriptionText extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
         return Text(
-          'We offer a variety of training courses designed to help you personally, ${Responsive.isLargeMobile(context) ? '\n' : ''}effortlessly, and seamlessly earn  ${!Responsive.isLargeMobile(context) ? '\n' : ''}money from your community.',
+          'استثمر اموالك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ',
           maxLines: 2,
           overflow: TextOverflow.ellipsis,
           style: TextStyle(color: Colors.grey, wordSpacing: 2, fontSize: value),

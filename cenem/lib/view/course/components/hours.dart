@@ -16,29 +16,29 @@ class HoursText extends StatelessWidget {
       children: [
         (kIsWeb && Responsive.isLargeMobile(context)
             ? const Responsive(
-                desktop: coloredText(
-                  start: 30,
-                  end: 40,
-                  text: 'Hours : ',
+                desktop: ColoredText(
+                  start: 15,
+                  end: 20,
+                  text: 'Cost : ',
                   gradient: true,
                   fontsize: 18,
                 ),
-                largeMobile: coloredText(
-                    start: 30,
-                    end: 25,
-                    text: 'Hours : ',
+                largeMobile: ColoredText(
+                    start: 10,
+                    end: 15,
+                    text: 'Cost : ',
                     gradient: true,
                     fontsize: 15),
-                mobile: coloredText(
-                    start: 25,
-                    end: 20,
-                    text: 'Hours : ',
+                mobile: ColoredText(
+                    start: 10,
+                    end: 15,
+                    text: 'Cost : ',
                     gradient: true,
                     fontsize: 12),
-                tablet: coloredText(
-                    start: 40,
-                    end: 30,
-                    text: 'Hours : ',
+                tablet: ColoredText(
+                    start: 10,
+                    end: 15,
+                    text: 'Cost : ',
                     gradient: true,
                     fontsize: 15),
               )
@@ -50,56 +50,55 @@ class HoursText extends StatelessWidget {
                   ]).createShader(bounds);
                 },
                 child: const Responsive(
-                  desktop: coloredText(
-                    start: 30,
-                    end: 40,
-                    text: 'Hours  : ',
+                  desktop: ColoredText(
+                    start: 15,
+                    end: 20,
+                    text: 'Cost  : ',
                     gradient: false,
                     fontsize: 18,
                   ),
-                  largeMobile: coloredText(
-                      start: 30,
-                      end: 25,
-                      text: 'Hours : ',
+                  largeMobile: ColoredText(
+                      start: 10,
+                      end: 15,
+                      text: 'Cost : ',
                       gradient: false,
                       fontsize: 15),
-                  mobile: coloredText(
-                      start: 25,
-                      end: 20,
-                      text: 'Hours : ',
+                  mobile: ColoredText(
+                      start: 10,
+                      end: 15,
+                      text: 'Cost : ',
                       gradient: false,
                       fontsize: 12),
-                  tablet: coloredText(
-                      start: 40,
-                      end: 30,
-                      text: 'Hours : ',
+                  tablet: ColoredText(
+                      start: 10,
+                      end: 15,
+                      text: 'Cost : ',
                       gradient: false,
                       fontsize: 15),
                 ),
               )),
         Responsive(
           desktop: AnimatedSubtitleText(
-            start: 30,
-            end: 40,
-            text: '  ${CourseList[index].hours.toString()} ',
-            fontsize: 18,
+            start: 15,
+            end: 20,
+            text: '${courseList[index].cost.toString()} ',
           ),
           largeMobile: AnimatedSubtitleText(
-            start: 30,
-            end: 25,
-            text: '  ${CourseList[index].hours.toString()} ',
+            start: 10,
+            end: 15,
+            text: '  ${courseList[index].cost.toString()} ',
             fontsize: 15,
           ),
           mobile: AnimatedSubtitleText(
-            start: 25,
-            end: 20,
-            text: '  ${CourseList[index].hours.toString()} ',
+            start: 10,
+            end: 15,
+            text: '  ${courseList[index].cost.toString()} ',
             fontsize: 12,
           ),
           tablet: AnimatedSubtitleText(
-            start: 40,
-            end: 30,
-            text: '  ${CourseList[index].hours.toString()} ',
+            start: 10,
+            end: 15,
+            text: '  ${courseList[index].cost.toString()} ',
             fontsize: 15,
           ),
         ),
