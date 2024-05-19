@@ -5,8 +5,8 @@ import '../../../view model/responsive.dart';
 import 'Icon.dart';
 import 'combine_subtitle.dart';
 import 'description_text.dart';
-import 'download_button.dart';
-import 'headline_text.dart';
+import '../../custom componant/custom_button.dart';
+import '../../custom componant/gradiantText.dart';
 
 class IntroBody extends StatelessWidget {
   const IntroBody({super.key});
@@ -45,10 +45,22 @@ class IntroBody extends StatelessWidget {
                   height: size.height * 0.1,
                 ),
               const Responsive(
-                  desktop: TextWithGradient(start: 40, end: 50),
-                  largeMobile: TextWithGradient(start: 35, end: 30),
-                  mobile: TextWithGradient(start: 30, end: 25),
-                  tablet: TextWithGradient(start: 50, end: 40)),
+                  desktop: TextWithGradient(
+                      start: 40,
+                      end: 50,
+                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
+                  largeMobile: TextWithGradient(
+                      start: 35,
+                      end: 30,
+                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
+                  mobile: TextWithGradient(
+                      start: 30,
+                      end: 25,
+                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
+                  tablet: TextWithGradient(
+                      start: 50,
+                      end: 40,
+                      text: 'الشبكة التعاونية للتسويق الالكتروني')),
               // if (kIsWeb && Responsive.isLargeMobile(context))
               Container(
                 height: defaultPadding,

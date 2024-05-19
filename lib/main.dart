@@ -1,4 +1,5 @@
 import 'package:cenem/view/about%20us/AboutUs.dart';
+import 'package:cenem/view/splash/splash_view.dart';
 
 import 'package:flutter/material.dart';
 import 'package:cenem/res/constants.dart';
@@ -28,6 +29,6 @@ class MyApp extends StatelessWidget {
                 bodyText2: const TextStyle(color: bodyTextColor),
               ),
         ),
-        home: AboutUS());
+        home: SplashView());
   }
 }

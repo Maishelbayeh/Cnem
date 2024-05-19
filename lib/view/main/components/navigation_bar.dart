@@ -1,8 +1,10 @@
-import 'package:cenem/view/main/components/signUp_button.dart';
+import 'package:cenem/view/custom%20componant/custom_button.dart';
+
+import 'package:cenem/view/onbonding/sign_in_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/intro/components/side_menu_button.dart';
-import 'package:cenem/view/main/components/signIn_button.dart';
+
 import '../../../res/constants.dart';
 import 'navigation_button_list.dart';
 
@@ -18,7 +20,7 @@ class TopNavigationBar extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(defaultPadding),
             child: !Responsive.isLargeMobile(context)
-                ? Image.asset('assets/images/triange_icon.png')
+                ? Image.asset('assets/images/cnem.png')
                 : MenuButton(
                     onTap: () => Scaffold.of(context).openDrawer(),
                   ),
@@ -31,9 +33,20 @@ class TopNavigationBar extends StatelessWidget {
           const Spacer(
             flex: 2,
           ),
-          const ConnectButton(),
+          CustomButton(
+            onTap: () {
+              showCustomDialog(
+                context,
+                onValue: (_) {},
+              );
+            },
+            buttonText: 'تسجيل دخول',
+          ),
           const Spacer(),
-          const SignupButton(),
+          CustomButton(
+            onTap: () {},
+            buttonText: 'انشاء حساب',
+          ),
           const Spacer(),
         ],
       ),

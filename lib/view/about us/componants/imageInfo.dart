@@ -2,7 +2,8 @@ import 'package:cenem/model/AboutUS_model.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/about%20us/componants/Icon.dart';
 import 'package:cenem/view/about%20us/componants/contactForm.dart';
-import 'package:cenem/view/main/components/subtitle_text.dart';
+import 'package:cenem/view/custom%20componant/gradiantText.dart';
+import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import 'package:flutter/material.dart';
 
 class UserImageContainerItem extends StatefulWidget {
@@ -18,6 +19,7 @@ class UserImageContainerItem extends StatefulWidget {
   }) : super(key: key);
 
   @override
+  // ignore: library_private_types_in_public_api
   _UserImageContainerItemState createState() => _UserImageContainerItemState();
 }
 
@@ -34,11 +36,10 @@ class _UserImageContainerItemState extends State<UserImageContainerItem> {
             context: context,
             builder: (BuildContext context) {
               return AlertDialog(
-                title: const ColoredText(
+                title: TextWithGradient(
                   start: 20,
                   end: 25,
-                  text: 'تواصل معنا',
-                  gradient: true,
+                  text: 'للتواصل مع ${AdmisList[widget.index].name} ',
                 ),
                 content: const CustomForm(),
                 actions: [
@@ -46,7 +47,7 @@ class _UserImageContainerItemState extends State<UserImageContainerItem> {
                     onPressed: () {
                       Navigator.of(context).pop();
                     },
-                    child: const Text('اغلاق'),
+                    child: const Text('ارسال'),
                   ),
                 ],
               );

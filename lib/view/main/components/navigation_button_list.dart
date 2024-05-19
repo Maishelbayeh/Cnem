@@ -7,6 +7,7 @@ import 'navigation_button.dart';
 
 class NavigationButtonList extends StatelessWidget {
   const NavigationButtonList({super.key});
+
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -15,32 +16,45 @@ class NavigationButtonList extends StatelessWidget {
       builder: (context, value, child) {
         return Transform.scale(
           scale: value,
-          child: Row(
-            children: [
-              NavigationTextButton(
+          child: Directionality(
+            textDirection: TextDirection.rtl,
+            child: Row(
+              children: [
+                NavigationTextButton(
                   onTap: () {
                     controller.animateToPage(0,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  text: 'المقدمة'),
-              if (!Responsive.isLargeMobile(context))
-                NavigationTextButton(onTap: () {}, text: 'Courses'),
-              NavigationTextButton(
+                  text: 'المقدمة',
+                ),
+
+                NavigationTextButton(
+                    onTap: () {
+                      controller.animateToPage(1,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeIn);
+                    },
+                    text: 'فيديو تعريفي'),
+                NavigationTextButton(
                   onTap: () {
-                    controller.animateToPage(1,
+                    controller.animateToPage(2,
                         duration: const Duration(milliseconds: 500),
                         curve: Curves.easeIn);
                   },
-                  text: 'About us'),
-              NavigationTextButton(
+                  text: 'الدورات',
+                ),
+                NavigationTextButton(
                   onTap: () {
-                    MaterialPageRoute(builder: (context) => Certifications());
+                    controller.animateToPage(3,
+                        duration: const Duration(milliseconds: 500),
+                        curve: Curves.easeIn);
                   },
-                  text: 'Contact with us'),
-
-              // NavigationTextButton(onTap: () {}, text: 'Achievements'),
-            ],
+                  text: 'التواصل',
+                ),
+                // NavigationTextButton(onTap: () {}, text: 'Achievements'),
+              ],
+            ),
           ),
         );
       },

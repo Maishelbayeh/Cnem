@@ -8,8 +8,12 @@ class Admis {
 }
 
 List<Admis> AdmisList = [
-  Admis('Tala Aqqad', 'Tala@gmail.com', 'manager', 'assets/images/cnem.png'),
-  Admis('Tala Aqqad', 'Tala@gmail.com', 'manager', 'assets/images/cnem.png'),
-  Admis('Tala Aqqad', 'Tala@gmail.com', 'manager', 'assets/images/cnem.png'),
-  Admis('Tala Aqqad', 'Tala@gmail.com', 'manager', 'assets/images/cnem.png'),
+  Admis(
+      'طلال العقاد', 'Tala@gmail.com', 'مدير العام', 'assets/images/cnem.png'),
+  Admis(
+      'طلال العقاد', 'Tala@gmail.com', 'مدير العام', 'assets/images/cnem.png'),
+  Admis(
+      'طلال العقاد', 'Tala@gmail.com', 'مدير العام', 'assets/images/cnem.png'),
+  Admis(
+      'طلال العقاد', 'Tala@gmail.com', 'مدير العام', 'assets/images/cnem.png'),
 ];

@@ -1,6 +1,6 @@
 import 'package:cenem/view/course/components/cost.dart';
-import 'package:cenem/view/course/components/course_button.dart';
-import 'package:cenem/view/course/components/hours.dart';
+
+import 'package:cenem/view/custom%20componant/custom_button.dart';
 
 import 'package:flutter/material.dart';
 
@@ -69,7 +69,7 @@ class CourseDetail extends StatelessWidget {
           // HoursText(index: index),
           const Spacer(),
           Center(
-            child: JoinButton(
+            child: CustomButton(
               width: Responsive.isDesktop(context)
                   ? 300
                   : Responsive.isLargeMobile(context)
@@ -87,7 +87,10 @@ class CourseDetail extends StatelessWidget {
                           ? 40
                           : Responsive.isTablet(context)
                               ? 50
-                              : 50, // Adjust button height based on screen size
+                              : 50,
+              onTap: () {},
+              buttonText:
+                  'اشترك مجانا', // Adjust button height based on screen size
             ),
           ),
           const SizedBox(
