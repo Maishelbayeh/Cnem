@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:cenem/view/main/components/subtitle_text.dart';
+import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import '../../../view model/responsive.dart';
 
 class CombineSubtitleText extends StatelessWidget {

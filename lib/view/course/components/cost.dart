@@ -1,6 +1,6 @@
 import 'package:cenem/model/course_model.dart';
 import 'package:flutter/material.dart';
-import 'package:cenem/view/main/components/subtitle_text.dart';
+import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import '../../../view model/responsive.dart';
 

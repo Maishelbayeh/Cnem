@@ -1,5 +1,5 @@
-import 'package:cenem/view/onbonding/sign.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:cenem/view/custom%20componant/custom_button.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:rive/rive.dart';
@@ -153,7 +153,11 @@ class _SignInFormState extends State<SignInForm> {
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 8, bottom: 24),
-                child: SignButton(width: widget.emailFieldWidthFactor),
+                child: CustomButton(
+                  width: widget.emailFieldWidthFactor,
+                  onTap: () {},
+                  buttonText: 'تسجيل الدخول',
+                ),
               ),
             ],
           ),

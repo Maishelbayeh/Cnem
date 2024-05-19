@@ -1,7 +1,8 @@
 import 'package:cenem/model/AboutUS_model.dart';
+import 'package:cenem/view%20model/responsive.dart';
 
 import 'package:cenem/view/about%20us/componants/imageInfo.dart';
-import 'package:cenem/view/main/components/subtitle_text.dart';
+import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import 'package:flutter/material.dart';
 
 class UserImageContainerWrapper extends StatefulWidget {
@@ -46,13 +47,35 @@ class _UserImageContainerWrapperState extends State<UserImageContainerWrapper> {
                   ),
                   const SizedBox(
                     height: 10,
-                  ), // Add vertical space between items
-                  ColoredText(
-                    start: 20,
-                    end: 25,
-                    text: AdmisList[index].description,
-                    gradient: true,
                   ),
+                  // Add vertical space between items
+                  Responsive(
+                    desktop: ColoredText(
+                      start: 20,
+                      end: 25,
+                      text: AdmisList[index].description,
+                      gradient: true,
+                    ),
+                    largeMobile: ColoredText(
+                      start: 10,
+                      end: 15,
+                      text: AdmisList[index].description,
+                      gradient: true,
+                    ),
+                    mobile: ColoredText(
+                      start: 10,
+                      end: 15,
+                      text: AdmisList[index].description,
+                      gradient: true,
+                    ),
+                    tablet: ColoredText(
+                      start: 15,
+                      end: 20,
+                      text: AdmisList[index].description,
+                      gradient: true,
+                    ),
+                  )
+
                   //   ContactForm(),
                 ],
               ),

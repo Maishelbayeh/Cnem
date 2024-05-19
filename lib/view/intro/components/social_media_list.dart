@@ -17,16 +17,6 @@ class SocialMediaIconList extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(),
-              RotatedBox(
-                quarterTurns: -3,
-                child: Text(
-                  'Follow Us',
-                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: const Color.fromARGB(255, 10, 10, 10),
-                        fontWeight: FontWeight.w500,
-                      ),
-                ),
-              ),
               Container(
                 height: size.height * 0.06,
                 width: 3,
@@ -36,7 +26,26 @@ class SocialMediaIconList extends StatelessWidget {
                     color: const Color.fromARGB(255, 9, 9, 9),
                     borderRadius: BorderRadius.circular(defaultPadding)),
               ),
-              const SocialMediaIconColumn(),
+              RotatedBox(
+                quarterTurns: -3,
+                child: Text(
+                  'النجاح يبدا بخطوة ..فلا تؤجلها',
+                  style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                        color: const Color.fromARGB(255, 10, 10, 10),
+                        fontWeight: FontWeight.w700,
+                      ),
+                ),
+              ),
+              Container(
+                height: size.height * 0.06,
+                width: 2,
+                margin:
+                    const EdgeInsets.symmetric(vertical: defaultPadding * 0.5),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 9, 9, 9),
+                    borderRadius: BorderRadius.circular(defaultPadding)),
+              ),
+              //const SocialMediaIconColumn(),
               const Spacer(),
             ],
           ),
