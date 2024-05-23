@@ -140,8 +140,8 @@ Widget _buildDialog(
                           emailFieldWidthFactor: 0.8 * dialogWidth,
                           passwordFieldWidthFactor: 0.8 * dialogWidth),
                       mobile: SignInForm(
-                          emailFieldWidthFactor: 0.8 * dialogWidth,
-                          passwordFieldWidthFactor: 0.8 * dialogWidth),
+                          emailFieldWidthFactor: 0.9 * dialogWidth,
+                          passwordFieldWidthFactor: 0.9 * dialogWidth),
                       tablet: SignInForm(
                           emailFieldWidthFactor: 0.5 * dialogWidth,
                           passwordFieldWidthFactor: 0.5 * dialogWidth),
