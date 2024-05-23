@@ -12,7 +12,7 @@ class VideoContainer extends StatefulWidget {
   final double? height;
   final FlickManager flickManager = FlickManager(
     videoPlayerController: VideoPlayerController.asset(
-      'videos/test.mp4',
+      'videos/cnem.mp4',
     ),
   );
   @override
