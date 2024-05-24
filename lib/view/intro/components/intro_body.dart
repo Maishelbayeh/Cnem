@@ -14,6 +14,8 @@ class IntroBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
+    String s =
+        'استثمر اموالك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
     return Row(
       children: [
         const Spacer(),
@@ -47,18 +49,18 @@ class IntroBody extends StatelessWidget {
                 ),
               const CombinetitleText(),
 
-              if (kIsWeb && Responsive.isLargeMobile(context))
-                Container(
-                  height: defaultPadding,
-                  color: const Color.fromARGB(255, 0, 0, 0),
+              if (!Responsive.isDesktop(context))
+                SizedBox(
+                  height: size.height * 0.1,
                 ),
               const CombineSubtitleText(),
               const SizedBox(height: defaultPadding),
-              const Responsive(
-                desktop: AnimatedDescriptionText(start: 14, end: 15),
-                largeMobile: AnimatedDescriptionText(start: 14, end: 12),
-                mobile: AnimatedDescriptionText(start: 14, end: 12),
-                tablet: AnimatedDescriptionText(start: 17, end: 14),
+              Responsive(
+                desktop: AnimatedDescriptionText(start: 14, end: 15, text: s),
+                largeMobile:
+                    AnimatedDescriptionText(start: 14, end: 12, text: s),
+                mobile: AnimatedDescriptionText(start: 14, end: 12, text: s),
+                tablet: AnimatedDescriptionText(start: 17, end: 14, text: s),
               ),
               const SizedBox(
                 height: defaultPadding * 2,

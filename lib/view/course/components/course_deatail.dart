@@ -1,6 +1,7 @@
 import 'package:cenem/view/course/components/cost.dart';
 
 import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/intro/components/description_text.dart';
 
 import 'package:flutter/material.dart';
 
@@ -37,19 +38,15 @@ class CourseDetail extends StatelessWidget {
               : const SizedBox(
                   height: defaultPadding,
                 ),
-          Text(
-            courseList[index].description,
-            style: const TextStyle(color: Colors.grey, height: 1.5),
-            maxLines: size.width > 700 && size.width < 750
-                ? 3
-                : size.width < 470
-                    ? 4
-                    : size.width > 600 && size.width < 700
-                        ? 6
-                        : size.width > 900 && size.width < 1060
-                            ? 6
-                            : 4,
-            overflow: TextOverflow.ellipsis,
+          Responsive(
+            desktop: AnimatedDescriptionText(
+                start: 14, end: 15, text: courseList[index].description),
+            largeMobile: AnimatedDescriptionText(
+                start: 14, end: 12, text: courseList[index].description),
+            mobile: AnimatedDescriptionText(
+                start: 14, end: 12, text: courseList[index].description),
+            tablet: AnimatedDescriptionText(
+                start: 17, end: 14, text: courseList[index].description),
           ),
           Responsive.isMobile(context)
               ? const SizedBox(

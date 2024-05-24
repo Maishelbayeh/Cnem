@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
-
 import '../../../view model/responsive.dart';
 
 class AnimatedDescriptionText extends StatelessWidget {
-  const AnimatedDescriptionText(
-      {super.key, required this.start, required this.end});
+  const AnimatedDescriptionText({
+    Key? key,
+    required this.start,
+    required this.end,
+    required this.text,
+  }) : super(key: key);
+
   final double start;
   final double end;
+  final String text;
+
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -14,10 +20,14 @@ class AnimatedDescriptionText extends StatelessWidget {
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
         return Text(
-          'استثمر اموالك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ',
-          maxLines: 2,
+          text,
+          maxLines: 3,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(color: Colors.grey, wordSpacing: 2, fontSize: value),
+          style: TextStyle(
+            color: Colors.grey,
+            wordSpacing: 2,
+            fontSize: value, // Animating font size from start to end
+          ),
         );
       },
     );
