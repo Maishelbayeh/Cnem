@@ -40,13 +40,13 @@ class CourseDetail extends StatelessWidget {
                 ),
           Responsive(
             desktop: AnimatedDescriptionText(
-                start: 14, end: 15, text: courseList[index].description),
+                start: 14, end: 15, text: 'اخيييييييرا'),
             largeMobile: AnimatedDescriptionText(
-                start: 14, end: 12, text: courseList[index].description),
+                start: 14, end: 12, text: 'اخيييييييرا'),
             mobile: AnimatedDescriptionText(
-                start: 14, end: 12, text: courseList[index].description),
+                start: 14, end: 12, text: 'اخيييييييرا'),
             tablet: AnimatedDescriptionText(
-                start: 17, end: 14, text: courseList[index].description),
+                start: 17, end: 14, text: 'اخيييييييرا'),
           ),
           Responsive.isMobile(context)
               ? const SizedBox(
