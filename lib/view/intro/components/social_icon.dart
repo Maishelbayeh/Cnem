@@ -11,14 +11,14 @@ class SocialMediaIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(40),
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: defaultPadding * 0.4),
+        padding: const EdgeInsets.symmetric(horizontal: defaultPadding * 0.4),
         child: SvgPicture.asset(
           icon,
           color: const Color.fromARGB(255, 11, 11, 11),
-          height: 15,
-          width: 15,
+          height: 30,
+          width: 30,
         ),
       ),
     );

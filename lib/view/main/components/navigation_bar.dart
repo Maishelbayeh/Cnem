@@ -23,7 +23,7 @@ class TopNavigationBar extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: !Responsive.isLargeMobile(context)
-                  ? Image.asset('assets/images/cnem.png')
+                  ? const SocialMediaIconRow()
                   : const SocialMediaIconRow()),
           //if (Responsive.isLargeMobile(context)) MenuButton(),
           const Spacer(

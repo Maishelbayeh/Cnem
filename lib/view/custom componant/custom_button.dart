@@ -58,7 +58,6 @@ class CustomButton extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: Colors.white,
-                      letterSpacing: 1.2,
                       fontWeight: FontWeight.bold,
                     ),
               ),

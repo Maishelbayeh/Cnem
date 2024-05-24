@@ -46,11 +46,12 @@ class IntroBody extends StatelessWidget {
                   height: size.height * 0.1,
                 ),
               const CombinetitleText(),
-              // if (kIsWeb && Responsive.isLargeMobile(context))
-              Container(
-                height: defaultPadding,
-                color: const Color.fromARGB(255, 0, 0, 0),
-              ),
+
+              if (kIsWeb && Responsive.isLargeMobile(context))
+                Container(
+                  height: defaultPadding,
+                  color: const Color.fromARGB(255, 0, 0, 0),
+                ),
               const CombineSubtitleText(),
               const SizedBox(height: defaultPadding),
               const Responsive(

@@ -43,7 +43,7 @@ class CourseDetail extends StatelessWidget {
             maxLines: size.width > 700 && size.width < 750
                 ? 3
                 : size.width < 470
-                    ? 2
+                    ? 4
                     : size.width > 600 && size.width < 700
                         ? 6
                         : size.width > 900 && size.width < 1060

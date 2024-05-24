@@ -10,18 +10,15 @@ class SocialMediaIconColumn extends StatelessWidget {
     return Column(
       children: [
         SocialMediaIcon(
-            icon: 'assets/icons/linkedin.svg',
-            onTap: () => launchUrl(
-                Uri.parse('https://www.linkedin.com/in/hamad-anwar/'))),
+          icon: 'assets/icons/whatsapp.svg',
+          onTap: () => launchUrl(Uri.parse(
+              'https://whatsapp.com/channel/0029VaawoizIHphDlzrBWX1I')),
+        ),
+        const SizedBox(width: 16), // Add space between icons
         SocialMediaIcon(
-          icon: 'assets/icons/github.svg',
-          onTap: () => launchUrl(Uri.parse('https://github.com/Hamad-Anwar')),
+          icon: 'assets/icons/telegram.svg',
+          onTap: () => launchUrl(Uri.parse('https://t.me/+dcwDj7c6bYcyOTNk')),
         ),
-        const SocialMediaIcon(
-          icon: 'assets/icons/dribble.svg',
-        ),
-        const SocialMediaIcon(icon: 'assets/icons/twitter.svg'),
-        const SocialMediaIcon(icon: 'assets/icons/linkedin.svg'),
       ],
     );
   }
