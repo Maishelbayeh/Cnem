@@ -38,14 +38,15 @@ class CourseDetail extends StatelessWidget {
               : const SizedBox(
                   height: defaultPadding,
                 ),
-          Text(
-            courseList[index].description,
-            style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                color: Color.fromARGB(255, 0, 0, 0),
-                fontWeight: FontWeight.bold,
-                fontSize: 16),
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
+          Responsive(
+            desktop: AnimatedDescriptionText(
+                start: 14, end: 15, text: courseList[index].description),
+            largeMobile: AnimatedDescriptionText(
+                start: 14, end: 12, text: courseList[index].description),
+            mobile: AnimatedDescriptionText(
+                start: 14, end: 12, text: courseList[index].description),
+            tablet: AnimatedDescriptionText(
+                start: 17, end: 14, text: courseList[index].description),
           ),
           Responsive.isMobile(context)
               ? const SizedBox(

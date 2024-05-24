@@ -55,11 +55,12 @@ class CustomButton extends StatelessWidget {
               const SizedBox(width: defaultPadding / 4),
               Text(
                 buttonText,
-                //  textDirection: TextDirection.rtl,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    fontSize: 8,
+                    color: Color.fromARGB(255, 243, 242, 242),
+                    fontWeight: FontWeight.bold),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
