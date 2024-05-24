@@ -14,8 +14,8 @@ const RESOURCES = {"assets/AssetManifest.bin": "0f957faa704efb174ffae5c3cd34705c
 "assets/assets/icons/email.svg": "850b1f6a5e1826966acdfdeee6188aa0",
 "assets/assets/icons/firebase.png": "36170822afe4c716cfbdb96dac8cd10e",
 "assets/assets/icons/flutter.png": "1105c9a994c1a6638daed558d5b631fd",
-"assets/assets/icons/github.svg": "9e7e83a262dc40010a9f3f5decb02ba3",
-"assets/assets/icons/linkedin.svg": "750234e9e96e6fe9e9a5719519d4efd5",
+"assets/assets/icons/github.svg": "fa7cd0d9c8f8dfa3cc3db7e20dfb49df",
+"assets/assets/icons/linkedin.svg": "1512a6e4536b7757bfbea10253185bee",
 "assets/assets/icons/password.svg": "4991c84fdfca7a812eb3229abea3a6f8",
 "assets/assets/icons/twitter.svg": "4b6d64c5626e263da6cbc0b5e843d13d",
 "assets/assets/images/AI.png": "c8efdb19e59894d0daa66646c7dac82f",
@@ -55,9 +55,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "0f957faa704efb174ffae5c3cd34705c
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "6b3fd0cd46fc80eea643d4f9712302e5",
-"/": "6b3fd0cd46fc80eea643d4f9712302e5",
-"main.dart.js": "36bee8d44b3c84152014de2ad459f4e2",
+"index.html": "7a1fe55782208e11e1af5b6827061b1a",
+"/": "7a1fe55782208e11e1af5b6827061b1a",
+"main.dart.js": "d2cea7bc0e037e89bca8dde0ae8bbc93",
 "manifest.json": "ec7cdf694b69d3902e95c214ee7ec1a6",
 "version.json": "060610ad7aa39a40c54e12edcff5c871"};
 // The application shell files that are downloaded before a service worker can

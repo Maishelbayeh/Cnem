@@ -1,4 +1,7 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/intro/components/social_media_coloumn.dart';
+import 'package:cenem/view/main/components/drawer/contact_icons.dart';
+import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 
 import 'package:cenem/view/onbonding/sign_in_dialog.dart';
 import 'package:flutter/material.dart';
@@ -18,13 +21,10 @@ class TopNavigationBar extends StatelessWidget {
         children: [
           const Spacer(),
           Padding(
-            padding: const EdgeInsets.all(defaultPadding),
-            child: !Responsive.isLargeMobile(context)
-                ? Image.asset('assets/images/cnem.png')
-                : MenuButton(
-                    onTap: () => Scaffold.of(context).openDrawer(),
-                  ),
-          ),
+              padding: const EdgeInsets.all(defaultPadding),
+              child: !Responsive.isLargeMobile(context)
+                  ? Image.asset('assets/images/cnem.png')
+                  : const SocialMediaIconRow()),
           //if (Responsive.isLargeMobile(context)) MenuButton(),
           const Spacer(
             flex: 2,

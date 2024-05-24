@@ -55,6 +55,7 @@ class CustomButton extends StatelessWidget {
               const SizedBox(width: defaultPadding / 4),
               Text(
                 buttonText,
+                textDirection: TextDirection.rtl,
                 style: Theme.of(context).textTheme.labelSmall!.copyWith(
                       color: Colors.white,
                       letterSpacing: 1.2,

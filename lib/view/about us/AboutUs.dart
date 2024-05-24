@@ -27,16 +27,16 @@ class AboutUS extends StatelessWidget {
             child: Responsive(
               desktop: Center(
                 child: UserImageContainerWrapper(
-                  width: 200,
-                  height: 200,
+                  width: 150,
+                  height: 150,
                   space: 40,
                 ),
               ),
               extraLargeScreen: Center(
                 child: UserImageContainerWrapper(
-                  width: 250,
-                  height: 250,
-                  space: 50,
+                  width: 150,
+                  height: 150,
+                  space: 40,
                 ),
               ),
               largeMobile: Center(

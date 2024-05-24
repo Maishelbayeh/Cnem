@@ -20,18 +20,16 @@ class TextWithGradient extends StatelessWidget {
       builder: (context, value, child) {
         return ShaderMask(
           shaderCallback: (bounds) {
-            return const LinearGradient(
+            return LinearGradient(
               colors: [
                 Colors.pink, // Example start color
                 Colors.blue, // Example end color
               ],
-            ).createShader(bounds);
+            ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height));
           },
           child: Text(
             text,
             style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-                  color: Colors
-                      .white, // Text color will be overridden by the gradient
                   fontWeight: FontWeight.w900,
                   height: 0,
                   fontSize: value,

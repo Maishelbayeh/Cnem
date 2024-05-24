@@ -1,3 +1,4 @@
+import 'package:cenem/view/intro/components/headline.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import '../../../res/constants.dart';
@@ -44,23 +45,7 @@ class IntroBody extends StatelessWidget {
                 SizedBox(
                   height: size.height * 0.1,
                 ),
-              const Responsive(
-                  desktop: TextWithGradient(
-                      start: 40,
-                      end: 50,
-                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
-                  largeMobile: TextWithGradient(
-                      start: 35,
-                      end: 30,
-                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
-                  mobile: TextWithGradient(
-                      start: 30,
-                      end: 25,
-                      text: 'الشبكة التعاونية للتسويق الالكتروني'),
-                  tablet: TextWithGradient(
-                      start: 50,
-                      end: 40,
-                      text: 'الشبكة التعاونية للتسويق الالكتروني')),
+              const CombinetitleText(),
               // if (kIsWeb && Responsive.isLargeMobile(context))
               Container(
                 height: defaultPadding,

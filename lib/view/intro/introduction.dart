@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/intro/components/intro_body.dart';
-import 'package:cenem/view/intro/components/side_menu_button.dart';
+
 import 'package:cenem/view/intro/components/social_media_list.dart';
 
 class Introduction extends StatelessWidget {
@@ -11,21 +11,16 @@ class Introduction extends StatelessWidget {
     return Scaffold(
       body: Row(
         children: [
+          SizedBox(
+            width: MediaQuery.sizeOf(context).width * 0.02,
+          ),
           const Expanded(
             child: IntroBody(),
           ),
           SizedBox(
-            width: MediaQuery.sizeOf(context).width * 0.01,
-          ),
-          // if (!Responsive.isLargeMobile(context))
-          //   MenuButton(
-          //     onTap: () => Scaffold.of(context).openDrawer(),
-          //   ),
-          SizedBox(
-            width: MediaQuery.sizeOf(context).width * 0.02,
+            width: MediaQuery.sizeOf(context).width * 0.04,
           ),
           if (!Responsive.isLargeMobile(context)) const SocialMediaIconList(),
-
           SizedBox(
             width: MediaQuery.sizeOf(context).width * 0.07,
           ),

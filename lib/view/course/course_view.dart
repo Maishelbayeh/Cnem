@@ -13,7 +13,7 @@ class CoursesView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: [
           if (Responsive.isLargeMobile(context))
             const SizedBox(
