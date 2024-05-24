@@ -15,7 +15,7 @@ class AnimatedDescriptionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
+    return TweenAnimationBuilder<double>(
       tween: Tween(begin: start, end: end),
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
@@ -23,11 +23,11 @@ class AnimatedDescriptionText extends StatelessWidget {
           text,
           maxLines: 3,
           overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            color: Colors.grey,
-            wordSpacing: 2,
-            fontSize: value, // Animating font size from start to end
-          ),
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                color: Colors.grey,
+                wordSpacing: 2,
+                fontSize: value, // Animating font size from start to end
+              ),
         );
       },
     );
