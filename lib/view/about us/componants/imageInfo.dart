@@ -3,7 +3,7 @@ import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/about%20us/componants/Icon.dart';
 import 'package:cenem/view/about%20us/componants/contactForm.dart';
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
-import 'package:cenem/view/custom%20componant/subtitle_text.dart';
+
 import 'package:flutter/material.dart';
 
 class UserImageContainerItem extends StatefulWidget {

@@ -1,3 +1,4 @@
+import 'package:cenem/view/custom%20componant/gradiantText.dart';
 import 'package:flutter/material.dart';
 import '../../../../res/constants.dart';
 
@@ -8,12 +9,12 @@ class AreaInfoText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.only(bottom: defaultPadding/2),
+      padding: const EdgeInsets.only(bottom: defaultPadding / 2),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(title,style: const TextStyle(color: Colors.white),),
           Text(text),
+          TextWithGradient(start: 10, end: 12, text: title)
         ],
       ),
     );

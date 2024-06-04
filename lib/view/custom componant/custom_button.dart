@@ -56,7 +56,7 @@ class CustomButton extends StatelessWidget {
               Text(
                 buttonText,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
-                    fontSize: 8,
+                    fontSize: 12,
                     color: Color.fromARGB(255, 243, 242, 242),
                     fontWeight: FontWeight.bold),
                 maxLines: 1,

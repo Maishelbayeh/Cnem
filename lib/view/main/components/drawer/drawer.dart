@@ -5,6 +5,7 @@ import 'package:cenem/view/main/components/drawer/knowledges.dart';
 import 'package:cenem/view/main/components/drawer/my_skill.dart';
 import 'package:cenem/view/main/components/drawer/personal_info.dart';
 import 'package:cenem/res/constants.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -22,8 +23,6 @@ class CustomDrawer extends StatelessWidget {
               child: const Padding(
                 padding: EdgeInsets.all(defaultPadding / 2),
                 child: Column(
-                  // Align children to the right
-                  // Set text direction to right-to-left
                   children: [
                     PersonalInfo(),
                     MySKills(),

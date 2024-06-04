@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../res/constants.dart';
 
 class DrawerImage extends StatelessWidget {
@@ -7,8 +8,8 @@ class DrawerImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 100,
-      width: 100,
+      height: 55,
+      width: 55,
       padding: const EdgeInsets.all(defaultPadding / 6),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(50),
@@ -34,9 +35,8 @@ class DrawerImage extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
           child: Transform.rotate(
             angle: 0.1,
-            child: Image.asset(
-              'assets/images/cnem.png',
-              fit: BoxFit.cover,
+            child: Icon(
+              FontAwesomeIcons.user,
             ),
           ),
         ),

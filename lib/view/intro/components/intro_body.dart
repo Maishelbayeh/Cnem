@@ -6,25 +6,26 @@ import '../../../view model/responsive.dart';
 import 'Icon.dart';
 import 'combine_subtitle.dart';
 import 'description_text.dart';
-import '../../custom componant/custom_button.dart';
-import '../../custom componant/gradiantText.dart';
 
 class IntroBody extends StatelessWidget {
   const IntroBody({super.key});
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
-    String s =
-        'استثمر اموالك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
+    String s = 'استثمر وقتك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
     return Row(
       children: [
-        const Spacer(),
+        SizedBox(
+          width: size.width * 0.06,
+        ),
         if (Responsive.isDesktop(context)) const AnimatedImageContainer(),
-        const Spacer(),
+        SizedBox(
+          width: size.width * 0.06,
+        ),
         SingleChildScrollView(
           child: Column(
-            //  crossAxisAlignment: CrossAxisAlignment.start,
-            // mainAxisAlignment: MainAxisAlignment.center,
+            //crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               if (!Responsive.isDesktop(context))
                 SizedBox(
@@ -50,13 +51,13 @@ class IntroBody extends StatelessWidget {
               const CombinetitleText(),
 
               if (!Responsive.isDesktop(context))
-                SizedBox(
-                  height: size.height * 0.1,
+                const SizedBox(
+                  height: defaultPadding,
                 ),
               const CombineSubtitleText(),
-              const SizedBox(height: defaultPadding),
+              const SizedBox(height: defaultPadding * 2),
               Responsive(
-                desktop: AnimatedDescriptionText(start: 14, end: 15, text: s),
+                desktop: AnimatedDescriptionText(start: 20, end: 30, text: s),
                 largeMobile:
                     AnimatedDescriptionText(start: 14, end: 12, text: s),
                 mobile: AnimatedDescriptionText(start: 14, end: 12, text: s),
@@ -65,7 +66,7 @@ class IntroBody extends StatelessWidget {
               const SizedBox(
                 height: defaultPadding * 2,
               ),
-              // const DownloadButton(),
+              //const DownloadButton(),
             ],
           ),
         ),

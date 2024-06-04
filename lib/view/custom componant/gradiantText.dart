@@ -20,7 +20,7 @@ class TextWithGradient extends StatelessWidget {
       builder: (context, value, child) {
         return ShaderMask(
           shaderCallback: (bounds) {
-            return LinearGradient(
+            return const LinearGradient(
               colors: [
                 Colors.pink, // Example start color
                 Colors.blue, // Example end color
@@ -32,6 +32,7 @@ class TextWithGradient extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineLarge!.copyWith(
                   fontWeight: FontWeight.w900,
                   height: 0,
+                  color: Color.fromARGB(255, 255, 255, 255),
                   fontSize: value,
                 ),
           ),

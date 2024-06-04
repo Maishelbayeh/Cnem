@@ -19,7 +19,7 @@ class SocialMediaIconList extends StatelessWidget {
               const Spacer(),
               Container(
                 height: size.height * 0.06,
-                width: 3,
+                width: 2,
                 margin:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.5),
                 decoration: BoxDecoration(
@@ -31,9 +31,9 @@ class SocialMediaIconList extends StatelessWidget {
                 child: Text(
                   'النجاح يبدا بخطوة ..فلا تؤجلها',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
-                        color: const Color.fromARGB(255, 10, 10, 10),
-                        fontWeight: FontWeight.w700,
-                      ),
+                      color: const Color.fromARGB(255, 10, 10, 10),
+                      fontWeight: FontWeight.w700,
+                      fontSize: 18),
                 ),
               ),
               Container(

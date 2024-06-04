@@ -23,8 +23,8 @@ class TopNavigationBar extends StatelessWidget {
           Padding(
               padding: const EdgeInsets.all(defaultPadding),
               child: !Responsive.isLargeMobile(context)
-                  ? const SocialMediaIconRow()
-                  : const SocialMediaIconRow()),
+                  ? const CustomIconRow()
+                  : const CustomIconRow()),
           //if (Responsive.isLargeMobile(context)) MenuButton(),
           const Spacer(
             flex: 2,
@@ -42,7 +42,7 @@ class TopNavigationBar extends StatelessWidget {
             },
             buttonText: 'تسجيل دخول',
           ),
-          const Spacer(),
+          const SizedBox(width: 20),
           CustomButton(
             onTap: () {},
             buttonText: 'انشاء حساب',

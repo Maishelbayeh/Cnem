@@ -1,3 +1,4 @@
+import 'package:cenem/model/user_model.dart';
 import 'package:cenem/view/custom%20componant/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/res/constants.dart';
@@ -11,26 +12,26 @@ class About extends StatelessWidget {
       aspectRatio: 1.23,
       child: Container(
         color: bgColor,
-        child: const Column(
+        child: Column(
           children: [
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
-            DrawerImage(),
-            Spacer(),
+            const DrawerImage(),
+            const Spacer(),
             CustomText(
-              text: 'طلال العقاد',
+              text: memberInfo.name,
               textAlign: TextAlign.center,
             ),
-            SizedBox(
+            const SizedBox(
               height: defaultPadding / 4,
             ),
             Text(
-              'المدير العام \nصاحب فكره الشبكه ',
+              memberInfo.description,
               textAlign: TextAlign.center,
-              style: TextStyle(fontWeight: FontWeight.w200, height: 1.5),
+              style: const TextStyle(fontWeight: FontWeight.w200, height: 1.5),
             ),
-            Spacer(
+            const Spacer(
               flex: 2,
             ),
           ],

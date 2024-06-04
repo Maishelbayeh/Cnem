@@ -1,7 +1,5 @@
-import 'package:cenem/view/video/video.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/controller.dart';
-import 'package:cenem/view%20model/responsive.dart';
 
 import 'navigation_button.dart';
 

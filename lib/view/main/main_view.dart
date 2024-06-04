@@ -9,11 +9,12 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class MainView extends StatelessWidget {
   const MainView({super.key, required this.pages});
+
   final List<Widget> pages;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const CustomDrawer(),
+      //  drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           children: [
