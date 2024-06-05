@@ -1,4 +1,3 @@
-import 'package:cenem/res/controllers.dart';
 import 'package:cenem/view/user/helpers/reponsiveness.dart';
 import 'package:cenem/view/user/pages/overview/widgets/overview_cards_large.dart';
 import 'package:cenem/view/user/pages/overview/widgets/overview_cards_medium.dart';
@@ -18,23 +17,20 @@ class OverviewPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Obx(
-          () => Row(
-            children: [
-              Container(
-                  margin: EdgeInsets.only(
-                      top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
-                  child: CustomText(
-                    text: menuController.activeItem.value,
-                    size: 24,
-                    weight: FontWeight.bold,
-                  )),
-            ],
-          ),
-        ),
+        // Obx(
+        //   () => Row(
+        //     children: [
+        //       Container(
+        //         margin: EdgeInsets.only(
+        //             top: ResponsiveWidget.isSmallScreen(context) ? 56 : 6),
+        //       ),
+        //     ],
+        //   ),
+        // ),
         Expanded(
           child: ListView(
             children: [
+              const Spacer(flex: 6),
               if (ResponsiveWidget.isLargeScreen(context) ||
                   ResponsiveWidget.isMediumScreen(context))
                 if (ResponsiveWidget.isCustomSize(context))

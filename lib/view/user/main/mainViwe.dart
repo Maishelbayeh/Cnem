@@ -34,6 +34,9 @@ class MainViewMember extends StatelessWidget {
               const Row(
                 children: [Spacer(), NavigationButtonListMember(), Spacer()],
               ),
+            const SizedBox(
+              height: 30,
+            ),
             Expanded(
               flex: 9,
               child: PageView(

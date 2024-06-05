@@ -5,16 +5,9 @@ import 'package:cenem/view/user/main/mainViwe.dart';
 
 import 'package:flutter/material.dart';
 
-import 'package:cenem/controllers/menu_controller.dart' as menu_controller;
-
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import 'routing/routes.dart';
-
 void main() {
-  Get.put(menu_controller.MenuController());
-  Get.put(NavigationController());
   runApp(const MyApp());
 }
 

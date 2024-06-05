@@ -1,4 +1,4 @@
-import 'package:cenem/view%20model/local_navigator.dart';
+import 'package:cenem/view/user/pages/overview/overview.dart';
 import 'package:cenem/view/user/widgets/side_menu.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +15,7 @@ class LargeScreen extends StatelessWidget {
           flex: 5,
           child: Container(
             margin: const EdgeInsets.symmetric(horizontal: 16),
-            child: localNavigator(),
+            child: const OverviewPage(),
           ),
         )
       ],

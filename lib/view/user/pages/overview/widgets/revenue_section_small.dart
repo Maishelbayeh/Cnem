@@ -56,11 +56,11 @@ class RevenueSectionSmall extends StatelessWidget {
                   children: [
                     RevenueInfo(
                       title: "Toda\'s revenue",
-                      amount: "230",
+                      amount: 233,
                     ),
                     RevenueInfo(
                       title: "Last 7 days",
-                      amount: "1,100",
+                      amount: 5,
                     ),
                   ],
                 ),
@@ -68,11 +68,11 @@ class RevenueSectionSmall extends StatelessWidget {
                   children: [
                     RevenueInfo(
                       title: "Last 30 days",
-                      amount: "3,230",
+                      amount: 5,
                     ),
                     RevenueInfo(
                       title: "Last 12 months",
-                      amount: "11,300",
+                      amount: 5,
                     ),
                   ],
                 ),

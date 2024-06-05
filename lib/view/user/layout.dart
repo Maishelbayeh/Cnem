@@ -1,4 +1,3 @@
-import 'package:cenem/view%20model/local_navigator.dart';
 import 'package:cenem/view/user/helpers/reponsiveness.dart';
 import 'package:cenem/view/user/widgets/large_screen.dart';
 import 'package:cenem/view/user/widgets/side_menu.dart';

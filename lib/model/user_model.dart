@@ -5,8 +5,9 @@ class Member {
   final DateTime date;
   final int numberOfUserChildren;
   final int numberofMemberChildren;
-  final int MPP;
+  final int? MPP;
   final int MPC;
+  final int numberOfDeletedChildren;
   final int phonenumber;
 
   Member(
@@ -18,6 +19,7 @@ class Member {
       this.numberofMemberChildren,
       this.MPP,
       this.MPC,
+      this.numberOfDeletedChildren,
       this.phonenumber);
 }
 
@@ -30,4 +32,5 @@ Member memberInfo = Member(
     5,
     50,
     25,
+    3,
     05923683333);

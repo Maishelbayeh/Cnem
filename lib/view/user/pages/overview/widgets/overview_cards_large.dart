@@ -1,3 +1,4 @@
+import 'package:cenem/view/user/main/components/TopNavMember.dart';
 import 'package:cenem/view/user/pages/overview/widgets/info_card.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,8 @@ class OverviewCardsLargeScreen extends StatelessWidget {
     return Row(
       children: [
         InfoCard(
-          title: "",
-          value: "7",
+          title: "عدد العملاء الذين لم يمر على اشتراكهم شهر",
+          value: member.numberOfUserChildren.toString(),
           onTap: () {},
           topColor: Colors.orange,
         ),
@@ -20,8 +21,8 @@ class OverviewCardsLargeScreen extends StatelessWidget {
           width: width / 64,
         ),
         InfoCard(
-          title: "",
-          value: "17",
+          title: "عدد عملائك الملتزمين بتجديد الاشتراك",
+          value: member.numberofMemberChildren.toString(),
           topColor: Colors.lightGreen,
           onTap: () {},
         ),
@@ -29,8 +30,8 @@ class OverviewCardsLargeScreen extends StatelessWidget {
           width: width / 64,
         ),
         InfoCard(
-          title: "",
-          value: "3",
+          title: "عدد عملائك الذين تم الغاؤهم",
+          value: member.numberOfDeletedChildren.toString(),
           topColor: Colors.redAccent,
           onTap: () {},
         ),
@@ -38,8 +39,8 @@ class OverviewCardsLargeScreen extends StatelessWidget {
           width: width / 64,
         ),
         InfoCard(
-          title: "",
-          value: "32",
+          title: "تاريخ اخر تجديد للاشتراك",
+          value: member.date.toString(),
           onTap: () {},
         ),
       ],

@@ -1,4 +1,7 @@
+import 'package:cenem/model/user_model.dart';
 import 'package:cenem/res/constants.dart';
+import 'package:cenem/view/custom%20componant/gradiantText.dart';
+import 'package:cenem/view/user/main/components/TopNavMember.dart';
 import 'package:cenem/view/user/pages/overview/widgets/revenue_info.dart';
 import 'package:cenem/view/user/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
@@ -26,16 +29,11 @@ class RevenueSectionLarge extends StatelessWidget {
       ),
       child: Row(
         children: [
-          Expanded(
+          const Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const CustomText(
-                  text: "Revenue Chart",
-                  size: 20,
-                  weight: FontWeight.bold,
-                  color: lightGrey,
-                ),
+                TextWithGradient(start: 15, end: 20, text: "المحفظة..")
               ],
             ),
           ),
@@ -44,37 +42,34 @@ class RevenueSectionLarge extends StatelessWidget {
             height: 120,
             color: lightGrey,
           ),
-          const Expanded(
+          Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Row(
                   children: [
+                    RevenueInfo(title: "المبلغ الشهري", amount: member.MPC),
                     RevenueInfo(
-                      title: "Toda's revenue",
-                      amount: "230",
-                    ),
-                    RevenueInfo(
-                      title: "Last 7 days",
-                      amount: "1,100",
+                      title: "المبلغ المستحق",
+                      amount: member.MPP,
                     ),
                   ],
                 ),
                 SizedBox(
                   height: 30,
                 ),
-                Row(
-                  children: [
-                    RevenueInfo(
-                      title: "Last 30 days",
-                      amount: "3,230",
-                    ),
-                    RevenueInfo(
-                      title: "Last 12 months",
-                      amount: "11,300",
-                    ),
-                  ],
-                ),
+                // Row(
+                //   children: [
+                //     RevenueInfo(
+                //       title: "Last 30 days",
+                //       amount: "3,230",
+                //     ),
+                //     RevenueInfo(
+                //       title: "Last 12 months",
+                //       amount: "11,300",
+                //     ),
+                //   ],
+                // ),
               ],
             ),
           ),
