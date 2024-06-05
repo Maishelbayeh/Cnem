@@ -20,7 +20,7 @@ class VertticalMenuItem extends StatelessWidget {
             TextWithGradient(
               end: 25,
               start: 20,
-              text: "ملومات الحساب",
+              text: "معلومات الحساب",
             ),
           ],
         ),

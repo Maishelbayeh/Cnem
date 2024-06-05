@@ -1,3 +1,4 @@
+import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/about%20us/AboutUs.dart';
 import 'package:cenem/view/splash/splash_view.dart';
 
@@ -7,6 +8,7 @@ import 'package:cenem/res/constants.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  // listUsers();
   runApp(const MyApp());
 }
 

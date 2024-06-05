@@ -1,4 +1,6 @@
+import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/custom%20componant/customposition.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
 
@@ -106,74 +108,77 @@ class _SignInFormState extends State<SignInForm> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  if(authController.isSignUp.value)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      
-                      Padding(
-                    padding: const EdgeInsets.only(top: 0, bottom: 0),
-                    child: SizedBox(
-                      width: (widget.emailFieldWidthFactor/0.9)*0.44,
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "";
-                          }
-                          return null;
-                        },
-                        keyboardType: TextInputType.name,
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: SvgPicture.asset(
-                                "icons/user.svg",
-                                fit: BoxFit.contain,
+                  if (authController.isSignUp.value)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          child: SizedBox(
+                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "";
+                                }
+                                return null;
+                              },
+                              keyboardType: TextInputType.name,
+                              textInputAction: TextInputAction.next,
+                              decoration: InputDecoration(
+                                prefixIcon: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: SvgPicture.asset(
+                                      "icons/user.svg",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
-                    ),
-                  ),
-                    SizedBox(width:widget.emailFieldWidthFactor /MediaQuery.of(context).size.width*32,),
-                      Padding(
-                    padding: const EdgeInsets.only(top: 0, bottom: 0),
-                    child: SizedBox(
-                      width:  (widget.emailFieldWidthFactor/0.9)*0.44,
-                      child: TextFormField(
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "";
-                          }
-                          return null;
-                        },
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: SvgPicture.asset(
-                                "icons/iphone.svg",
-                                fit: BoxFit.contain,
+                        SizedBox(
+                          width: widget.emailFieldWidthFactor /
+                              MediaQuery.of(context).size.width *
+                              32,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          child: SizedBox(
+                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "";
+                                }
+                                return null;
+                              },
+                              keyboardType: TextInputType.emailAddress,
+                              textInputAction: TextInputAction.next,
+                              decoration: InputDecoration(
+                                prefixIcon: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: SvgPicture.asset(
+                                      "icons/iphone.svg",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                  ),
-
-                    ],
-                  ),
-                  
                   const Text(
                     "البريد الالكتروني",
                     style: TextStyle(
@@ -285,8 +290,14 @@ class _SignInFormState extends State<SignInForm> {
                     padding: const EdgeInsets.only(top: 8, bottom: 10),
                     child: CustomButton(
                       width: widget.emailFieldWidthFactor,
-                      onTap: () {},
-                      buttonText: authController.isSignUp.value?'انشاء حساب': 'تسجيل الدخول',
+                      onTap: () {
+                        authController.isSignUp.value
+                            ? 'انشاء حساب'
+                            : listUsers();
+                      },
+                      buttonText: authController.isSignUp.value
+                          ? 'انشاء حساب'
+                          : 'تسجيل الدخول',
                     ),
                   ),
                   Row(
@@ -296,10 +307,13 @@ class _SignInFormState extends State<SignInForm> {
                         cursor: SystemMouseCursors.click,
                         child: GestureDetector(
                           onTap: () {
-                              authController.isSignUp.value=!authController.isSignUp.value;
+                            authController.isSignUp.value =
+                                !authController.isSignUp.value;
                           },
                           child: Text(
-                        authController.isSignUp.value?    "تسجيل الدخول ":'انشاء حساب',
+                            authController.isSignUp.value
+                                ? "تسجيل الدخول "
+                                : 'انشاء حساب',
                             style: TextStyle(
                               color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
@@ -343,34 +357,6 @@ class _SignInFormState extends State<SignInForm> {
                   ),
                 )
               : const SizedBox(),
-        ],
-      ),
-    );
-  }
-}
-
-class CustomPositioned extends StatelessWidget {
-  const CustomPositioned({Key? key, this.scale = 1, required this.child})
-      : super(key: key);
-
-  final double scale;
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    return Positioned.fill(
-      child: Column(
-        children: [
-          const Spacer(),
-          SizedBox(
-            height: 100,
-            width: 100,
-            child: Transform.scale(
-              scale: scale,
-              child: child,
-            ),
-          ),
-          const Spacer(flex: 2),
         ],
       ),
     );
