@@ -17,6 +17,7 @@ class MainView extends StatelessWidget {
       //  drawer: const CustomDrawer(),
       body: Center(
         child: Column(
+          
           children: [
             kIsWeb && !Responsive.isLargeMobile(context)
                 ? const SizedBox(
@@ -29,10 +30,10 @@ class MainView extends StatelessWidget {
               height: 80,
               child: TopNavigationBar(),
             ),
-            if (Responsive.isLargeMobile(context))
-              const Row(
-                children: [Spacer(), NavigationButtonList(), Spacer()],
-              ),
+            // if (Responsive.isLargeMobile(context))
+            //   const Row(
+            //     children: [Spacer(), NavigationButtonList(), Spacer()],
+            //   ),
             Expanded(
               flex: 9,
               child: PageView(
