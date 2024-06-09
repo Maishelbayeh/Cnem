@@ -1,6 +1,5 @@
-import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
-import 'package:cenem/view/custom%20componant/customposition.dart';
+import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
 
@@ -96,6 +95,15 @@ class _SignInFormState extends State<SignInForm> {
   }
 
   final AuthController authController = Get.put(AuthController());
+
+  void nav(){
+     widget.onClose();
+                        
+                            ForgotPasswordDialog(
+                              context,
+                              onValue: (_) {},
+                            );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -255,6 +263,7 @@ class _SignInFormState extends State<SignInForm> {
                         GestureDetector(
                           onTap: () {
                             widget.onClose();
+                        
                             ForgotPasswordDialog(
                               context,
                               onValue: (_) {},
@@ -290,11 +299,12 @@ class _SignInFormState extends State<SignInForm> {
                     padding: const EdgeInsets.only(top: 8, bottom: 10),
                     child: CustomButton(
                       width: widget.emailFieldWidthFactor,
-                      onTap: () {
-                        authController.isSignUp.value
-                            ? 'انشاء حساب'
-                            : listUsers();
-                      },
+                      onTap: () { authController.isSignUp.value
+                          ?   nav()
+                          : Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage()),
+            );},
                       buttonText: authController.isSignUp.value
                           ? 'انشاء حساب'
                           : 'تسجيل الدخول',
@@ -357,6 +367,34 @@ class _SignInFormState extends State<SignInForm> {
                   ),
                 )
               : const SizedBox(),
+        ],
+      ),
+    );
+  }
+}
+
+class CustomPositioned extends StatelessWidget {
+  const CustomPositioned({Key? key, this.scale = 1, required this.child})
+      : super(key: key);
+
+  final double scale;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned.fill(
+      child: Column(
+        children: [
+          const Spacer(),
+          SizedBox(
+            height: 100,
+            width: 100,
+            child: Transform.scale(
+              scale: scale,
+              child: child,
+            ),
+          ),
+          const Spacer(flex: 2),
         ],
       ),
     );

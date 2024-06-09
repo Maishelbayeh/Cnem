@@ -1,6 +1,7 @@
 
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
+import 'package:cenem/view/onbonding/coniform_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -136,7 +137,10 @@ class _RegisterFormState extends State<RegisterForm> {
                     height: 40,
                     width: MediaQuery.of(context).size.width * 0.7,
                     onTap: () {
-                      // Handle sign up action here
+                     Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => coniformEmailPage()),
+            );
                     },
                   ),
 
