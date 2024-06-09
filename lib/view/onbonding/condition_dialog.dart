@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import '../../view model/getx_controllers/courses_controller.dart';
 
-
 final controller = Get.put(CourseController());
 
 void conditionDialog(BuildContext context, {required ValueChanged onValue}) {
@@ -33,15 +32,13 @@ void conditionDialog(BuildContext context, {required ValueChanged onValue}) {
   ).then(onValue);
 }
 
-Widget _buildDialog(BuildContext context, double widthFactor, double heightFactor) {
+Widget _buildDialog(
+    BuildContext context, double widthFactor, double heightFactor) {
   final Size screenSize = MediaQuery.of(context).size;
   double dialogWidth = screenSize.width * widthFactor;
   double dialogHeight = screenSize.height * heightFactor;
 
   return Center(
-    child: 
-      TermsAndConditionsPage(),
-  
+    child: TermsAndConditionsPage(),
   );
 }
-

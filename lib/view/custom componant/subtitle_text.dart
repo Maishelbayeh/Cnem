@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-// ignore: must_be_immutable
 class AnimatedSubtitleText extends StatelessWidget {
   final double start;
   final double end;
   String? text;
   final bool gradient;
   final double? fontsize;
+
   AnimatedSubtitleText({
     Key? key,
     required this.start,
@@ -26,22 +26,24 @@ class AnimatedSubtitleText extends StatelessWidget {
           text ?? 'o',
           textDirection: TextDirection.rtl, // Set text direction here
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-              color: Color.fromARGB(255, 47, 47, 47),
-              fontWeight: FontWeight.w900,
-              shadows: gradient
-                  ? [
-                      const Shadow(
+                color: const Color.fromARGB(255, 47, 47, 47),
+                fontWeight: FontWeight.w900,
+                shadows: gradient
+                    ? [
+                        const Shadow(
                           color: Colors.pink,
                           offset: Offset(0, 2),
-                          blurRadius: 10),
-                      const Shadow(
+                          blurRadius: 10,
+                        ),
+                        const Shadow(
                           color: Colors.pink,
                           offset: Offset(0, -2),
-                          blurRadius: 10),
-                    ]
-                  : [],
-              height: 0,
-              fontSize: value),
+                          blurRadius: 10,
+                        ),
+                      ]
+                    : [],
+                fontSize: value,
+              ),
         );
       },
     );
@@ -54,6 +56,7 @@ class ColoredText extends StatelessWidget {
   final String text;
   final bool gradient;
   final double? fontsize;
+
   const ColoredText({
     Key? key,
     required this.start,
@@ -61,7 +64,8 @@ class ColoredText extends StatelessWidget {
     required this.text,
     this.gradient = false,
     this.fontsize,
-  });
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
@@ -72,22 +76,24 @@ class ColoredText extends StatelessWidget {
           text,
           textDirection: TextDirection.rtl, // Set text direction here
           style: Theme.of(context).textTheme.headlineLarge!.copyWith(
-              color: Colors.white,
-              fontWeight: FontWeight.w900,
-              shadows: gradient
-                  ? [
-                      const Shadow(
+                color: Colors.white,
+                fontWeight: FontWeight.w900,
+                shadows: gradient
+                    ? [
+                        const Shadow(
                           color: Colors.pink,
                           offset: Offset(0, 2),
-                          blurRadius: 10),
-                      const Shadow(
+                          blurRadius: 10,
+                        ),
+                        const Shadow(
                           color: Colors.pink,
                           offset: Offset(0, -2),
-                          blurRadius: 10),
-                    ]
-                  : [],
-              height: 0,
-              fontSize: value),
+                          blurRadius: 10,
+                        ),
+                      ]
+                    : [],
+                fontSize: value,
+              ),
         );
       },
     );

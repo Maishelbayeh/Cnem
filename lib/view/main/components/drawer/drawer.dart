@@ -13,7 +13,7 @@ class CustomDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: bgColor,
+      backgroundColor: primaryColor,
       child: SingleChildScrollView(
         child: Column(
           children: [
@@ -25,8 +25,8 @@ class CustomDrawer extends StatelessWidget {
                 child: Column(
                   children: [
                     PersonalInfo(),
-                    //   MySKills(),
-                    // Knowledges(),
+                    MySKills(),
+                    Knowledges(),
                     Divider(),
                     SizedBox(
                       height: defaultPadding,

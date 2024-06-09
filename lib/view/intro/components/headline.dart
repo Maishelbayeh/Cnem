@@ -21,22 +21,22 @@ class CombinetitleText extends StatelessWidget {
           child: const Responsive(
             desktop: ColoredText(
                 start: 30,
-                end: 50,
+                end: 35,
                 text: 'الشبكة التعاونية للتسويق الالكتروني',
                 gradient: false),
             largeMobile: ColoredText(
                 start: 20,
                 end: 30,
-                text: 'الشبكة التعاونية للتسويق الالكتروني',
+                text: 'الشبكة التعاونية \nللتسويق الالكتروني',
                 gradient: false),
             mobile: ColoredText(
                 start: 20,
                 end: 30,
-                text: 'الشبكة التعاونية للتسويق الالكتروني',
+                text: 'الشبكة التعاونية \nللتسويق الالكتروني',
                 gradient: false),
             tablet: ColoredText(
-                start: 40,
-                end: 30,
+                start: 50,
+                end: 40,
                 text: 'الشبكة التعاونية للتسويق الالكتروني',
                 gradient: false),
           ),

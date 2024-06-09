@@ -1,3 +1,4 @@
+import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/controller.dart';
 import 'package:cenem/res/constants.dart';
@@ -17,7 +18,6 @@ class MainView extends StatelessWidget {
       //  drawer: const CustomDrawer(),
       body: Center(
         child: Column(
-          
           children: [
             kIsWeb && !Responsive.isLargeMobile(context)
                 ? const SizedBox(
@@ -34,6 +34,14 @@ class MainView extends StatelessWidget {
             //   const Row(
             //     children: [Spacer(), NavigationButtonList(), Spacer()],
             //   ),
+            if (!Responsive.isDesktop(context))
+              const Column(
+                children: [
+                  Padding(
+                      padding: EdgeInsets.all(defaultPadding),
+                      child: CustomIconRow()),
+                ],
+              ),
             Expanded(
               flex: 9,
               child: PageView(

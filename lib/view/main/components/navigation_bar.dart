@@ -20,7 +20,7 @@ class TopNavigationBar extends StatelessWidget {
   const TopNavigationBar({super.key});
   @override
   Widget build(BuildContext context) {
-        final AuthController authController = Get.put(AuthController());
+    final AuthController authController = Get.put(AuthController());
 
     return Scaffold(
       body: Row(
@@ -28,59 +28,64 @@ class TopNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           const Spacer(),
-          Padding(
-              padding: const EdgeInsets.all(defaultPadding),
-              child: !Responsive.isLargeMobile(context)
-                  ? const CustomIconRow()
-                  : const CustomIconRow()),
-          // if (Responsive.isLargeMobile(context)) MenuButton(),
-          // const Spacer(
-          //   flex: 2,
-          // ),
-          // if (!Responsive.isLargeMobile(context)) const NavigationButtonList(),
-          // const Spacer(
-          //   flex: 2,
-          // ),
+          if (Responsive.isExtraLargeScreen(context) ||
+              Responsive.isDesktop(context) ||
+              !Responsive.isTablet(context))
+            const Padding(
+                padding: EdgeInsets.all(defaultPadding),
+                child: CustomIconRow()),
           const Spacer(),
-          CustomButton(
-            onTap: () {
-              authController.setSignUp(false); // Set isSignUp to false
-              if (Responsive.isLargeMobile(context) || Responsive.isMobile(context)) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignUp(sign:false),
-                  ),
-                );
-              } else {
-                showSignUpDialog(
-                  context,
-                  onValue: (_) {},
-                );
-              }
-            },
-            buttonText: 'تسجيل دخول',
+          SizedBox(
+            width: !Responsive.isDesktop(context)
+                ? MediaQuery.sizeOf(context).width * 0.4
+                : 150,
+            child: CustomButton(
+              onTap: () {
+                authController.setSignUp(false); // Set isSignUp to false
+                if (Responsive.isLargeMobile(context) ||
+                    Responsive.isMobile(context)) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUp(sign: false),
+                    ),
+                  );
+                } else {
+                  showSignUpDialog(
+                    context,
+                    onValue: (_) {},
+                  );
+                }
+              },
+              buttonText: 'تسجيل دخول',
+            ),
           ),
           const SizedBox(width: 20),
-            CustomButton(
-            onTap: () {
-              authController.setSignUp(true); 
+          SizedBox(
+            width: !Responsive.isDesktop(context)
+                ? MediaQuery.sizeOf(context).width * 0.4
+                : 150,
+            child: CustomButton(
+              onTap: () {
+                authController.setSignUp(true);
 
-              if (Responsive.isLargeMobile(context) || Responsive.isMobile(context)) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SignUp(sign:true),
-                  ),
-                );
-              } else {
-                showSignUpDialog(
-                  context,
-                  onValue: (_) {},
-                );
-              }
-            },
-            buttonText: 'انشاء حساب',
+                if (Responsive.isLargeMobile(context) ||
+                    Responsive.isMobile(context)) {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignUp(sign: true),
+                    ),
+                  );
+                } else {
+                  showSignUpDialog(
+                    context,
+                    onValue: (_) {},
+                  );
+                }
+              },
+              buttonText: 'انشاء حساب',
+            ),
           ),
           const Spacer(),
         ],
@@ -88,3 +93,11 @@ class TopNavigationBar extends StatelessWidget {
     );
   }
 }
+    // if (Responsive.isLargeMobile(context)) MenuButton(),
+          // const Spacer(
+          //   flex: 2,
+          // ),
+          // if (!Responsive.isLargeMobile(context)) const NavigationButtonList(),
+          // const Spacer(
+          //   flex: 2,
+          // ),

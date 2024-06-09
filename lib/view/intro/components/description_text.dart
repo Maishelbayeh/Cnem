@@ -21,7 +21,7 @@ class AnimatedDescriptionText extends StatelessWidget {
       builder: (context, value, child) {
         return Text(
           text,
-          maxLines: 3,
+          maxLines: 4,
           overflow: TextOverflow.ellipsis,
           style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 color: Colors.grey,

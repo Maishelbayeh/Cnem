@@ -5,10 +5,10 @@ import 'package:cenem/view%20model/responsive.dart';
 import 'package:pinput/pinput.dart';
 import '../../view model/getx_controllers/courses_controller.dart';
 
-
 final controller = Get.put(CourseController());
 
-void ForgotPasswordDialog(BuildContext context, {required ValueChanged onValue}) {
+void ForgotPasswordDialog(BuildContext context,
+    {required ValueChanged onValue}) {
   showGeneralDialog(
     context: context,
     barrierLabel: "Barrier",
@@ -34,7 +34,8 @@ void ForgotPasswordDialog(BuildContext context, {required ValueChanged onValue})
   ).then(onValue);
 }
 
-Widget _buildDialog(BuildContext context, double widthFactor, double heightFactor) {
+Widget _buildDialog(
+    BuildContext context, double widthFactor, double heightFactor) {
   final Size screenSize = MediaQuery.of(context).size;
   double dialogWidth = screenSize.width * widthFactor;
   double dialogHeight = screenSize.height * heightFactor;
@@ -74,9 +75,8 @@ final defaultPinTheme = PinTheme(
   height: 60,
   textStyle: const TextStyle(fontSize: 22, color: Colors.black),
   decoration: BoxDecoration(
-    color:  Color.fromARGB(255, 210, 213, 225),
+    color: Color.fromARGB(255, 210, 213, 225),
     borderRadius: BorderRadius.circular(8),
     border: Border.all(color: Colors.transparent),
   ),
-  
 );

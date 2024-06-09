@@ -4,14 +4,14 @@ import '../../res/constants.dart';
 
 class CustomButton extends StatelessWidget {
   final VoidCallback onTap;
-  final String? buttonText;
+  final String buttonText;
   final double height;
   final double width;
 
   const CustomButton({
     super.key,
     required this.onTap,
-    this.buttonText,
+    required this.buttonText,
     this.height = 60.0,
     this.width = 100.0,
   });
@@ -54,7 +54,7 @@ class CustomButton extends StatelessWidget {
               // const Icon(FontAwesomeIcons.whatsapp,color: Colors.greenAccent,size: 15,),
               const SizedBox(width: defaultPadding / 4),
               Text(
-                buttonText!,
+                buttonText,
                 style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                     fontSize: 12,
                     color: Color.fromARGB(255, 243, 242, 242),
