@@ -1,7 +1,9 @@
+import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
+import 'package:cenem/view/user/main.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -32,6 +34,8 @@ class _SignInFormState extends State<SignInForm> {
   late SMITrigger error;
   late SMITrigger success;
   late SMITrigger reset;
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
   late SMITrigger confetti;
 
@@ -61,8 +65,8 @@ class _SignInFormState extends State<SignInForm> {
     });
     Future.delayed(
       const Duration(seconds: 1),
-      () {
-        if (_formKey.currentState!.validate()) {
+      () async {
+        if (await loginUser(email.text, pass.text, true)) {
           success.fire();
           Future.delayed(
             const Duration(seconds: 2),
@@ -75,6 +79,10 @@ class _SignInFormState extends State<SignInForm> {
               Future.delayed(const Duration(seconds: 1), () {
                 // Navigator.pop(context);
                 Navigator.pop(context);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const userMain()),
+                );
               });
             },
           );
@@ -96,13 +104,13 @@ class _SignInFormState extends State<SignInForm> {
 
   final AuthController authController = Get.put(AuthController());
 
-  void nav(){
-     widget.onClose();
-                        
-                            ForgotPasswordDialog(
-                              context,
-                              onValue: (_) {},
-                            );
+  void nav() {
+    widget.onClose();
+
+    ForgotPasswordDialog(
+      context,
+      onValue: (_) {},
+    );
   }
 
   @override
@@ -133,6 +141,7 @@ class _SignInFormState extends State<SignInForm> {
                               },
                               keyboardType: TextInputType.name,
                               textInputAction: TextInputAction.next,
+                              controller: email,
                               decoration: InputDecoration(
                                 prefixIcon: Padding(
                                   padding:
@@ -206,6 +215,7 @@ class _SignInFormState extends State<SignInForm> {
                         },
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
+                        controller: email,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -240,6 +250,7 @@ class _SignInFormState extends State<SignInForm> {
                           }
                           return null;
                         },
+                        controller: pass,
                         decoration: InputDecoration(
                           prefixIcon: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
@@ -263,7 +274,7 @@ class _SignInFormState extends State<SignInForm> {
                         GestureDetector(
                           onTap: () {
                             widget.onClose();
-                        
+
                             ForgotPasswordDialog(
                               context,
                               onValue: (_) {},
@@ -299,12 +310,9 @@ class _SignInFormState extends State<SignInForm> {
                     padding: const EdgeInsets.only(top: 8, bottom: 10),
                     child: CustomButton(
                       width: widget.emailFieldWidthFactor,
-                      onTap: () { authController.isSignUp.value
-                          ?   nav()
-                          : Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => HomePage()),
-            );},
+                      onTap: () async {
+                        authController.isSignUp.value ? nav() : singIn(context);
+                      },
                       buttonText: authController.isSignUp.value
                           ? 'انشاء حساب'
                           : 'تسجيل الدخول',

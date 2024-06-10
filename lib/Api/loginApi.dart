@@ -1,33 +1,43 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 
-Future<void> listUsers() async {
-  final String url = 'https://www.cnem.online/api/Administration/ListUsers';
-  final Map<String, String> headers = {
-    'Accept': 'application/json',
+Future<bool> loginUser(String email, String password, bool rememberMe) async {
+  final String url =
+      'http://154.38.171.253:8080/api/Account/login'; // Your proxy server login endpoint
+  final Map<String, String> headers = {'Content-Type': 'application/json'};
+  final Map<String, dynamic> body = {
+    'email': email,
+    'password': password,
+    'rememberMe': rememberMe, // Convert rememberMe to string
   };
+  print(body);
 
   try {
-    final http.Response response = await http.get(
+    final http.Response response = await http.post(
       Uri.parse(url),
       headers: headers,
+      body: jsonEncode(body),
     );
 
     if (response.statusCode == 200) {
-      // Successful request
-      final List<dynamic> users = jsonDecode(response.body);
-      print('List of users: $users');
+      // Successful login
+      print('Login successful!');
+      return true;
+      // Navigate to next screen or perform desired action
     } else {
-      // Failed request
-      print('Failed to fetch users. Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
+      // Failed login
+      print('Failed to login. Status code: ${response.statusCode}');
+      return false;
+      // Handle error appropriately
     }
   } catch (e) {
     // Handle network errors or other exceptions
-    print('Error fetching users: $e');
+    print('Error during login: $e');
   }
+  return false;
 }
 
-void main() async {
-  await listUsers();
-}
+// void main() async {
+//   // Example usage: logging in
+//   await loginUser("maishelbayeh@icloud.com", "123456mA!", true);
+// }

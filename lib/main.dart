@@ -24,13 +24,13 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           textTheme:
               GoogleFonts.openSansTextTheme(Theme.of(context).textTheme).apply(
-            bodyColor: Colors.white,
+            bodyColor: const Color.fromARGB(255, 7, 7, 7),
           ),
           pageTransitionsTheme: const PageTransitionsTheme(builders: {
             TargetPlatform.iOS: FadeUpwardsPageTransitionsBuilder(),
             TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
           }),
         ),
-        home: SplashView());
+        home: const SplashView());
   }
 }

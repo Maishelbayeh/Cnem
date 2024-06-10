@@ -1,3 +1,4 @@
+import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class SignInPageForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenHeight = MediaQuery.of(context).size.height;
-    double paddingBetweenItems = screenHeight * 0.05; 
+    double paddingBetweenItems = screenHeight * 0.05;
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
@@ -53,39 +54,36 @@ class SignInPageForm extends StatelessWidget {
                   //   ),
                   // ),
                   SizedBox(height: paddingBetweenItems),
-                  
-                  
+
                   const SignUpTextField(
                     icon: Icons.mail,
                     labelText: "البريد الالكتروني",
                   ),
-                  
+
                   SizedBox(height: paddingBetweenItems),
                   const SignUpTextField(
                     isPassword: true,
                     icon: Icons.lock,
                     labelText: "كلمة السر",
                   ),
-                  
-              
+
                   CustomButton(
                     buttonText: 'تسجيل الدخول',
-                      height: 40,
-                      width: MediaQuery.of(context).size.width*0.7,
-                    onTap: () {
-                      
+                    height: 40,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    onTap: () async {
+                      await loginUser(
+                          "maishelbayeh@icloud.com", "123456mA!", true);
                     },
                   ),
-                
+
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       GestureDetector(
-                        onTap: () {
-                        
-                        },
+                        onTap: () {},
                         child: Text(
-                          "انشاء حساب  " ,
+                          "انشاء حساب  ",
                           style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
