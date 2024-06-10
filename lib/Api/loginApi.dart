@@ -4,7 +4,9 @@ import 'package:http/http.dart' as http;
 
 Future<bool> loginUser(String email, String password, bool rememberMe) async {
   // Your proxy server login endpoint
-  final String url = 'http://154.38.171.253:8080/api/Account/login';
+  final String url = '154.38.171.253:8080/api/Account/login';
+
+  final String proxyUrl = 'https://cors-anywhere.herokuapp.com/$url';
 
   // Headers for the HTTP request
   final Map<String, String> headers = {'Content-Type': 'application/json'};
@@ -21,7 +23,7 @@ Future<bool> loginUser(String email, String password, bool rememberMe) async {
   try {
     // Sending the HTTP POST request
     final http.Response response = await http.post(
-      Uri.parse(url),
+      Uri.parse(proxyUrl),
       headers: headers,
       body: jsonEncode(body),
     );

@@ -31735,7 +31735,7 @@ b1_(a){return a},
 b3Q(a){return a},
 aa6(a,b,c){var s=0,r=A.W(t.y),q,p=2,o,n,m,l,k,j,i,h,g
 var $async$aa6=A.X(function(d,e){if(d===1){o=e
-s=p}while(true)switch(s){case 0:k="http://154.38.171.253:8080/api/Account/login"
+s=p}while(true)switch(s){case 0:k="https://cors-anywhere.herokuapp.com/154.38.171.253:8080/api/Account/login"
 j=t.N
 i=A.aU(["Content-Type","application/json"],j,j)
 h=A.aU(["email",a,"password",b,"rememberMe",!0],j,t.z)
