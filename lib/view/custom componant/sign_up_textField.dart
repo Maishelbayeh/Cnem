@@ -4,12 +4,14 @@ class SignUpTextField extends StatelessWidget {
   final IconData icon;
   final String labelText;
   final bool isPassword;
+  final TextEditingController controller;
 
   const SignUpTextField({
     Key? key,
     required this.icon,
     required this.labelText,
     this.isPassword = false,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -17,6 +19,7 @@ class SignUpTextField extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       child: TextFormField(
+        controller: controller,
         style: TextStyle(
           color: Theme.of(context).primaryColor,
           fontWeight: FontWeight.bold,
