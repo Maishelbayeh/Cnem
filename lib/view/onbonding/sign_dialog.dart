@@ -44,7 +44,7 @@ Widget _buildDialog(
   final Size screenSize = MediaQuery.of(context).size;
 
   double dialogWidth = screenSize.width * widthFactor;
-  double dialogHeight = screenSize.height * heightFactor;
+  double dialogHeight = (screenSize.height * (heightFactor)) + 20;
 
   return Center(
     child: DialogContent(dialogWidth: dialogWidth, dialogHeight: dialogHeight),

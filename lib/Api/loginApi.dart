@@ -1,10 +1,12 @@
 import 'dart:convert';
 import 'dart:html';
+
+import 'package:cenem/res/constants.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 Future<bool> loginUser(String email, String password, bool rememberMe) async {
-  // Your proxy server login endpoint
-  final String url = '154.38.171.253:8080/api/Account/login';
+  final String url = '${baseurl}/Account/login';
 
   final String proxyUrl = 'https://cors-anywhere.herokuapp.com/$url';
 
@@ -36,7 +38,7 @@ Future<bool> loginUser(String email, String password, bool rememberMe) async {
     } else {
       // Failed login
       print('Failed to login. Status code: ${response.statusCode}');
-      showErrorDialog('Failed to login. Status code: ${response.statusCode}');
+
       return false;
     }
   } catch (e) {
@@ -51,13 +53,19 @@ void showErrorDialog(String errorMessage) {
   window.alert(errorMessage);
 }
 
-void main() async {
-  // Example usage: logging in
-  bool loginSuccess =
-      await loginUser("maishelbayeh@icloud.com", "123456mA!", true);
-  if (loginSuccess) {
-    print("Login was successful");
-  } else {
-    print("Login failed");
-  }
-}
+// void main() async {
+//   // Ensure Flutter binding is initialized
+//   WidgetsFlutterBinding.ensureInitialized();
+
+//   // Load the configuration
+//   config = await Config.loadFromAsset();
+
+//   // Example usage: logging in
+//   bool loginSuccess =
+//       await loginUser("maishelbayeh@icloud.com", "123456mA!", true);
+//   if (loginSuccess) {
+//     print("Login was successful");
+//   } else {
+//     print("Login failed");
+//   }
+// }

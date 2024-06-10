@@ -1,3 +1,4 @@
+import 'package:cenem/Api/config.dart';
 import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/about%20us/AboutUs.dart';
 import 'package:cenem/view/splash/splash_view.dart';
@@ -7,13 +8,21 @@ import 'package:cenem/res/constants.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 
-void main() {
-  // listUsers();
-  runApp(const MyApp());
+// Declare a global variable for the configuration
+late Config config;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Load the configuration
+  config = await Config.loadFromAsset();
+  print(config.apiBaseUrl);
+  baseurl = config.apiBaseUrl;
+
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

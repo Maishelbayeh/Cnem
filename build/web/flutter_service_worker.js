@@ -3,8 +3,9 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 
-const RESOURCES = {"assets/AssetManifest.bin": "bfe5103bbe43ee6e8cdc00fd36b8fff0",
-"assets/AssetManifest.json": "dce1d5bf9feb598b4c2f14b60b9316d6",
+const RESOURCES = {"assets/AssetManifest.bin": "256cd40a6dacdf9459ab2ae552429fb3",
+"assets/AssetManifest.json": "0d5815f4fba48c6fd191c7dcb5da0f73",
+"assets/assets/config.json": "6e9679009d0c214d815d9609495e8ea6",
 "assets/assets/icons/behance.svg": "1487dff57f5c15131037cb6965a4d0bf",
 "assets/assets/icons/bloc.png": "977fbfba561065f9a68c4b47f9774531",
 "assets/assets/icons/check.svg": "bce7a581bb999caac446c9138a57a401",
@@ -71,9 +72,9 @@ const RESOURCES = {"assets/AssetManifest.bin": "bfe5103bbe43ee6e8cdc00fd36b8fff0
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "923ac5a286ccd4b7631b2734ddc66388",
-"/": "923ac5a286ccd4b7631b2734ddc66388",
-"main.dart.js": "a42df7e4af639a178b70d446dbe2a953",
+"index.html": "9fafa98e78c6d7879348b32e92fafe14",
+"/": "9fafa98e78c6d7879348b32e92fafe14",
+"main.dart.js": "3d2bddabb682c21c69d0ca21fe6ea1ce",
 "manifest.json": "ec7cdf694b69d3902e95c214ee7ec1a6",
 "version.json": "060610ad7aa39a40c54e12edcff5c871"};
 // The application shell files that are downloaded before a service worker can

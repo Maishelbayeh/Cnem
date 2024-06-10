@@ -141,8 +141,8 @@ class _SignInFormState extends State<SignInForm> {
                               },
                               keyboardType: TextInputType.name,
                               textInputAction: TextInputAction.next,
-                              controller: email,
                               decoration: InputDecoration(
+                                hintText: "اسم المستخدم",
                                 prefixIcon: Padding(
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
@@ -178,6 +178,7 @@ class _SignInFormState extends State<SignInForm> {
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
+                                hintText: 'رقم الهاتف',
                                 prefixIcon: Padding(
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
@@ -196,11 +197,15 @@ class _SignInFormState extends State<SignInForm> {
                         ),
                       ],
                     ),
-                  const Text(
-                    "البريد الالكتروني",
-                    style: TextStyle(
-                      color: Colors.black54,
+                  if (!authController.isSignUp.value)
+                    const Text(
+                      "البريد الالكتروني",
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),
                     ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -217,6 +222,7 @@ class _SignInFormState extends State<SignInForm> {
                         textInputAction: TextInputAction.next,
                         controller: email,
                         decoration: InputDecoration(
+                          hintText: "البريد الالكتروني",
                           prefixIcon: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: SizedBox(
@@ -232,11 +238,15 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                  const Text(
-                    "كلمة السر",
-                    style: TextStyle(
-                      color: Colors.black54,
+                  if (!authController.isSignUp.value)
+                    const Text(
+                      "كلمة السر",
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),
                     ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, bottom: 16),
@@ -246,12 +256,22 @@ class _SignInFormState extends State<SignInForm> {
                         obscureText: true,
                         validator: (value) {
                           if (value!.isEmpty) {
-                            return "";
+                            return "Please enter your password.";
+                          }
+                          if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                            return "Passwords must have at least one uppercase letter.";
+                          }
+                          if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                            return "Passwords must have at least one digit.";
+                          }
+                          if (!RegExp(r'^(?=.*?[!@#\$&*~])').hasMatch(value)) {
+                            return "Passwords must have at least one non-alphanumeric character.";
                           }
                           return null;
                         },
                         controller: pass,
                         decoration: InputDecoration(
+                          hintText: 'كلمة المرور',
                           prefixIcon: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: SizedBox(
@@ -311,7 +331,11 @@ class _SignInFormState extends State<SignInForm> {
                     child: CustomButton(
                       width: widget.emailFieldWidthFactor,
                       onTap: () async {
-                        authController.isSignUp.value ? nav() : singIn(context);
+                        if (_formKey.currentState!.validate()) {
+                          authController.isSignUp.value
+                              ? nav()
+                              : singIn(context);
+                        }
                       },
                       buttonText: authController.isSignUp.value
                           ? 'انشاء حساب'
