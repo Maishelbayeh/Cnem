@@ -1,3 +1,4 @@
+import 'package:cenem/view/intro/components/Icon.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:cenem/view/intro/components/intro_body.dart';
@@ -8,24 +9,22 @@ class Introduction extends StatelessWidget {
   const Introduction({super.key});
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisSize: MainAxisSize.min,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        // SizedBox(
-        //   width: MediaQuery.sizeOf(context).width * 0.02,
-        // ),
-        const Expanded(
-          child: IntroBody(),
-        ),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.04,
-        ),
-        if (!Responsive.isLargeMobile(context)) const SocialMediaIconList(),
-        SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.09,
-        ),
-      ],
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          const Spacer(),
+          const AnimatedImageContainer(),
+          const Spacer(),
+          const IntroBody(),
+          const Spacer(),
+          if (!Responsive.isLargeMobile(context)) const SocialMediaIconList(),
+          SizedBox(
+            width: MediaQuery.sizeOf(context).width * 0.09,
+          ),
+        ],
+      ),
     );
   }
 }
