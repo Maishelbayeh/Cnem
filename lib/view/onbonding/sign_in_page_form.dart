@@ -1,7 +1,6 @@
 import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
-import 'package:cenem/view/onbonding/condition_dialog.dart';
 
 import 'package:cenem/view/user/main.dart';
 import 'package:flutter/material.dart';

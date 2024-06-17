@@ -11,3 +11,4 @@ const lightGrey = Color(0xFFA4A6B3);
 const dark = Color(0xFF363740);
 const active = Color.fromARGB(255, 54, 5, 231);
 String baseurl = '';
+String proxyurl = '';

@@ -17,7 +17,9 @@ Future<void> main() async {
   // Load the configuration
   config = await Config.loadFromAsset();
   print(config.apiBaseUrl);
+  print(config.apiProxyUrl);
   baseurl = config.apiBaseUrl;
+  proxyurl = config.apiProxyUrl;
 
   runApp(MyApp());
 }

@@ -1,21 +1,23 @@
-import 'package:cenem/view%20model/responsive.dart';
-import 'package:cenem/view/onbonding/condition_dialog.dart';
-import 'package:cenem/view/onbonding/term_condition_form.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/timer_text.dart';
-import 'package:cenem/view/custom%20componant/custom_text.dart';
+import 'package:cenem/Api/confirmemailApi.dart';
+import 'package:cenem/view/onbonding/condition_dialog.dart';
+import 'package:cenem/view/onbonding/coniform_email_page.dart';
+import 'package:cenem/view%20model/responsive.dart';
 
 class OTP extends StatelessWidget {
   final PinTheme defaultPinTheme;
-  final ValueChanged<String> onCompleted;
+  final Function(String) onCompleted;
   final String text;
+  final String email;
 
   OTP({
     required this.defaultPinTheme,
     required this.onCompleted,
     required this.text,
+    required this.email,
   });
 
   @override
@@ -36,13 +38,9 @@ class OTP extends StatelessWidget {
                 image: AssetImage('assets/images/cnem.png'),
                 height: 150,
               ),
-              Responsive.isLargeMobile(context)?
-              SizedBox(
-                height: 40,
-              ):
-              SizedBox(
-                height: 10,
-              ),
+              Responsive.isLargeMobile(context)
+                  ? const SizedBox(height: 40)
+                  : const SizedBox(height: 10),
               const Text(
                 'أدخــل الـرمـز الـمـرســل إلـى البـريـد الإلــكتـرونــي الـخــاصـ بـــك',
                 style: TextStyle(
@@ -51,36 +49,51 @@ class OTP extends StatelessWidget {
                   fontFamily: "Lateef",
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              const SizedBox(height: 10),
               Pinput(
-                length: 4,
+                length: 5,
                 defaultPinTheme: defaultPinTheme,
                 focusedPinTheme: defaultPinTheme.copyWith(
                   decoration: defaultPinTheme.decoration!.copyWith(
                     border: Border.all(color: Colors.black),
                   ),
                 ),
-                
-                onCompleted: (pin) => debugPrint(_otpCode = pin),
+                onChanged: (pin) => _otpCode = pin,
+                onCompleted: (pin) => _otpCode = pin,
               ),
-              
-              CustomButton(onTap: () { 
-            //     Navigator.push(
-            //   context,
-            //   MaterialPageRoute(builder: (context) => TermsAndConditionsPage()),
-            // );
-            conditionDialog(
-                              context,
-                              onValue: (_) {},
-                            );
-            }, buttonText: "تـحـقـق", width: 150, height: 40),
+              CustomButton(
+                onTap: () async {
+                  bool success = await _submit(_otpCode, email);
+                  if (success) {
+                    conditionDialog(
+                      context,
+                      onValue: (_) {},
+                    );
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Verification failed')),
+                    );
+                  }
+                },
+                buttonText: "تـحـقـق",
+                width: 150,
+                height: 40,
+              ),
               const TimerText(),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Future<bool> _submit(String otpCode, String email) async {
+    try {
+      bool success = await confirmEmail(otpCode, email);
+      return success;
+    } catch (e) {
+      print('Error confirming email: $e');
+      return false;
+    }
   }
 }

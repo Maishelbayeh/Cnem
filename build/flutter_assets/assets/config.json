@@ -1,4 +1,6 @@
 {
-    "apiBaseUrl": "154.38.171.253:8080/api"
+    "apiBaseUrl": "154.38.171.253:8080/api",
+    "apiProxyUrl": "localhost:8088/api"
+
   }
   

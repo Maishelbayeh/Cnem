@@ -1,4 +1,5 @@
 import 'package:cenem/view/custom%20componant/custom_otp.dart';
+import 'package:cenem/view/onbonding/register_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cenem/view%20model/responsive.dart';
@@ -7,7 +8,7 @@ import '../../view model/getx_controllers/courses_controller.dart';
 
 final controller = Get.put(CourseController());
 
-void ForgotPasswordDialog(BuildContext context,
+void ForgotPasswordDialog(BuildContext context, String Confirmemail,
     {required ValueChanged onValue}) {
   showGeneralDialog(
     context: context,
@@ -17,11 +18,11 @@ void ForgotPasswordDialog(BuildContext context,
     transitionDuration: const Duration(milliseconds: 400),
     pageBuilder: (_, __, ___) {
       return Responsive(
-        desktop: _buildDialog(context, 0.6, 0.7),
-        largeMobile: _buildDialog(context, 0.8, 0.7),
-        mobile: _buildDialog(context, 0.8, 0.6),
-        tablet: _buildDialog(context, 0.8, 0.7),
-        extraLargeScreen: _buildDialog(context, 0.6, 0.7),
+        desktop: _buildDialog(context, 0.6, 0.7, Confirmemail),
+        largeMobile: _buildDialog(context, 0.8, 0.7, Confirmemail),
+        mobile: _buildDialog(context, 0.8, 0.6, Confirmemail),
+        tablet: _buildDialog(context, 0.8, 0.7, Confirmemail),
+        extraLargeScreen: _buildDialog(context, 0.6, 0.7, Confirmemail),
       );
     },
     transitionBuilder: (_, anim, __, child) {
@@ -35,7 +36,11 @@ void ForgotPasswordDialog(BuildContext context,
 }
 
 Widget _buildDialog(
-    BuildContext context, double widthFactor, double heightFactor) {
+  BuildContext context,
+  double widthFactor,
+  double heightFactor,
+  String Confirmemail,
+) {
   final Size screenSize = MediaQuery.of(context).size;
   double dialogWidth = screenSize.width * widthFactor;
   double dialogHeight = screenSize.height * heightFactor;
@@ -62,10 +67,10 @@ Widget _buildDialog(
         ],
       ),
       child: OTP(
-        defaultPinTheme: defaultPinTheme,
-        onCompleted: (pin) => debugPrint(pin),
-        text: '',
-      ),
+          defaultPinTheme: defaultPinTheme,
+          onCompleted: (pin) => debugPrint(pin),
+          text: '',
+          email: Confirmemail),
     ),
   );
 }

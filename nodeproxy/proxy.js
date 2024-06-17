@@ -19,9 +19,10 @@ app.use(limiter);
 
 // Middleware to add CORS headers to every response
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', process.env.ALLOWED_ORIGIN || '*');
+  res.header('Access-Control-Allow-Origin', '*');
   res.header('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+
   // Handle preflight requests
   if (req.method === 'OPTIONS') {
     return res.status(200).end();
@@ -32,15 +33,18 @@ app.use((req, res, next) => {
 app.use('/api', (req, res) => {
   const apiUrl = process.env.API_URL || 'http://154.38.171.253:8080/api';
   const url = apiUrl + req.url;
-  console.log(`Forwarding request to: ${url}`);  // Log the forwarded URL for debugging
+  
+  console.log(`Forwarding request to: ${url}`); // Log the forwarded URL for debugging
+
   req.pipe(request({ qs: req.query, uri: url }))
     .on('error', (err) => {
+      console.error(`Error forwarding request to ${url}: ${err.message}`); // Log the error
       res.status(500).send({ error: 'Proxy request failed' });
     })
     .pipe(res);
 });
 
-const port = process.env.PORT || 8081;
+const port = process.env.PORT || 8088;
 app.listen(port, () => {
   console.log(`Proxy server running on port ${port}`);
 });

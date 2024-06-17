@@ -19,11 +19,11 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
 
   void _onNextPressed() {
     if (_isChecked) {
-Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => bankInfo()),
-            );   
-               print("Navigating to the next page...");
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => bankInfo()),
+      );
+      print("Navigating to the next page...");
     }
   }
 
@@ -268,11 +268,9 @@ Navigator.push(
             ),
             const SizedBox(height: 20.0),
             ElevatedButton(
-              
-                onPressed: _isChecked ? _onNextPressed : null,
-                child: const Text('التالي'),
-              ),
-          
+              onPressed: _isChecked ? _onNextPressed : null,
+              child: const Text('التالي'),
+            ),
           ],
         ),
       ),
