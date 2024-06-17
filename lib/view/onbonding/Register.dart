@@ -6,21 +6,21 @@ class Register extends StatefulWidget {
   final bool sign;
 
   const Register({super.key, required this.sign});
-  
+
   @override
   _RegisterState createState() => _RegisterState();
 }
 
-class _RegisterState extends State<Register> { 
-  
+class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => FocusScope.of(context).unfocus(),
       child: Scaffold(
-        body: widget.sign ? const RegisterForm() : const SignInPageForm(), // No need for !
+        body: widget.sign
+            ? const RegisterForm()
+            : const SignInPage(), // No need for !
       ),
     );
   }
 }
-

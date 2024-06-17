@@ -1,12 +1,81 @@
 import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
+import 'package:cenem/view/onbonding/condition_dialog.dart';
+import 'package:cenem/view/onbonding/sign_in_check.dart';
+import 'package:cenem/view/user/main.dart';
 import 'package:flutter/material.dart';
+import 'package:rive/rive.dart';
 
 const double defaultPadding = 16.0;
 
-class SignInPageForm extends StatelessWidget {
-  const SignInPageForm({super.key});
+class SignInPage extends StatefulWidget {
+  const SignInPage({Key? key}) : super(key: key);
+
+  @override
+  _SignInPageState createState() => _SignInPageState();
+}
+
+class _SignInPageState extends State<SignInPage> {
+  bool rememberMe = false;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool isShowLoading = false;
+  bool isShowConfetti = false;
+  late SMITrigger error;
+  late SMITrigger success;
+  late SMITrigger reset;
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
+  late SMITrigger confetti;
+
+  void _onCheckRiveInit(Artboard artboard) {
+    StateMachineController? controller =
+        StateMachineController.fromArtboard(artboard, 'State Machine 1');
+    if (controller != null) {
+      artboard.addController(controller);
+      error = controller.findInput<bool>('Error') as SMITrigger;
+      success = controller.findInput<bool>('Check') as SMITrigger;
+      reset = controller.findInput<bool>('Reset') as SMITrigger;
+    }
+  }
+
+  void _onConfettiRiveInit(Artboard artboard) {
+    StateMachineController? controller =
+        StateMachineController.fromArtboard(artboard, "State Machine 1");
+    if (controller != null) {
+      artboard.addController(controller);
+      confetti = controller.findInput<bool>("Trigger explosion") as SMITrigger;
+    }
+  }
+
+  Future<void> singIn(BuildContext context) async {
+    setState(() {
+      isShowConfetti = true;
+      isShowLoading = true;
+    });
+    await Future.delayed(const Duration(seconds: 1));
+    if (await loginUser(email.text, pass.text, true)) {
+      success.fire();
+      await Future.delayed(const Duration(seconds: 2));
+      setState(() {
+        isShowLoading = false;
+      });
+      confetti.fire();
+      await Future.delayed(const Duration(seconds: 1));
+      Navigator.pop(context);
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const userMain()),
+      );
+    } else {
+      error.fire();
+      await Future.delayed(const Duration(seconds: 2));
+      setState(() {
+        isShowLoading = false;
+      });
+      reset.fire();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,16 +124,17 @@ class SignInPageForm extends StatelessWidget {
                   // ),
                   SizedBox(height: paddingBetweenItems),
 
-                  const SignUpTextField(
+                  SignUpTextField(
                     icon: Icons.mail,
                     labelText: "البريد الالكتروني",
+                    controller: email,
                   ),
 
                   SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    isPassword: true,
+                  SignUpTextField(
                     icon: Icons.lock,
                     labelText: "كلمة السر",
+                    controller: pass,
                   ),
 
                   CustomButton(
@@ -72,8 +142,7 @@ class SignInPageForm extends StatelessWidget {
                     height: 40,
                     width: MediaQuery.of(context).size.width * 0.7,
                     onTap: () async {
-                      await loginUser(
-                          "maishelbayeh@icloud.com", "123456mA!", true);
+                      singIn(context);
                     },
                   ),
 

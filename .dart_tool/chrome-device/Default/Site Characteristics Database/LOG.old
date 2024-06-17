@@ -1,9 +1,21 @@
-2024/06/10-08:29:09.944 4330 Reusing MANIFEST C:\Users\maysh\AppData\Local\Temp\flutter_tools.eb121748\flutter_tools_chrome_device.9386f5c0\Default\Site Characteristics Database/MANIFEST-000001
-2024/06/10-08:29:09.945 4330 Recovering log #16
-2024/06/10-08:29:09.945 4330 Reusing old log C:\Users\maysh\AppData\Local\Temp\flutter_tools.eb121748\flutter_tools_chrome_device.9386f5c0\Default\Site Characteristics Database/000016.log 
-2024/06/10-08:29:09.945 4330 Delete type=0 #3
-2024/06/10-08:29:09.945 4330 Delete type=2 #4
-2024/06/10-08:29:09.945 4330 Delete type=2 #6
-2024/06/10-08:29:09.945 4330 Delete type=0 #6
-2024/06/10-08:29:09.946 4330 Delete type=0 #10
-2024/06/10-08:29:09.946 4330 Delete type=2 #11
+2024/06/10-14:26:15.426 2080 Log #3: 4 ops saved to Table #22 OK
+2024/06/10-14:26:15.429 2080 Archiving C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database/000003.log: OK
+2024/06/10-14:26:15.436 2080 Log #6: 1 ops saved to Table #23 OK
+2024/06/10-14:26:15.437 2080 Archiving C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database/000006.log: OK
+2024/06/10-14:26:15.449 2080 Log #10: 1 ops saved to Table #24 OK
+2024/06/10-14:26:15.450 2080 Archiving C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database/000010.log: OK
+2024/06/10-14:26:15.460 2080 Log #16: 1 ops saved to Table #25 OK
+2024/06/10-14:26:15.461 2080 Archiving C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database/000016.log: OK
+2024/06/10-14:26:15.461 2080 Table #4: 4 entries OK
+2024/06/10-14:26:15.461 2080 Table #6: 4 entries OK
+2024/06/10-14:26:15.461 2080 Table #11: 3 entries OK
+2024/06/10-14:26:15.462 2080 Table #17: 3 entries OK
+2024/06/10-14:26:15.462 2080 Table #19: 4 entries OK
+2024/06/10-14:26:15.462 2080 Table #20: 1 entries OK
+2024/06/10-14:26:15.462 2080 Table #21: 1 entries OK
+2024/06/10-14:26:15.462 2080 Table #22: 4 entries OK
+2024/06/10-14:26:15.462 2080 Table #23: 1 entries OK
+2024/06/10-14:26:15.462 2080 Table #24: 1 entries OK
+2024/06/10-14:26:15.462 2080 Table #25: 1 entries OK
+2024/06/10-14:26:15.465 2080 Archiving C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database/MANIFEST-000001: OK
+2024/06/10-14:26:15.476 2080 **** Repaired leveldb C:\Users\maysh\AppData\Local\Temp\flutter_tools.77524cb6\flutter_tools_chrome_device.412da303\Default\Site Characteristics Database; recovered 11 files; 2500 bytes. Some data may have been lost. ****

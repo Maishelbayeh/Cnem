@@ -1,4 +1,3 @@
-
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
 import 'package:cenem/view/onbonding/coniform_email_page.dart';
@@ -17,40 +16,38 @@ class RegisterForm extends StatefulWidget {
 
 class _RegisterFormState extends State<RegisterForm> {
   Future<void> register() async {
-  try {
-    print("Starting registration process...");
-    
-    // Define your email and password
-    String email = "user@example.com";
-    String password = "String@123";
-    
-    // Create the request body
-    Map<String, dynamic> body = {
-      "email": email,
-      "password": password,
-    };
-    
-    final response = await http.post(
-      Uri.parse('https://154.38.171.253/api/Account/register'),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: jsonEncode(body),
-    );
+    try {
+      print("Starting registration process...");
 
-    if (response.statusCode == 200) {
-      print('Response body: ${response.body}');
-    } else {
-      print('Failed to register. Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
+      // Define your email and password
+      String email = "user@example.com";
+      String password = "String@123";
+
+      // Create the request body
+      Map<String, dynamic> body = {
+        "email": email,
+        "password": password,
+      };
+
+      final response = await http.post(
+        Uri.parse('https://154.38.171.253/api/Account/register'),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: jsonEncode(body),
+      );
+
+      if (response.statusCode == 200) {
+        print('Response body: ${response.body}');
+      } else {
+        print('Failed to register. Status code: ${response.statusCode}');
+        print('Response body: ${response.body}');
+      }
+    } catch (e, stacktrace) {
+      print('An error occurred: $e');
+      print('Stacktrace: $stacktrace');
     }
-  } catch (e, stacktrace) {
-    print('An error occurred: $e');
-    print('Stacktrace: $stacktrace');
   }
-}
-
-
 
   @override
   void initState() {
@@ -105,42 +102,43 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ),
                   SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    icon: Icons.person_outline,
-                    labelText: "اسم المستخدم",
-                  ),
-                  SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    icon: Icons.mail,
-                    labelText: "البريد الالكتروني",
-                  ),
-                  SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    icon: Icons.phone_iphone,
-                    labelText: "رقم الهاتف",
-                  ),
-                  SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    isPassword: true,
-                    icon: Icons.lock,
-                    labelText: "كلمة السر",
-                  ),
-                  SizedBox(height: paddingBetweenItems),
-                  const SignUpTextField(
-                    isPassword: true,
-                    icon: Icons.lock,
-                    labelText: "تأكيد كلمة السر",
-                  ),
+                  // const SignUpTextField(
+                  //   icon: Icons.person_outline,
+                  //   labelText: "اسم المستخدم",
+                  // ),
+                  // SizedBox(height: paddingBetweenItems),
+                  // const SignUpTextField(
+                  //   icon: Icons.mail,
+                  //   labelText: "البريد الالكتروني",
+                  // ),
+                  // SizedBox(height: paddingBetweenItems),
+                  // const SignUpTextField(
+                  //   icon: Icons.phone_iphone,
+                  //   labelText: "رقم الهاتف",
+                  // ),
+                  // SizedBox(height: paddingBetweenItems),
+                  // const SignUpTextField(
+                  //   isPassword: true,
+                  //   icon: Icons.lock,
+                  //   labelText: "كلمة السر",
+                  // ),
+                  // SizedBox(height: paddingBetweenItems),
+                  // const SignUpTextField(
+                  //   isPassword: true,
+                  //   icon: Icons.lock,
+                  //   labelText: "تأكيد كلمة السر",
+                  // ),
 
                   CustomButton(
                     buttonText: 'انشاء حساب',
                     height: 40,
                     width: MediaQuery.of(context).size.width * 0.7,
                     onTap: () {
-                     Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => coniformEmailPage()),
-            );
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => coniformEmailPage()),
+                      );
                     },
                   ),
 
