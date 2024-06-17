@@ -17,34 +17,10 @@ class IntroBody extends StatelessWidget {
     String s = 'استثمر وقتك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
     return Row(
       children: [
-        SizedBox(
-          width: size.width * 0.06,
-        ),
-        if (Responsive.isDesktop(context)) const AnimatedImageContainer(),
-        SizedBox(
-          width: size.width * 0.06,
-        ),
+        
         Column(
-          //crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if (!Responsive.isDesktop(context))
-              SizedBox(
-                height: size.height * 0.06,
-              ),
-            if (!Responsive.isDesktop(context))
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment
-                    .center, // Align children vertically to the center
-                children: [
-                  AnimatedImageContainer(
-                    width: 150,
-                    height: 200,
-                  ),
-                ],
-              ),
-
             if (!Responsive.isDesktop(context))
               SizedBox(
                 height: size.height * 0.04,
@@ -76,7 +52,7 @@ class IntroBody extends StatelessWidget {
             const SizedBox(
               height: defaultPadding * 2,
             ),
-            //const DownloadButton(),
+          
           ],
         ),
       ],

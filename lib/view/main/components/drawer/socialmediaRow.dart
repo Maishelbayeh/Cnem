@@ -13,13 +13,14 @@ class CustomIconRow extends StatelessWidget {
         icon: Icon(
           iconData,
           color: iconColor,
-          size: 30,
+          size:Responsive.isMobile(context)?25: 30,
         ),
       ),
-      label: const Text(
+      label:  Text(
         'تواصل معنا عبر',
         style: TextStyle(
           color: Color.fromARGB(255, 5, 137, 73),
+          fontSize: Responsive.isMobile(context) ? 10 :20
         ),
       ),
       onPressed: () => launchUrl(Uri.parse(url)),
@@ -45,8 +46,10 @@ class CustomIconRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double buttonHeight = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? 150 : 40;
-      double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.4;
+      double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.41;
     return Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         buildSizedBox(
           context,
@@ -54,7 +57,7 @@ class CustomIconRow extends StatelessWidget {
           buttonHeight,
           buttonWidth,
         ),
-        const SizedBox(width: 16),
+        const SizedBox(width: 20),
         buildSizedBox(
           context,
           buildButton(context, FontAwesomeIcons.telegram, Color.fromARGB(255, 105, 175, 240), 'https://t.me/+dcwDj7c6bYcyOTNk'),
