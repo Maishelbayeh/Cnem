@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-import 'package:cenem/model/user_model.dart';
-=======
 import 'package:cenem/model/member_model.dart';
->>>>>>> origin/gh-pages
+
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/custom%20componant/customtext.dart';
 
@@ -23,7 +20,7 @@ class SideMenu extends StatelessWidget {
             TextWithGradient(
               end: 25,
               start: 20,
-              text: "ملومات الحساب",
+              text: "معلومات الحساب",
             ),
           ],
         ),

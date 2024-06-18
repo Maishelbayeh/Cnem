@@ -24,28 +24,16 @@ class TopNavigationBar extends StatelessWidget {
 
     return Scaffold(
       body: Row(
-<<<<<<< HEAD
-        crossAxisAlignment:CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          
-=======
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          const Spacer(),
->>>>>>> origin/gh-pages
           if (Responsive.isExtraLargeScreen(context) ||
               Responsive.isDesktop(context) ||
               !Responsive.isTablet(context))
             const Padding(
                 padding: EdgeInsets.all(defaultPadding),
                 child: CustomIconRow()),
-<<<<<<< HEAD
-          
-=======
-          const Spacer(),
->>>>>>> origin/gh-pages
+
           SizedBox(
             width: !Responsive.isDesktop(context)
                 ? MediaQuery.sizeOf(context).width * 0.4
@@ -98,11 +86,7 @@ class TopNavigationBar extends StatelessWidget {
               buttonText: 'انشاء حساب',
             ),
           ),
-<<<<<<< HEAD
           //const Spacer(),
-=======
-          const Spacer(),
->>>>>>> origin/gh-pages
         ],
       ),
     );

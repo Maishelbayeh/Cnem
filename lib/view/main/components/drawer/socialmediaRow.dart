@@ -7,31 +7,21 @@ import 'package:url_launcher/url_launcher.dart';
 class CustomIconRow extends StatelessWidget {
   const CustomIconRow({Key? key}) : super(key: key);
 
-  Widget buildButton(BuildContext context, IconData iconData, Color iconColor, String url) {
+  Widget buildButton(
+      BuildContext context, IconData iconData, Color iconColor, String url) {
     return ElevatedButton.icon(
       icon: CustomIcon(
         icon: Icon(
           iconData,
           color: iconColor,
-<<<<<<< HEAD
-          size:Responsive.isMobile(context)?25: 30,
+          size: Responsive.isMobile(context) ? 25 : 30,
         ),
       ),
-      label:  Text(
+      label: Text(
         'تواصل معنا عبر',
         style: TextStyle(
-          color: Color.fromARGB(255, 5, 137, 73),
-          fontSize: Responsive.isMobile(context) ? 10 :20
-=======
-          size: 30,
-        ),
-      ),
-      label: const Text(
-        'تواصل معنا عبر',
-        style: TextStyle(
-          color: Color.fromARGB(255, 5, 137, 73),
->>>>>>> origin/gh-pages
-        ),
+            color: Color.fromARGB(255, 5, 137, 73),
+            fontSize: Responsive.isMobile(context) ? 10 : 20),
       ),
       onPressed: () => launchUrl(Uri.parse(url)),
       style: ElevatedButton.styleFrom(
@@ -41,7 +31,8 @@ class CustomIconRow extends StatelessWidget {
     );
   }
 
-  Widget buildSizedBox(BuildContext context, Widget child, double height,double width) {
+  Widget buildSizedBox(
+      BuildContext context, Widget child, double height, double width) {
     return SizedBox(
       height: height,
       width: width,
@@ -55,33 +46,38 @@ class CustomIconRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double buttonHeight = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? 150 : 40;
-<<<<<<< HEAD
-      double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.41;
-=======
-      double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.4;
->>>>>>> origin/gh-pages
+    double buttonHeight =
+        Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context)
+            ? 150
+            : 40;
+    double buttonWidth =
+        Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context)
+            ? MediaQuery.sizeOf(context).width / 4
+            : MediaQuery.sizeOf(context).width * 0.41;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         buildSizedBox(
           context,
-          buildButton(context, FontAwesomeIcons.whatsapp, Color.fromARGB(255, 5, 137, 73), 'https://whatsapp.com/channel/0029VaawoizIHphDlzrBWX1I'),
+          buildButton(
+              context,
+              FontAwesomeIcons.whatsapp,
+              Color.fromARGB(255, 5, 137, 73),
+              'https://whatsapp.com/channel/0029VaawoizIHphDlzrBWX1I'),
           buttonHeight,
           buttonWidth,
         ),
-<<<<<<< HEAD
         const SizedBox(width: 20),
-=======
-        const SizedBox(width: 16),
->>>>>>> origin/gh-pages
         buildSizedBox(
-          context,
-          buildButton(context, FontAwesomeIcons.telegram, Color.fromARGB(255, 105, 175, 240), 'https://t.me/+dcwDj7c6bYcyOTNk'),
-          buttonHeight,
-          buttonWidth
-        ),
+            context,
+            buildButton(
+                context,
+                FontAwesomeIcons.telegram,
+                Color.fromARGB(255, 105, 175, 240),
+                'https://t.me/+dcwDj7c6bYcyOTNk'),
+            buttonHeight,
+            buttonWidth),
       ],
     );
   }

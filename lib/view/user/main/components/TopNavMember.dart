@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import 'package:cenem/model/user_model.dart';
-=======
 import 'package:cenem/model/member_model.dart';
->>>>>>> origin/gh-pages
 import 'package:cenem/res/constants.dart';
 
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
