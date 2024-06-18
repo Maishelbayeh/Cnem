@@ -42,35 +42,52 @@ class _SignInPageState extends State<SignInPage> {
       confetti = controller.findInput<bool>("Trigger explosion") as SMITrigger;
     }
   }
+Future<void> signIn(BuildContext context) async {
+  setState(() {
+    isShowConfetti = true;
+    isShowLoading = true;
+  });
 
-  Future<void> singIn(BuildContext context) async {
+  await Future.delayed(const Duration(seconds: 1));
+
+  String result = await loginUser(email.text, pass.text, true);
+
+  if (result == 'success') {
+    success.fire();
+    await Future.delayed(const Duration(seconds: 2));
     setState(() {
-      isShowConfetti = true;
-      isShowLoading = true;
+      isShowLoading = false;
     });
+    confetti.fire();
     await Future.delayed(const Duration(seconds: 1));
-    if (await loginUser(email.text, pass.text, true)) {
-      success.fire();
-      await Future.delayed(const Duration(seconds: 2));
-      setState(() {
-        isShowLoading = false;
-      });
-      confetti.fire();
-      await Future.delayed(const Duration(seconds: 1));
-      Navigator.pop(context);
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const userMain()),
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const userMain()),
+    );
+  } else {
+    error.fire();
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      isShowLoading = false;
+    });
+    reset.fire();
+
+    if (result == 'email-not-exist') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('البريد الالكتروني غير موجود')),
+      );
+    } else if (result == 'incorrect-password') {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('كلمة السر خاطئة')),
       );
     } else {
-      error.fire();
-      await Future.delayed(const Duration(seconds: 2));
-      setState(() {
-        isShowLoading = false;
-      });
-      reset.fire();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed')),
+      );
     }
   }
+}
 
   @override
   dynamic noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);

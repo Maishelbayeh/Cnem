@@ -48,34 +48,53 @@ class _SignInPageState extends State<SignInPage> {
     }
   }
 
-  Future<void> singIn(BuildContext context) async {
+Future<void> signIn(BuildContext context) async {
+  setState(() {
+    isShowConfetti = true;
+    isShowLoading = true;
+  });
+
+  await Future.delayed(const Duration(seconds: 1));
+
+  String result = await loginUser(email.text, pass.text, true);
+
+  if (result == 'success') {
+    success.fire();
+    await Future.delayed(const Duration(seconds: 2));
     setState(() {
-      isShowConfetti = true;
-      isShowLoading = true;
+      isShowLoading = false;
     });
+    confetti.fire();
     await Future.delayed(const Duration(seconds: 1));
-    if (await loginUser(email.text, pass.text, true)) {
-      success.fire();
-      await Future.delayed(const Duration(seconds: 2));
-      setState(() {
-        isShowLoading = false;
-      });
-      confetti.fire();
-      await Future.delayed(const Duration(seconds: 1));
-      Navigator.pop(context);
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const userMain()),
+    Navigator.pop(context);
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const userMain()),
+    );
+  } else {
+    error.fire();
+    await Future.delayed(const Duration(seconds: 2));
+    setState(() {
+      isShowLoading = false;
+    });
+    reset.fire();
+
+    if (result == 'email-not-exist') {
+      ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('البريد الالكتروني غير موجود')),
+      );
+    } else if (result == 'incorrect-password') {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('كلمة السر خاطئة')),
       );
     } else {
-      error.fire();
-      await Future.delayed(const Duration(seconds: 2));
-      setState(() {
-        isShowLoading = false;
-      });
-      reset.fire();
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Login failed')),
+      );
     }
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
@@ -148,7 +167,7 @@ class _SignInPageState extends State<SignInPage> {
                     height: 40,
                     width: MediaQuery.of(context).size.width * 0.7,
                     onTap: () async {
-                      singIn(context);
+                      signIn(context);
                     },
                   ),
 

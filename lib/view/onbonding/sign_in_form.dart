@@ -4,6 +4,7 @@ import 'package:cenem/model/userModel.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
+import 'package:cenem/view/onbonding/register_form.dart';
 import 'package:cenem/view/user/main.dart';
 
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class _SignInFormState extends State<SignInForm> {
   late SMITrigger success;
   late SMITrigger reset;
   TextEditingController email = TextEditingController();
-    TextEditingController emailSignUp = TextEditingController();
+  TextEditingController emailSignUp = TextEditingController();
   TextEditingController pass = TextEditingController();
   TextEditingController passSignUp = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
@@ -63,8 +64,7 @@ class _SignInFormState extends State<SignInForm> {
     confetti = controller.findInput<bool>("Trigger explosion") as SMITrigger;
   }
 
-  void singIn(BuildContext context) {
-    // confetti.fire();
+  void signIn(BuildContext context) {
     setState(() {
       isShowConfetti = true;
       isShowLoading = true;
@@ -72,7 +72,8 @@ class _SignInFormState extends State<SignInForm> {
     Future.delayed(
       const Duration(seconds: 1),
       () async {
-        if (await loginUser(email.text, pass.text, rememberMe)) {
+        String result = await loginUser(email.text, pass.text, rememberMe);
+        if (result == 'success') {
           success.fire();
           Future.delayed(
             const Duration(seconds: 2),
@@ -81,9 +82,8 @@ class _SignInFormState extends State<SignInForm> {
                 isShowLoading = false;
               });
               confetti.fire();
-              
+
               Future.delayed(const Duration(seconds: 1), () {
-                // Navigator.pop(context);
                 Navigator.pop(context);
                 Navigator.push(
                   context,
@@ -103,6 +103,20 @@ class _SignInFormState extends State<SignInForm> {
               reset.fire();
             },
           );
+
+          if (result == 'email-not-exist') {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('البريد الالكتروني غير موجود')),
+            );
+          } else if (result == 'incorrect-password') {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('كلمة السر خاطئة')),
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('Login failed')),
+            );
+          }
         }
       },
     );
@@ -124,17 +138,22 @@ class _SignInFormState extends State<SignInForm> {
   void _submit() async {
     if (_formKey.currentState!.validate()) {
       final user = User(
-          userName: username.text,
-          email: emailSignUp.text,
-          phone: phone.text,
-          password: passSignUp.text,
-          confirmPassword: confirmPassword.text);
+        userName: username.text,
+        email: emailSignUp.text,
+        phone: phone.text,
+        password: passSignUp.text,
+        confirmPassword: confirmPassword.text,
+      );
 
-      bool success = await signUpUser(user);
+      String result = await signUpUser(user);
 
-      if (success) {
+      if (result == 'success') {
         print(user.email);
         nav(user.email);
+      } else if (result == 'email-already-exists') {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('البريد الالكتروني موجود بالفعل')),
+        );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text('Sign up failed')),
@@ -148,88 +167,95 @@ class _SignInFormState extends State<SignInForm> {
     return Obx(
       () => Stack(
         children: [
+          const SizedBox(
+            height: defaultPadding,
+          ),
           Form(
             key: _formKey,
             child: Column(
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  if (authController.isSignUp.value)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: SizedBox(
-                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
-                            child: TextFormField(
-                              validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "";
-                                // }
-                                // return null;
-                              },
-                              controller: username,
-                              keyboardType: TextInputType.name,
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                hintText: "اسم المستخدم",
-                                prefixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  child: SizedBox(
-                                    width: 30,
-                                    height: 30,
-                                    child: SvgPicture.asset(
-                                      "icons/user.svg",
-                                      fit: BoxFit.contain,
-                                    ),
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                if (authController.isSignUp.value)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0, bottom: 0),
+                        child: SizedBox(
+                          width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                          child: TextFormField(
+                            validator: (value) {
+                              // if (value!.isEmpty) {
+                              //   return "";
+                              // }
+                              // return null;
+                            },
+                            controller: username,
+                            keyboardType: TextInputType.name,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              hintText: "اسم المستخدم",
+                              prefixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: SvgPicture.asset(
+                                    "icons/user.svg",
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                        SizedBox(
-                          width: widget.emailFieldWidthFactor /
-                              MediaQuery.of(context).size.width *
-                              32,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: SizedBox(
-                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
-                            child: TextFormField(
-                              validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "";
-                                // }
-                                // return null;
-                              },
-                              controller: phone,
-                              keyboardType: TextInputType.emailAddress,
-                              textInputAction: TextInputAction.next,
-                              decoration: InputDecoration(
-                                hintText: 'رقم الهاتف',
-                                prefixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  child: SizedBox(
-                                    width: 30,
-                                    height: 30,
-                                    child: SvgPicture.asset(
-                                      "icons/iphone.svg",
-                                      fit: BoxFit.contain,
-                                    ),
+                      ),
+                      SizedBox(
+                        width: widget.emailFieldWidthFactor /
+                            MediaQuery.of(context).size.width *
+                            32,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0, bottom: 0),
+                        child: SizedBox(
+                          width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                          child: TextFormField(
+                            validator: (value) {
+                              // if (value!.isEmpty) {
+                              //   return "";
+                              // }
+                              // return null;
+                            },
+                            controller: phone,
+                            keyboardType: TextInputType.emailAddress,
+                            textInputAction: TextInputAction.next,
+                            decoration: InputDecoration(
+                              hintText: 'رقم الهاتف',
+                              prefixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: SvgPicture.asset(
+                                    "icons/iphone.svg",
+                                    fit: BoxFit.contain,
                                   ),
                                 ),
                               ),
                             ),
                           ),
                         ),
-                      ],
-                    ),
-                  
-                  if (!authController.isSignUp.value)
+                      ),
+                    ],
+                  ),
+                
+                
+                if (!authController.isSignUp.value)
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
@@ -261,7 +287,10 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                    if (authController.isSignUp.value)
+                    const SizedBox(
+                    height: defaultPadding,
+                  ),
+                if (authController.isSignUp.value)
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
@@ -293,97 +322,97 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                  
-                  const SizedBox(
-                    height: 20,
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                if (!authController.isSignUp.value)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0, bottom: 0),
+                    child: SizedBox(
+                      width: widget.emailFieldWidthFactor,
+                      child: TextFormField(
+                        obscureText: true,
+                        controller: pass,
+                        decoration: InputDecoration(
+                          hintText: 'كلمة المرور',
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: SvgPicture.asset(
+                                "icons/password.svg",
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                      if (!authController.isSignUp.value)
-                       Padding(
-                          padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: SizedBox(
-                            width: widget.emailFieldWidthFactor  ,
-                            child: TextFormField(
-                              obscureText: true,
-                            
-                              controller: pass,
-                              decoration: InputDecoration(
-                                hintText: 'كلمة المرور',
-                                prefixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  child: SizedBox(
-                                    width: 30,
-                                    height: 30,
-                                    child: SvgPicture.asset(
-                                      "icons/password.svg",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        if (authController.isSignUp.value)
-                          Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                         Padding(
-                          padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: SizedBox(
-                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
-                            child: TextFormField(
-                              obscureText: true,
-                                validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "يرجى ادخال كلمة مرور";
-                                }
-                                if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
-                                  return "يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل.";
-                                }
-                                if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
-                                  return "يجب أن تحتوي كلمات المرور على رقم واحد على الأقل.";
-                                }
-                                if (!RegExp(r'^(?=.*?[!@#\$&*~])')
-                                    .hasMatch(value)) {
-                                  return "يجب أن تحتوي كلمات المرور على رمز واحد على الأقل.";
-                                }
-                                if (RegExp(r'[\u0600-\u06FF]').hasMatch(value)) {
-  return "يجب ألا تحتوي كلمة المرور على أحرف عربية.";
-}
-                                return null;
-                              },
-                              controller: passSignUp,
-                              decoration: InputDecoration(
-                                hintText: 'كلمة المرور',
-                                prefixIcon: Padding(
-                                  padding:
-                                      const EdgeInsets.symmetric(horizontal: 8),
-                                  child: SizedBox(
-                                    width: 30,
-                                    height: 30,
-                                    child: SvgPicture.asset(
-                                      "icons/password.svg",
-                                      fit: BoxFit.contain,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                        SizedBox(
-                          width: widget.emailFieldWidthFactor /
-                              MediaQuery.of(context).size.width *
-                              32,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: SizedBox(
-                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
-                            child: TextFormField(
+  const SizedBox(
+                  height: defaultPadding,
+                ),
+                if (authController.isSignUp.value)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0, bottom: 0),
+                        child: SizedBox(
+                          width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                          child: TextFormField(
                             obscureText: true,
-                              validator: (value) {
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return "يرجى ادخال كلمة مرور";
+                              }
+                              if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                                return "يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل.";
+                              }
+                              if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                                return "يجب أن تحتوي كلمات المرور على رقم واحد على الأقل.";
+                              }
+                              if (!RegExp(r'^(?=.*?[!@#\$&*~])')
+                                  .hasMatch(value)) {
+                                return "يجب أن تحتوي كلمات المرور على رمز واحد على الأقل.";
+                              }
+                              if (RegExp(r'[\u0600-\u06FF]').hasMatch(value)) {
+                                return "يجب ألا تحتوي كلمة المرور على أحرف عربية.";
+                              }
+                              return null;
+                            },
+                            controller: passSignUp,
+                            decoration: InputDecoration(
+                              hintText: 'كلمة المرور',
+                              prefixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: SvgPicture.asset(
+                                    "icons/password.svg",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        width: widget.emailFieldWidthFactor /
+                            MediaQuery.of(context).size.width *
+                            32,
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 0, bottom: 0),
+                        child: SizedBox(
+                          width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                          child: TextFormField(
+                            obscureText: true,
+                            validator: (value) {
                               if (value!.isEmpty) {
                                 return "يرجى تأكيد كلمة المرور الخاصة بكـ";
                               }
@@ -408,121 +437,111 @@ class _SignInFormState extends State<SignInForm> {
                                 ),
                               ),
                             ),
-                            ),
                           ),
                         ),
-                      ],
-                    ),
-                      
-                        
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      
-                    
-                    
-                    
-                      SizedBox(
-                          width: widget.emailFieldWidthFactor /
-                              MediaQuery.of(context).size.width *
-                              32,
-                        ),
-                      
-                      
+                      ),
                     ],
                   ),
-                  if (!authController.isSignUp.value)
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            widget.onClose();
+                const SizedBox(
+                  height: defaultPadding,
+                ),
+                if (!authController.isSignUp.value)
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          widget.onClose();
 
-                            ForgotPasswordDialog(
-                              context,
-                              email.text,
-                              onValue: (_) {},
-                            );
-                          },
-                          child: const MouseRegion(
-                            cursor: SystemMouseCursors.click,
-                            child: Text(
-                              'نسيت كلمة السر؟',
-                              style: TextStyle(
-                                color: Color.fromARGB(255, 7, 24, 217),
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                          ),
-                        ),
-                        const Spacer(),
-                        const Text(
-                          'تذكرني',
-                          style: TextStyle(fontSize: 12.0),
-                        ),
-                        Checkbox(
-                          value: rememberMe,
-                          onChanged: (bool? value) {
-                            setState(() {
-                              rememberMe = value ?? false;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20, bottom: 10),
-                    child: CustomButton(
-                      width: widget.emailFieldWidthFactor,
-                      onTap: () async {
-                        if (_formKey.currentState!.validate()) {
-                          authController.isSignUp.value
-                              ? _submit()
-                              : singIn(context);
-                        }
-                      },
-                      buttonText: authController.isSignUp.value
-                          ? 'انشاء حساب'
-                          : 'تسجيل الدخول',
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      MouseRegion(
-                        cursor: SystemMouseCursors.click,
-                        child: GestureDetector(
-                          onTap: () {
-                            authController.isSignUp.value =
-                                !authController.isSignUp.value;
-                          },
+                          ForgotPasswordDialog(
+                            context,
+                            email.text,
+                            onValue: (_) {},
+                          );
+                        },
+                        child: const MouseRegion(
+                          cursor: SystemMouseCursors.click,
                           child: Text(
-                            authController.isSignUp.value
-                                ? "تسجيل الدخول "
-                                : 'انشاء حساب',
+                            'نسيت كلمة السر؟',
                             style: TextStyle(
-                              color: Theme.of(context).primaryColor,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15,
+                              color: Color.fromARGB(255, 7, 24, 217),
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ),
                       ),
-                      Text(
-                        authController.isSignUp.value
-                            ? "هل لديك حساب؟  "
-                            : "لا تملك حساب؟   ",
-                        style: const TextStyle(
-                          fontSize: 15,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w500,
-                        ),
+                      const Spacer(),
+                      const Text(
+                        'تذكرني',
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                      Checkbox(
+                        value: rememberMe,
+                        onChanged: (bool? value) {
+                          setState(() {
+                            rememberMe = value ?? false;
+                          });
+                        },
                       ),
                     ],
                   ),
-                ],
-              
+                    const SizedBox(
+                  height: defaultPadding,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 20, bottom: 10),
+                  child: CustomButton(
+                    width: widget.emailFieldWidthFactor,
+                    onTap: () async {
+                      if (_formKey.currentState!.validate()) {
+                        authController.isSignUp.value
+                            ? _submit()
+                            : signIn(context);
+                      }
+                    },
+                    buttonText: authController.isSignUp.value
+                        ? 'انشاء حساب'
+                        : 'تسجيل الدخول',
+                  ),
+                ),
+                  const SizedBox(
+                  height: defaultPadding,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MouseRegion(
+                      cursor: SystemMouseCursors.click,
+                      child: GestureDetector(
+                        onTap: () {
+                          authController.isSignUp.value =
+                              !authController.isSignUp.value;
+                        },
+                        child: Text(
+                          authController.isSignUp.value
+                              ? "تسجيل الدخول "
+                              : 'انشاء حساب',
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Text(
+                      authController.isSignUp.value
+                          ? "هل لديك حساب؟  "
+                          : "لا تملك حساب؟   ",
+                      style: const TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ),
           isShowLoading
