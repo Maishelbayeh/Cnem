@@ -297,34 +297,14 @@ class _SignInFormState extends State<SignInForm> {
                   const SizedBox(
                     height: 20,
                   ),
-                    if (!authController.isSignUp.value)
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                        if (!authController.isSignUp.value)
-                      Expanded(
-                        child: Padding(
+                      if (!authController.isSignUp.value)
+                       Padding(
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
                           child: SizedBox(
-                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            width: widget.emailFieldWidthFactor  ,
                             child: TextFormField(
                               obscureText: true,
-                              validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "Please enter your password.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
-                                //   return "Passwords must have at least one uppercase letter.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
-                                //   return "Passwords must have at least one digit.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[!@#\$&*~])')
-                                //     .hasMatch(value)) {
-                                //   return "Passwords must have at least one non-alphanumeric character.";
-                                // }
-                                return null;
-                              },
+                            
                               controller: pass,
                               decoration: InputDecoration(
                                 hintText: 'كلمة المرور',
@@ -344,29 +324,33 @@ class _SignInFormState extends State<SignInForm> {
                             ),
                           ),
                         ),
-                      ),
                         if (authController.isSignUp.value)
-                      Expanded(
-                        child: Padding(
+                          Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                         Padding(
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
                           child: SizedBox(
                             width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                             child: TextFormField(
                               obscureText: true,
-                              validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "Please enter your password.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
-                                //   return "Passwords must have at least one uppercase letter.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
-                                //   return "Passwords must have at least one digit.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[!@#\$&*~])')
-                                //     .hasMatch(value)) {
-                                //   return "Passwords must have at least one non-alphanumeric character.";
-                                // }
+                                validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "يرجى ادخال كلمة مرور";
+                                }
+                                if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                                  return "يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل.";
+                                }
+                                if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                                  return "يجب أن تحتوي كلمات المرور على رقم واحد على الأقل.";
+                                }
+                                if (!RegExp(r'^(?=.*?[!@#\$&*~])')
+                                    .hasMatch(value)) {
+                                  return "يجب أن تحتوي كلمات المرور على رمز واحد على الأقل.";
+                                }
+                                if (RegExp(r'[\u0600-\u06FF]').hasMatch(value)) {
+  return "يجب ألا تحتوي كلمة المرور على أحرف عربية.";
+}
                                 return null;
                               },
                               controller: passSignUp,
@@ -388,26 +372,25 @@ class _SignInFormState extends State<SignInForm> {
                             ),
                           ),
                         ),
-                      ),
-                      SizedBox(
-                        width: widget.emailFieldWidthFactor /
-                            MediaQuery.of(context).size.width *
-                            32,
-                      ),
-                        if (authController.isSignUp.value)
-                      Expanded(
-                        child: Padding(
+                        SizedBox(
+                          width: widget.emailFieldWidthFactor /
+                              MediaQuery.of(context).size.width *
+                              32,
+                        ),
+                        Padding(
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
-                          child: TextFormField(
+                          child: SizedBox(
+                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            child: TextFormField(
                             obscureText: true,
-                            validator: (value) {
-                              // if (value!.isEmpty) {
-                              //   return "Please confirm your password.";
-                              // }
-                              // if (value != pass.text) {
-                              //   return "Passwords do not match.";
-                              // }
-                              // return null;
+                              validator: (value) {
+                              if (value!.isEmpty) {
+                                return "يرجى تأكيد كلمة المرور الخاصة بكـ";
+                              }
+                              if (value != pass.text) {
+                                return "كلمة المرور غير مطابقة.";
+                              }
+                              return null;
                             },
                             controller: confirmPassword,
                             decoration: InputDecoration(
@@ -425,9 +408,27 @@ class _SignInFormState extends State<SignInForm> {
                                 ),
                               ),
                             ),
+                            ),
                           ),
                         ),
-                      ),
+                      ],
+                    ),
+                      
+                        
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      
+                    
+                    
+                    
+                      SizedBox(
+                          width: widget.emailFieldWidthFactor /
+                              MediaQuery.of(context).size.width *
+                              32,
+                        ),
+                      
+                      
                     ],
                   ),
                   if (!authController.isSignUp.value)

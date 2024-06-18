@@ -1,5 +1,6 @@
 import 'package:cenem/view/custom%20componant/subtitle_text.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
+import 'package:cenem/view/onbonding/register_form.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -134,6 +135,7 @@ class DialogContent extends StatelessWidget {
                   () => SingleChildScrollView(
                     child: Column(
                       children: [
+                        const SizedBox(height:defaultPadding,),
                         (kIsWeb && Responsive.isLargeMobile(context)
                             ? Responsive(
                                 desktop: ColoredText(
