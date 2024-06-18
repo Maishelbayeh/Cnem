@@ -1,8 +1,12 @@
+import 'package:cenem/Api/UserSignUpApi.dart';
 import 'package:cenem/Api/loginApi.dart';
+import 'package:cenem/model/userModel.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
+import 'package:cenem/view/onbonding/coniform_email_page.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
+import 'package:cenem/view/onbonding/sign_page.dart';
 import 'package:cenem/view/user/main.dart';
 
 import 'package:flutter/material.dart';
@@ -27,6 +31,7 @@ class SignInForm extends StatefulWidget {
 }
 
 class _SignInFormState extends State<SignInForm> {
+  late User user;
   bool rememberMe = false;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   bool isShowLoading = false;
@@ -36,7 +41,9 @@ class _SignInFormState extends State<SignInForm> {
   late SMITrigger reset;
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
-
+  TextEditingController confirmPassword = TextEditingController();
+  TextEditingController phone = TextEditingController();
+  TextEditingController username = TextEditingController();
   late SMITrigger confetti;
 
   void _onCheckRiveInit(Artboard artboard) {
@@ -66,7 +73,7 @@ class _SignInFormState extends State<SignInForm> {
     Future.delayed(
       const Duration(seconds: 1),
       () async {
-        if (await loginUser(email.text, pass.text, true)) {
+        if (await loginUser(email.text, pass.text, rememberMe)) {
           success.fire();
           Future.delayed(
             const Duration(seconds: 2),
@@ -104,13 +111,37 @@ class _SignInFormState extends State<SignInForm> {
 
   final AuthController authController = Get.put(AuthController());
 
-  void nav() {
+  void nav(String email) {
+    print(email);
     widget.onClose();
 
     ForgotPasswordDialog(
       context,
+      email,
       onValue: (_) {},
     );
+  }
+
+  void _submit() async {
+    if (_formKey.currentState!.validate()) {
+      final user = User(
+          userName: username.text,
+          email: email.text,
+          phone: phone.text,
+          password: pass.text,
+          confirmPassword: confirmPassword.text);
+
+      bool success = await signUpUser(user);
+
+      if (success) {
+        print(user.email);
+        nav(user.email);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text('Sign up failed')),
+        );
+      }
+    }
   }
 
   @override
@@ -134,15 +165,16 @@ class _SignInFormState extends State<SignInForm> {
                             width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                             child: TextFormField(
                               validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "";
-                                }
-                                return null;
+                                // if (value!.isEmpty) {
+                                //   return "";
+                                // }
+                                // return null;
                               },
+                              controller: username,
                               keyboardType: TextInputType.name,
                               textInputAction: TextInputAction.next,
-                              controller: email,
                               decoration: InputDecoration(
+                                hintText: "اسم المستخدم",
                                 prefixIcon: Padding(
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
@@ -170,14 +202,16 @@ class _SignInFormState extends State<SignInForm> {
                             width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                             child: TextFormField(
                               validator: (value) {
-                                if (value!.isEmpty) {
-                                  return "";
-                                }
-                                return null;
+                                // if (value!.isEmpty) {
+                                //   return "";
+                                // }
+                                // return null;
                               },
+                              controller: phone,
                               keyboardType: TextInputType.emailAddress,
                               textInputAction: TextInputAction.next,
                               decoration: InputDecoration(
+                                hintText: 'رقم الهاتف',
                                 prefixIcon: Padding(
                                   padding:
                                       const EdgeInsets.symmetric(horizontal: 8),
@@ -196,11 +230,15 @@ class _SignInFormState extends State<SignInForm> {
                         ),
                       ],
                     ),
-                  const Text(
-                    "البريد الالكتروني",
-                    style: TextStyle(
-                      color: Colors.black54,
+                  if (!authController.isSignUp.value)
+                    const Text(
+                      "البريد الالكتروني",
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),
                     ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -208,15 +246,16 @@ class _SignInFormState extends State<SignInForm> {
                       width: widget.emailFieldWidthFactor,
                       child: TextFormField(
                         validator: (value) {
-                          if (value!.isEmpty) {
-                            return "";
-                          }
-                          return null;
+                          // if (value!.isEmpty) {
+                          //   return "";
+                          // }
+                          // return null;
                         },
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
                         controller: email,
                         decoration: InputDecoration(
+                          hintText: "البريد الالكتروني",
                           prefixIcon: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 8),
                             child: SizedBox(
@@ -232,40 +271,101 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                  const Text(
-                    "كلمة السر",
-                    style: TextStyle(
-                      color: Colors.black54,
+                  if (!authController.isSignUp.value)
+                    const Text(
+                      "كلمة السر",
+                      style: TextStyle(
+                        color: Colors.black54,
+                      ),
                     ),
+                  const SizedBox(
+                    height: 20,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 16),
-                    child: SizedBox(
-                      width: widget.passwordFieldWidthFactor,
-                      child: TextFormField(
-                        obscureText: true,
-                        validator: (value) {
-                          if (value!.isEmpty) {
-                            return "";
-                          }
-                          return null;
-                        },
-                        controller: pass,
-                        decoration: InputDecoration(
-                          prefixIcon: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 8),
-                            child: SizedBox(
-                              width: 30,
-                              height: 30,
-                              child: SvgPicture.asset(
-                                "icons/password.svg",
-                                fit: BoxFit.contain,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          child: SizedBox(
+                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            child: TextFormField(
+                              obscureText: true,
+                              validator: (value) {
+                                // if (value!.isEmpty) {
+                                //   return "Please enter your password.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                                //   return "Passwords must have at least one uppercase letter.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                                //   return "Passwords must have at least one digit.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[!@#\$&*~])')
+                                //     .hasMatch(value)) {
+                                //   return "Passwords must have at least one non-alphanumeric character.";
+                                // }
+                                return null;
+                              },
+                              controller: pass,
+                              decoration: InputDecoration(
+                                hintText: 'كلمة المرور',
+                                prefixIcon: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: SvgPicture.asset(
+                                      "icons/password.svg",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
                               ),
                             ),
                           ),
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        width: widget.emailFieldWidthFactor /
+                            MediaQuery.of(context).size.width *
+                            32,
+                      ),
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          child: TextFormField(
+                            obscureText: true,
+                            validator: (value) {
+                              // if (value!.isEmpty) {
+                              //   return "Please confirm your password.";
+                              // }
+                              // if (value != pass.text) {
+                              //   return "Passwords do not match.";
+                              // }
+                              // return null;
+                            },
+                            controller: confirmPassword,
+                            decoration: InputDecoration(
+                              hintText: 'تأكيد كلمة المرور',
+                              prefixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8),
+                                child: SizedBox(
+                                  width: 30,
+                                  height: 30,
+                                  child: SvgPicture.asset(
+                                    "icons/password.svg",
+                                    fit: BoxFit.contain,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                   if (!authController.isSignUp.value)
                     Row(
@@ -277,6 +377,7 @@ class _SignInFormState extends State<SignInForm> {
 
                             ForgotPasswordDialog(
                               context,
+                              email.text,
                               onValue: (_) {},
                             );
                           },
@@ -307,11 +408,15 @@ class _SignInFormState extends State<SignInForm> {
                       ],
                     ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 8, bottom: 10),
+                    padding: const EdgeInsets.only(top: 20, bottom: 10),
                     child: CustomButton(
                       width: widget.emailFieldWidthFactor,
                       onTap: () async {
-                        authController.isSignUp.value ? nav() : singIn(context);
+                        if (_formKey.currentState!.validate()) {
+                          authController.isSignUp.value
+                              ? _submit()
+                              : singIn(context);
+                        }
                       },
                       buttonText: authController.isSignUp.value
                           ? 'انشاء حساب'

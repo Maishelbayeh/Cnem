@@ -9,10 +9,22 @@ import 'package:cenem/view/intro/components/intro_body.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:cenem/view/main/components/navigation_bar.dart';
 import 'package:flutter/foundation.dart';
+import 'package:cenem/res/constants.dart';
+import 'package:cenem/view%20model/responsive.dart';
+import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/intro/components/Icon.dart';
+import 'package:cenem/view/intro/components/combine_subtitle.dart';
+import 'package:cenem/view/intro/components/description_text.dart';
+import 'package:cenem/view/intro/components/headline.dart';
+import 'package:cenem/view/intro/components/intro_body.dart';
+import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
+import 'package:cenem/view/main/components/navigation_bar.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import 'package:cenem/view/intro/introduction.dart';
 import 'package:cenem/view/main/main_view.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -39,22 +51,18 @@ class HomePage extends StatelessWidget {
             height: 80,
             child: TopNavigationBar(),
           ),
-          
-  if (!Responsive.isDesktop(context))
-            
-              const  Center(
-                    child: CustomIconRow(),
-                  ),
-                
-              
+          if (!Responsive.isDesktop(context))
+            const Center(
+              child: CustomIconRow(),
+            ),
           if (Responsive.isDesktop(context))
             const Expanded(child: Introduction())
           else
-          Expanded(
-            child: SingleChildScrollView(
-              child: NewWidget(size: size, s: s),
+            Expanded(
+              child: SingleChildScrollView(
+                child: NewWidget(size: size, s: s),
+              ),
             ),
-          ),
         ],
       ),
     );
@@ -77,7 +85,9 @@ class NewWidget extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 50,),
+          const SizedBox(
+            height: 50,
+          ),
           const AnimatedImageContainer(
             width: 150,
             height: 200,
@@ -93,13 +103,13 @@ class NewWidget extends StatelessWidget {
           const SizedBox(height: defaultPadding * 2),
           Responsive(
             desktop: AnimatedDescriptionText(start: 14, end: 12, text: s),
-            largeMobile:
-                AnimatedDescriptionText(start: 14, end: 12, text: s),
+            largeMobile: AnimatedDescriptionText(start: 14, end: 12, text: s),
             mobile: AnimatedDescriptionText(start: 10, end: 12, text: s),
             tablet: AnimatedDescriptionText(start: 20, end: 25, text: s),
           ),
           CustomButton(
-            onTap: () => launchUrl(Uri.parse("https://drive.google.com/file/d/1tT_sNbd3EAyDwoIhIgdsoOeKyb6-aBxh/view?usp=drive_link")),
+            onTap: () => launchUrl(Uri.parse(
+                "https://drive.google.com/file/d/1tT_sNbd3EAyDwoIhIgdsoOeKyb6-aBxh/view?usp=drive_link")),
             buttonText: "الفيديو التعريفي",
             width: 150,
             height: 30,
@@ -109,4 +119,3 @@ class NewWidget extends StatelessWidget {
     );
   }
 }
-

@@ -29,6 +29,7 @@ class SignUpTextField extends StatelessWidget {
         decoration: InputDecoration(
           border: InputBorder.none,
           prefixIcon: Icon(icon, size: 30),
+          hintText: labelText,
           labelText: labelText,
           labelStyle: TextStyle(
             fontSize: 18,

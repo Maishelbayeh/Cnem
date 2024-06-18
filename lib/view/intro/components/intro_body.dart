@@ -1,7 +1,9 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/intro/components/headline.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../res/constants.dart';
 import '../../../view model/responsive.dart';
@@ -15,9 +17,9 @@ class IntroBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.sizeOf(context);
     String s = 'استثمر وقتك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
+    String s = 'استثمر وقتك و اربح الاضعاف و  تعلم كسب الاموال بدورات مجانيه ';
     return Row(
       children: [
-        
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -26,7 +28,6 @@ class IntroBody extends StatelessWidget {
                 height: size.height * 0.04,
               ),
             const CombinetitleText(),
-
             if (!Responsive.isDesktop(context))
               const SizedBox(
                 height: 5,
@@ -52,7 +53,6 @@ class IntroBody extends StatelessWidget {
             const SizedBox(
               height: defaultPadding * 2,
             ),
-          
           ],
         ),
       ],

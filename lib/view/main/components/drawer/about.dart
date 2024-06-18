@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:cenem/model/user_model.dart';
+=======
+import 'package:cenem/model/member_model.dart';
+>>>>>>> origin/gh-pages
 import 'package:cenem/view/custom%20componant/customtext.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/res/constants.dart';

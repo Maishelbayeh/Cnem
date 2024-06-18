@@ -13,6 +13,7 @@ class CustomIconRow extends StatelessWidget {
         icon: Icon(
           iconData,
           color: iconColor,
+<<<<<<< HEAD
           size:Responsive.isMobile(context)?25: 30,
         ),
       ),
@@ -21,6 +22,15 @@ class CustomIconRow extends StatelessWidget {
         style: TextStyle(
           color: Color.fromARGB(255, 5, 137, 73),
           fontSize: Responsive.isMobile(context) ? 10 :20
+=======
+          size: 30,
+        ),
+      ),
+      label: const Text(
+        'تواصل معنا عبر',
+        style: TextStyle(
+          color: Color.fromARGB(255, 5, 137, 73),
+>>>>>>> origin/gh-pages
         ),
       ),
       onPressed: () => launchUrl(Uri.parse(url)),
@@ -46,7 +56,11 @@ class CustomIconRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double buttonHeight = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? 150 : 40;
+<<<<<<< HEAD
       double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.41;
+=======
+      double buttonWidth = Responsive.isDesktop(context) || Responsive.isExtraLargeScreen(context) ? MediaQuery.sizeOf(context).width/4 : MediaQuery.sizeOf(context).width*0.4;
+>>>>>>> origin/gh-pages
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       mainAxisAlignment: MainAxisAlignment.center,
@@ -57,7 +71,11 @@ class CustomIconRow extends StatelessWidget {
           buttonHeight,
           buttonWidth,
         ),
+<<<<<<< HEAD
         const SizedBox(width: 20),
+=======
+        const SizedBox(width: 16),
+>>>>>>> origin/gh-pages
         buildSizedBox(
           context,
           buildButton(context, FontAwesomeIcons.telegram, Color.fromARGB(255, 105, 175, 240), 'https://t.me/+dcwDj7c6bYcyOTNk'),

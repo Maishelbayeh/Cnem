@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import 'package:cenem/model/user_model.dart';
+=======
+import 'package:cenem/model/member_model.dart';
+>>>>>>> origin/gh-pages
 import 'package:flutter/material.dart';
 
 import '../../../../res/constants.dart';
