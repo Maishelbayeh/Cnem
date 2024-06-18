@@ -165,10 +165,10 @@ class _SignInFormState extends State<SignInForm> {
                             width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                             child: TextFormField(
                               validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "";
-                                // }
-                                // return null;
+                                if (value!.isEmpty) {
+                                  return "";
+                                }
+                                return null;
                               },
                               controller: username,
                               keyboardType: TextInputType.name,
@@ -202,10 +202,10 @@ class _SignInFormState extends State<SignInForm> {
                             width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                             child: TextFormField(
                               validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "";
-                                // }
-                                // return null;
+                                if (value!.isEmpty) {
+                                  return "";
+                                }
+                                return null;
                               },
                               controller: phone,
                               keyboardType: TextInputType.emailAddress,
@@ -246,10 +246,10 @@ class _SignInFormState extends State<SignInForm> {
                       width: widget.emailFieldWidthFactor,
                       child: TextFormField(
                         validator: (value) {
-                          // if (value!.isEmpty) {
-                          //   return "";
-                          // }
-                          // return null;
+                          if (value!.isEmpty) {
+                            return "";
+                          }
+                          return null;
                         },
                         keyboardType: TextInputType.emailAddress,
                         textInputAction: TextInputAction.next,
@@ -292,19 +292,19 @@ class _SignInFormState extends State<SignInForm> {
                             child: TextFormField(
                               obscureText: true,
                               validator: (value) {
-                                // if (value!.isEmpty) {
-                                //   return "Please enter your password.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
-                                //   return "Passwords must have at least one uppercase letter.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
-                                //   return "Passwords must have at least one digit.";
-                                // }
-                                // if (!RegExp(r'^(?=.*?[!@#\$&*~])')
-                                //     .hasMatch(value)) {
-                                //   return "Passwords must have at least one non-alphanumeric character.";
-                                // }
+                                if (value!.isEmpty) {
+                                  return "Please enter your password.";
+                                }
+                                if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                                  return "Passwords must have at least one uppercase letter.";
+                                }
+                                if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                                  return "Passwords must have at least one digit.";
+                                }
+                                if (!RegExp(r'^(?=.*?[!@#\$&*~])')
+                                    .hasMatch(value)) {
+                                  return "Passwords must have at least one non-alphanumeric character.";
+                                }
                                 return null;
                               },
                               controller: pass,
@@ -338,13 +338,13 @@ class _SignInFormState extends State<SignInForm> {
                           child: TextFormField(
                             obscureText: true,
                             validator: (value) {
-                              // if (value!.isEmpty) {
-                              //   return "Please confirm your password.";
-                              // }
-                              // if (value != pass.text) {
-                              //   return "Passwords do not match.";
-                              // }
-                              // return null;
+                              if (value!.isEmpty) {
+                                return "Please confirm your password.";
+                              }
+                              if (value != pass.text) {
+                                return "Passwords do not match.";
+                              }
+                              return null;
                             },
                             controller: confirmPassword,
                             decoration: InputDecoration(
