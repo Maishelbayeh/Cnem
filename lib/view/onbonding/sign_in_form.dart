@@ -37,7 +37,9 @@ class _SignInFormState extends State<SignInForm> {
   late SMITrigger success;
   late SMITrigger reset;
   TextEditingController email = TextEditingController();
+    TextEditingController emailSignUp = TextEditingController();
   TextEditingController pass = TextEditingController();
+  TextEditingController passSignUp = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController phone = TextEditingController();
   TextEditingController username = TextEditingController();
@@ -123,9 +125,9 @@ class _SignInFormState extends State<SignInForm> {
     if (_formKey.currentState!.validate()) {
       final user = User(
           userName: username.text,
-          email: email.text,
+          email: emailSignUp.text,
           phone: phone.text,
-          password: pass.text,
+          password: passSignUp.text,
           confirmPassword: confirmPassword.text);
 
       bool success = await signUpUser(user);
@@ -148,8 +150,7 @@ class _SignInFormState extends State<SignInForm> {
         children: [
           Form(
             key: _formKey,
-            child: SingleChildScrollView(
-              child: Column(
+            child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   if (authController.isSignUp.value)
@@ -227,16 +228,8 @@ class _SignInFormState extends State<SignInForm> {
                         ),
                       ],
                     ),
+                  
                   if (!authController.isSignUp.value)
-                    const Text(
-                      "البريد الالكتروني",
-                      style: TextStyle(
-                        color: Colors.black54,
-                      ),
-                    ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
@@ -268,19 +261,47 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                  if (!authController.isSignUp.value)
-                    const Text(
-                      "كلمة السر",
-                      style: TextStyle(
-                        color: Colors.black54,
+                    if (authController.isSignUp.value)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 0, bottom: 0),
+                    child: SizedBox(
+                      width: widget.emailFieldWidthFactor,
+                      child: TextFormField(
+                        validator: (value) {
+                          // if (value!.isEmpty) {
+                          //   return "";
+                          // }
+                          // return null;
+                        },
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
+                        controller: emailSignUp,
+                        decoration: InputDecoration(
+                          hintText: "البريد الالكتروني",
+                          prefixIcon: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: SizedBox(
+                              width: 30,
+                              height: 30,
+                              child: SvgPicture.asset(
+                                "icons/email.svg",
+                                fit: BoxFit.contain,
+                              ),
+                            ),
+                          ),
+                        ),
                       ),
                     ),
+                  ),
+                  
                   const SizedBox(
                     height: 20,
                   ),
+                    if (!authController.isSignUp.value)
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
+                        if (!authController.isSignUp.value)
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -324,11 +345,56 @@ class _SignInFormState extends State<SignInForm> {
                           ),
                         ),
                       ),
+                        if (authController.isSignUp.value)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.only(top: 0, bottom: 0),
+                          child: SizedBox(
+                            width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
+                            child: TextFormField(
+                              obscureText: true,
+                              validator: (value) {
+                                // if (value!.isEmpty) {
+                                //   return "Please enter your password.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                                //   return "Passwords must have at least one uppercase letter.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                                //   return "Passwords must have at least one digit.";
+                                // }
+                                // if (!RegExp(r'^(?=.*?[!@#\$&*~])')
+                                //     .hasMatch(value)) {
+                                //   return "Passwords must have at least one non-alphanumeric character.";
+                                // }
+                                return null;
+                              },
+                              controller: passSignUp,
+                              decoration: InputDecoration(
+                                hintText: 'كلمة المرور',
+                                prefixIcon: Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
+                                  child: SizedBox(
+                                    width: 30,
+                                    height: 30,
+                                    child: SvgPicture.asset(
+                                      "icons/password.svg",
+                                      fit: BoxFit.contain,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
                       SizedBox(
                         width: widget.emailFieldWidthFactor /
                             MediaQuery.of(context).size.width *
                             32,
                       ),
+                        if (authController.isSignUp.value)
                       Expanded(
                         child: Padding(
                           padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -455,7 +521,7 @@ class _SignInFormState extends State<SignInForm> {
                     ],
                   ),
                 ],
-              ),
+              
             ),
           ),
           isShowLoading
