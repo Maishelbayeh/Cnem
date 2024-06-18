@@ -1,5 +1,6 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
+import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/onbonding/coniform_email_page.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -45,7 +46,12 @@ class _RegisterFormState extends State<RegisterForm> {
                     children: [
                       IconButton(
                         onPressed: () {
-                          Navigator.pop(context);
+                            Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                            const  HomePage()),
+                      );
                         },
                         icon: Icon(
                           Icons.arrow_back,

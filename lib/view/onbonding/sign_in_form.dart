@@ -2,11 +2,8 @@ import 'package:cenem/Api/UserSignUpApi.dart';
 import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/model/userModel.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
-import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
-import 'package:cenem/view/onbonding/coniform_email_page.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
-import 'package:cenem/view/onbonding/sign_page.dart';
 import 'package:cenem/view/user/main.dart';
 
 import 'package:flutter/material.dart';
@@ -82,7 +79,7 @@ class _SignInFormState extends State<SignInForm> {
                 isShowLoading = false;
               });
               confetti.fire();
-              // Navigate & hide confetti
+              
               Future.delayed(const Duration(seconds: 1), () {
                 // Navigator.pop(context);
                 Navigator.pop(context);

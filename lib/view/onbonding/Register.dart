@@ -19,7 +19,7 @@ class _RegisterState extends State<Register> {
       child: Scaffold(
         body: widget.sign
             ? const RegisterForm()
-            : const SignInPage(), // No need for !
+            : const SignInPage(), 
       ),
     );
   }
