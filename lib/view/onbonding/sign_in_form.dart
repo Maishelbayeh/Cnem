@@ -253,8 +253,6 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ],
                   ),
-                
-                
                 if (!authController.isSignUp.value)
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -287,9 +285,9 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-                    const SizedBox(
-                    height: defaultPadding,
-                  ),
+                const SizedBox(
+                  height: defaultPadding,
+                ),
                 if (authController.isSignUp.value)
                   Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
@@ -350,7 +348,7 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ),
                   ),
-  const SizedBox(
+                const SizedBox(
                   height: defaultPadding,
                 ),
                 if (authController.isSignUp.value)
@@ -485,7 +483,7 @@ class _SignInFormState extends State<SignInForm> {
                       ),
                     ],
                   ),
-                    const SizedBox(
+                const SizedBox(
                   height: defaultPadding,
                 ),
                 Padding(
@@ -504,7 +502,7 @@ class _SignInFormState extends State<SignInForm> {
                         : 'تسجيل الدخول',
                   ),
                 ),
-                  const SizedBox(
+                const SizedBox(
                   height: defaultPadding,
                 ),
                 Row(
