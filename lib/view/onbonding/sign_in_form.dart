@@ -131,6 +131,7 @@ class _SignInFormState extends State<SignInForm> {
     ForgotPasswordDialog(
       context,
       email,
+      true,
       onValue: (_) {},
     );
   }
@@ -414,7 +415,7 @@ class _SignInFormState extends State<SignInForm> {
                               if (value!.isEmpty) {
                                 return "يرجى تأكيد كلمة المرور الخاصة بكـ";
                               }
-                              if (value != pass.text) {
+                              if (value != passSignUp.text) {
                                 return "كلمة المرور غير مطابقة.";
                               }
                               return null;
@@ -454,6 +455,7 @@ class _SignInFormState extends State<SignInForm> {
                           ForgotPasswordDialog(
                             context,
                             email.text,
+                            false,
                             onValue: (_) {},
                           );
                         },

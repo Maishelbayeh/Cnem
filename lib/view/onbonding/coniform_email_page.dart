@@ -18,6 +18,7 @@ class ConformEmailPage extends StatelessWidget {
       body: Center(
         child: OTP(
           email: email,
+          isSign: true,
           defaultPinTheme: PinTheme(
             width: 56,
             height: 56,

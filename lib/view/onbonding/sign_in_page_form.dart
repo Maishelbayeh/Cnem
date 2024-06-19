@@ -4,6 +4,7 @@ import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
 import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/view/onbonding/forget_pass_dialog.dart';
+import 'package:cenem/view/onbonding/forgot__password_page.dart';
 import 'package:cenem/view/onbonding/register_form.dart';
 
 import 'package:cenem/view/user/main.dart';
@@ -232,10 +233,14 @@ class _SignInPageState extends State<SignInPage> {
                         onTap: () {
                           //  widget.onClose();
 
-                          ForgotPasswordDialog(
+                          Navigator.push(
                             context,
-                            email.text,
-                            onValue: (_) {},
+                            MaterialPageRoute(
+                                builder: (context) => ForgotPasswordScreen(
+                                  isSign: false,
+                                      confirmEmail: email.text,
+                                      onValue: (_) {},
+                                    )),
                           );
                         },
                         child: const MouseRegion(

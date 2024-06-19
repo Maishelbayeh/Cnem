@@ -8,7 +8,7 @@ import '../../view model/getx_controllers/courses_controller.dart';
 
 final controller = Get.put(CourseController());
 
-void ForgotPasswordDialog(BuildContext context, String Confirmemail,
+void ForgotPasswordDialog(BuildContext context, String Confirmemail, bool isSign,
     {required ValueChanged onValue}) {
   showGeneralDialog(
     context: context,
@@ -18,11 +18,11 @@ void ForgotPasswordDialog(BuildContext context, String Confirmemail,
     transitionDuration: const Duration(milliseconds: 400),
     pageBuilder: (_, __, ___) {
       return Responsive(
-        desktop: _buildDialog(context, 0.6, 0.7, Confirmemail),
-        largeMobile: _buildDialog(context, 0.8, 0.7, Confirmemail),
-        mobile: _buildDialog(context, 0.8, 0.6, Confirmemail),
-        tablet: _buildDialog(context, 0.8, 0.7, Confirmemail),
-        extraLargeScreen: _buildDialog(context, 0.6, 0.7, Confirmemail),
+        desktop: _buildDialog(context, 0.6, 0.7, Confirmemail,isSign),
+        largeMobile: _buildDialog(context, 0.8, 0.7, Confirmemail,isSign),
+        mobile: _buildDialog(context, 0.8, 0.6, Confirmemail,isSign),
+        tablet: _buildDialog(context, 0.8, 0.7, Confirmemail,isSign),
+        extraLargeScreen: _buildDialog(context, 0.6, 0.7, Confirmemail,isSign),
       );
     },
     transitionBuilder: (_, anim, __, child) {
@@ -40,6 +40,7 @@ Widget _buildDialog(
   double widthFactor,
   double heightFactor,
   String Confirmemail,
+  bool isSign
 ) {
   final Size screenSize = MediaQuery.of(context).size;
   double dialogWidth = screenSize.width * widthFactor;
@@ -70,6 +71,7 @@ Widget _buildDialog(
           defaultPinTheme: defaultPinTheme,
           onCompleted: (pin) => debugPrint(pin),
           text: '',
+          isSign: isSign,
           email: Confirmemail),
     ),
   );

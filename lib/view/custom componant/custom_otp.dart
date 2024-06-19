@@ -1,3 +1,4 @@
+import 'package:cenem/view/home/home.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
@@ -12,12 +13,14 @@ class OTP extends StatelessWidget {
   final Function(String) onCompleted;
   final String text;
   final String email;
+  final bool isSign;
 
   OTP({
     required this.defaultPinTheme,
     required this.onCompleted,
     required this.text,
     required this.email,
+    required this.isSign,
   });
 
   @override
@@ -63,17 +66,23 @@ class OTP extends StatelessWidget {
               ),
               CustomButton(
                 onTap: () async {
-                  bool success = await _submit(_otpCode, email);
-                  if (success) {
-                    conditionDialog(
-                      context,
-                      onValue: (_) {},
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Verification failed')),
-                    );
-                  }
+                    isSign
+                        ? conditionDialog(
+                            context,
+                            onValue: (_) {},
+                          )
+                        : Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => HomePage()),
+                          );
+                  // bool success = await _submit(_otpCode, email);
+                  // if (success) {
+                  
+                  // } else {
+                  //   ScaffoldMessenger.of(context).showSnackBar(
+                  //     SnackBar(content: Text('Verification failed')),
+                  //   );
+                  // }
                 },
                 buttonText: "تـحـقـق",
                 width: 150,
