@@ -5,7 +5,7 @@ import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-Future<bool> signUpUser(User user) async {
+Future<String> signUpUser(User user) async {
   final String proxyUrl = 'http://${proxyurl}/Account/register';
 
   final Map<String, String> headers = {
@@ -26,19 +26,24 @@ Future<bool> signUpUser(User user) async {
 
     if (response.statusCode == 200 || response.statusCode == 201) {
       print('Sign-up successful!');
-
-      return true;
+      return 'success';
     } else {
       print('Failed to sign up. Status code: ${response.statusCode}');
       print('Response body: ${response.body}');
-      return false;
+      
+      if (response.body.contains('email already exists')) {
+        return 'email-already-exists';
+      } else {
+        return 'sign-up-failed';
+      }
     }
   } catch (e) {
     print('Error during sign-up: $e');
     showErrorDialog('Error during sign-up: $e');
-    return false;
+    return 'error';
   }
 }
+
 
 void showErrorDialog(String errorMessage) {
   window.alert(errorMessage);

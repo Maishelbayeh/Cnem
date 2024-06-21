@@ -1,6 +1,4 @@
-import 'dart:convert';
 import 'package:cenem/res/constants.dart';
-import 'package:cenem/view/onbonding/condition_dialog.dart';
 import 'package:http/http.dart' as http;
 
 Future<bool> confirmEmail(String code, String email) async {

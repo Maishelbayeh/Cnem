@@ -2,7 +2,7 @@ import 'package:cenem/view/onbonding/term_condition_form.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cenem/view%20model/responsive.dart';
-import '../../view model/getx_controllers/courses_controller.dart';
+import 'package:cenem/view model/getx_controllers/courses_controller.dart';
 
 final controller = Get.put(CourseController());
 

@@ -1,5 +1,4 @@
 import 'package:cenem/view%20model/responsive.dart';
-import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/onbonding/bank_info_page.dart';
 import 'package:flutter/material.dart';
 
