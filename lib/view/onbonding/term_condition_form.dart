@@ -1,6 +1,11 @@
 import 'package:cenem/view%20model/responsive.dart';
+import 'package:cenem/view/onbonding/auth_controller.dart';
 import 'package:cenem/view/onbonding/bank_info_page.dart';
+import 'package:cenem/view/onbonding/sign_dialog.dart';
+import 'package:cenem/view/onbonding/sign_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class TermsAndConditionsPage extends StatefulWidget {
   @override
@@ -10,6 +15,8 @@ class TermsAndConditionsPage extends StatefulWidget {
 class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
   bool _isChecked = false;
 
+  final AuthController authController = Get.put(AuthController());
+
   void _onCheckedChanged(bool? value) {
     setState(() {
       _isChecked = value ?? false;
@@ -18,10 +25,22 @@ class _TermsAndConditionsPageState extends State<TermsAndConditionsPage> {
 
   void _onNextPressed() {
     if (_isChecked) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => bankInfo()),
-      );
+      authController.setSignUp(true);
+
+      if (Responsive.isLargeMobile(context) || Responsive.isMobile(context)) {
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const SignUp(sign: true),
+          ),
+        );
+      } else {
+        showSignUpDialog(
+          context,
+          onValue: (_) {},
+        );
+      }
+
       print("Navigating to the next page...");
     }
   }

@@ -1,91 +1,69 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
-import '../../../res/constants.dart';
-import '../../../view model/responsive.dart';
-import 'package:flick_video_player/flick_video_player.dart';
-
-class VideoContainer extends StatefulWidget {
-  VideoContainer({Key? key, this.height = 300, this.width = 250})
-      : super(key: key);
-  final double? width;
-  final double? height;
-  final FlickManager flickManager = FlickManager(
-    videoPlayerController: VideoPlayerController.asset(
-      'videos/cnem.mp4',
-    ),
-  );
+class VideoPlayerScreen extends StatefulWidget {
   @override
-  VideoContainerState createState() => VideoContainerState();
+  _VideoPlayerScreenState createState() => _VideoPlayerScreenState();
 }
 
-class VideoContainerState extends State<VideoContainer>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
+class _VideoPlayerScreenState extends State<VideoPlayerScreen> {
+  late VideoPlayerController _controller;
 
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..repeat(reverse: true); // Repeat the animation loop
+    _controller = VideoPlayerController.asset('assets/videos/cnem.mp4')
+      ..initialize().then((_) {
+        setState(
+            () {}); // Ensure the first frame is shown after the video is initialized
+        _controller.play(); // Auto play the video
+      });
   }
 
   @override
   void dispose() {
     _controller.dispose();
-    widget.flickManager.dispose(); // Dispose the FlickManager
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
-      child: AnimatedBuilder(
-        animation: _controller,
-        builder: (context, child) {
-          final value = _controller.value;
-          return Transform.translate(
-            offset: Offset(0, 2 * value), // Move the container up and down
-            child: Container(
-              height: widget.height!,
-              width: widget.width!,
-              padding: const EdgeInsets.all(defaultPadding / 4),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
-                gradient: const LinearGradient(colors: [
-                  Colors.pinkAccent,
-                  Colors.blue,
-                ]),
-                boxShadow: const [
-                  BoxShadow(
-                    color: Colors.pink,
-                    offset: Offset(-2, 0),
-                    blurRadius: 20,
-                  ),
-                  BoxShadow(
-                    color: Colors.blue,
-                    offset: Offset(2, 0),
-                    blurRadius: 20,
-                  ),
-                ],
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(30),
-                child: FlickVideoPlayer(
-                  flickManager: widget.flickManager,
-                  flickVideoWithControls: const FlickVideoWithControls(
-                    controls: FlickPortraitControls(), // Use portrait controls
-                    videoFit: BoxFit.cover, // Set the fit of the video
-                  ),
-                ),
-              ),
-            ),
-          );
+    return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 255, 255, 255),
+        leading: IconButton(
+          icon: Icon(Icons.close),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+          color: Color.fromARGB(255, 0, 0, 0),
+        ),
+      ),
+      body: Center(
+        child: _controller.value.isInitialized
+            ? AspectRatio(
+                aspectRatio: _controller.value.aspectRatio,
+                child: VideoPlayer(_controller),
+              )
+            : CircularProgressIndicator(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            _controller.value.isPlaying
+                ? _controller.pause()
+                : _controller.play();
+          });
         },
+        child: Icon(
+          _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+        ),
       ),
     );
   }
 }
+
+void main() => runApp(MaterialApp(
+      home: VideoPlayerScreen(),
+    ));

@@ -1,6 +1,7 @@
 import 'package:cenem/Api/config.dart';
 import 'package:cenem/Api/loginApi.dart';
 import 'package:cenem/view/about%20us/AboutUs.dart';
+import 'package:cenem/view/home/home.dart';
 import 'package:cenem/view/splash/splash_view.dart';
 
 import 'package:flutter/material.dart';
@@ -42,6 +43,6 @@ class MyApp extends StatelessWidget {
             TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),
           }),
         ),
-        home: const SplashView());
+        home: HomePage());
   }
 }

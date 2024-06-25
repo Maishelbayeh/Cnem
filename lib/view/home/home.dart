@@ -8,6 +8,7 @@ import 'package:cenem/view/intro/components/headline.dart';
 import 'package:cenem/view/intro/components/intro_body.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:cenem/view/main/components/navigation_bar.dart';
+import 'package:cenem/view/main/components/navigation_button_list.dart';
 import 'package:flutter/foundation.dart';
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view%20model/responsive.dart';
@@ -53,8 +54,9 @@ class HomePage extends StatelessWidget {
           ),
           if (!Responsive.isDesktop(context))
             const Center(
-              child: CustomIconRow(),
-            ),
+                child: Row(
+              children: [Spacer(), NavigationButtonList(), Spacer()],
+            )),
           if (Responsive.isDesktop(context))
             const Expanded(child: Introduction())
           else

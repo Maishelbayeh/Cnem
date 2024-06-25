@@ -8,14 +8,15 @@ import 'package:cenem/view/onbonding/condition_dialog.dart';
 import 'package:cenem/view/onbonding/coniform_email_page.dart';
 import 'package:cenem/view%20model/responsive.dart';
 
-class OTP extends StatelessWidget {
+class Forgetpassotp extends StatelessWidget {
   final PinTheme defaultPinTheme;
   final Function(String) onCompleted;
   final String text;
   final String email;
   final bool isSign;
 
-  OTP({
+  const Forgetpassotp({
+    super.key,
     required this.defaultPinTheme,
     required this.onCompleted,
     required this.text,

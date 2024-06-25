@@ -1,16 +1,18 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
-import 'package:cenem/view/main/components/navigation_button_list.dart';
 import 'package:cenem/view/onbonding/sign_dialog.dart';
+
 import 'package:cenem/view/onbonding/sign_page.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
+
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
 import 'package:get/get.dart';
+
 import '../../../res/constants.dart';
 
-class TopNavigationBar extends StatelessWidget {
-  const TopNavigationBar({super.key});
+class MobileTopNavigationBar extends StatelessWidget {
+  const MobileTopNavigationBar({super.key});
   @override
   Widget build(BuildContext context) {
     final AuthController authController = Get.put(AuthController());
@@ -21,16 +23,12 @@ class TopNavigationBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           if (Responsive.isExtraLargeScreen(context) ||
-              Responsive.isDesktop(context)) ...[
-            const Spacer(),
-            Image.asset('assets/images/cnem.png'),
-            const Spacer(),
+              Responsive.isDesktop(context) ||
+              !Responsive.isTablet(context))
             const Padding(
-              padding: EdgeInsets.all(defaultPadding),
-              child: NavigationButtonList(),
-            ),
-          ],
-          const Spacer(),
+                padding: EdgeInsets.all(defaultPadding),
+                child: CustomIconRow()),
+
           SizedBox(
             width: !Responsive.isDesktop(context)
                 ? MediaQuery.sizeOf(context).width * 0.4
@@ -80,12 +78,20 @@ class TopNavigationBar extends StatelessWidget {
                   );
                 }
               },
-              buttonText: 'مشترك جديد',
+              buttonText: 'انشاء حساب',
             ),
           ),
-          const Spacer(),
+          //const Spacer(),
         ],
       ),
     );
   }
 }
+    // if (Responsive.isLargeMobile(context)) MenuButton(),
+          // const Spacer(
+          //   flex: 2,
+          // ),
+          // if (!Responsive.isLargeMobile(context)) const NavigationButtonList(),
+          // const Spacer(
+          //   flex: 2,
+          // ),

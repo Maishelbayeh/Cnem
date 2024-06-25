@@ -1,3 +1,4 @@
+import 'package:cenem/view/custom%20componant/popUpmenue.dart';
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/controller.dart';
 
@@ -8,6 +9,7 @@ class NavigationButtonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final CustomPopupMenuButton customPopupMenuButton = CustomPopupMenuButton();
     return TweenAnimationBuilder(
       tween: Tween(begin: 0.0, end: 1.0),
       duration: const Duration(milliseconds: 200),
@@ -19,36 +21,24 @@ class NavigationButtonList extends StatelessWidget {
             child: Row(
               children: [
                 NavigationTextButton(
-                  onTap: () {
-                    controller.animateToPage(0,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
-                  },
-                  text: 'المقدمة',
-                ),
-
-                NavigationTextButton(
-                    onTap: () {
-                      controller.animateToPage(1,
-                          duration: const Duration(milliseconds: 500),
-                          curve: Curves.easeIn);
+                    onTap: (buttonPosition) {
+                      customPopupMenuButton.showCustomPopupMenu(
+                          context, buttonPosition);
                     },
-                    text: 'فيديو تعريفي'),
+                    text: 'من نحن'),
                 NavigationTextButton(
-                  onTap: () {
-                    controller.animateToPage(2,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
+                  onTap: (buttonPosition) {
+                    customPopupMenuButton.showCustomPopupMenu(
+                        context, buttonPosition);
                   },
-                  text: 'الدورات',
+                  text: 'فكرة الشبكه',
                 ),
                 NavigationTextButton(
-                  onTap: () {
-                    controller.animateToPage(3,
-                        duration: const Duration(milliseconds: 500),
-                        curve: Curves.easeIn);
+                  onTap: (buttonPosition) {
+                    customPopupMenuButton.showCustomPopupMenu(
+                        context, buttonPosition);
                   },
-                  text: 'التواصل',
+                  text: 'اتصل بنا',
                 ),
                 // NavigationTextButton(onTap: () {}, text: 'Achievements'),
               ],

@@ -4,6 +4,7 @@ import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/custom%20componant/customtext.dart';
 
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
+import 'package:cenem/view/main/components/drawer/about.dart';
 
 import 'package:flutter/material.dart';
 
@@ -22,6 +23,7 @@ class SideMenu extends StatelessWidget {
               start: 20,
               text: "معلومات الحساب",
             ),
+            // About()
           ],
         ),
       ),

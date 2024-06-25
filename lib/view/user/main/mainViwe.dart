@@ -1,4 +1,5 @@
 import 'package:cenem/view%20model/responsive.dart';
+import 'package:cenem/view/main/components/drawer/drawer.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:cenem/view/user/main/components/TopNavMember.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class MainViewMember extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //  drawer: const CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: Center(
         child: Column(
           children: [
@@ -30,6 +31,7 @@ class MainViewMember extends StatelessWidget {
               height: 80,
               child: TopNavigationBarMember(),
             ),
+            const Spacer(),
             // if (Responsive.isLargeMobile(context))
             //   const Row(
             //     children: [Spacer(), NavigationButtonList(), Spacer()],

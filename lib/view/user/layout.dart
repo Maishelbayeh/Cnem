@@ -11,7 +11,7 @@ class SiteLayout extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         key: scaffoldKey,
-        extendBodyBehindAppBar: true,
+
         // appBar:  topNavigationBar(context, scaffoldKey),
 
         body: ResponsiveWidget(largeScreen: const LargeScreen()));

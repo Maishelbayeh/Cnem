@@ -40,7 +40,7 @@ class OverviewCardsLargeScreen extends StatelessWidget {
         ),
         InfoCard(
           title: "تاريخ اخر تجديد للاشتراك",
-          value: member.date.toString(),
+          value: '12-06-2024',
           onTap: () {},
         ),
       ],

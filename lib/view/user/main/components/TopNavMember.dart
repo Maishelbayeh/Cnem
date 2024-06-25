@@ -2,9 +2,8 @@ import 'package:cenem/model/member_model.dart';
 import 'package:cenem/res/constants.dart';
 
 import 'package:cenem/view/custom%20componant/gradiantText.dart';
-import 'package:cenem/view/custom%20componant/social_icon.dart';
+
 import 'package:cenem/view/intro/components/side_menu_button.dart';
-import 'package:cenem/view/main/components/drawer/drawer_image.dart';
 
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 

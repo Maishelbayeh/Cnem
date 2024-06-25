@@ -1,3 +1,4 @@
+import 'package:cenem/view/custom%20componant/gradiantText.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:cenem/view/custom%20componant/subtitle_text.dart';
@@ -19,26 +20,26 @@ class CombinetitleText extends StatelessWidget {
             ]).createShader(bounds);
           },
           child: const Responsive(
-            desktop: ColoredText(
-                start: 30,
-                end: 35,
-                text: 'الشبكة التعاونية للتسويق الالكتروني',
-                gradient: false),
-            largeMobile: ColoredText(
-                start: 20,
-                end: 30,
-                text: 'الشبكة التعاونية \nللتسويق الالكتروني',
-                gradient: false),
-            mobile: ColoredText(
-                start: 20,
-                end: 30,
-                text: 'الشبكة التعاونية \nللتسويق الالكتروني',
-                gradient: false),
-            tablet: ColoredText(
-                start: 50,
-                end: 40,
-                text: 'الشبكة التعاونية للتسويق الالكتروني',
-                gradient: false),
+            desktop: TextWithGradient(
+              start: 30,
+              end: 35,
+              text: 'الشبكة التعاونية للتسويق الالكتروني',
+            ),
+            largeMobile: TextWithGradient(
+              start: 10,
+              end: 20,
+              text: 'الشبكة التعاونية للتسويق الالكتروني',
+            ),
+            mobile: TextWithGradient(
+              start: 10,
+              end: 15,
+              text: 'الشبكة التعاونية للتسويق الالكتروني',
+            ),
+            tablet: TextWithGradient(
+              start: 50,
+              end: 40,
+              text: 'الشبكة التعاونية للتسويق الالكتروني',
+            ),
           ),
         )
       ],
