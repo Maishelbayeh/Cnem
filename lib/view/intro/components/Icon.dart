@@ -112,11 +112,3 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
     );
   }
 }
-
-void main() => runApp(MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: AnimatedImageContainer(),
-        ),
-      ),
-    ));

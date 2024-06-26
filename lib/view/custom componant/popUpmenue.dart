@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 class CustomPopupMenuButton {
   void showCustomPopupMenu(BuildContext context, Offset buttonPosition) {
     final RenderBox overlay =
-        Overlay.of(context).context.findRenderObject() as RenderBox;
+        Overlay.of(context)!.context.findRenderObject() as RenderBox;
 
     showMenu(
       context: context,
