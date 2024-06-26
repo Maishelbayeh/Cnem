@@ -1,0 +1,153 @@
+import 'package:cenem/view/custom%20componant/custom_button.dart';
+import 'package:cenem/view/custom%20componant/sign_up_textField.dart';
+import 'package:cenem/view/onbonding/coniform_email_page.dart';
+import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+const double defaultPadding = 16.0;
+TextEditingController email = TextEditingController();
+TextEditingController pass = TextEditingController();
+TextEditingController confirmPassword = TextEditingController();
+TextEditingController phone = TextEditingController();
+TextEditingController username = TextEditingController();
+
+class RegisterForm extends StatefulWidget {
+  const RegisterForm({super.key});
+
+  @override
+  _RegisterFormState createState() => _RegisterFormState();
+}
+
+class _RegisterFormState extends State<RegisterForm> {
+  @override
+  void initState() {
+    super.initState();
+    print("logg");
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context).size.height;
+    double paddingBetweenItems = screenHeight * 0.05;
+
+    return GestureDetector(
+      onTap: () => FocusScope.of(context).unfocus(),
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.all(defaultPadding),
+          child: Center(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        icon: Icon(
+                          Icons.arrow_back,
+                          color: Theme.of(context).primaryColor,
+                          size: 30,
+                        ),
+                      ),
+                    ],
+                  ),
+                  //SizedBox(height: paddingBetweenItems),
+                  const Text(
+                    "انشاء حساب",
+                    style: TextStyle(
+                      fontSize: 25,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    "انشاء حساب جديد",
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.grey[400],
+                    ),
+                  ),
+                  SizedBox(height: paddingBetweenItems),
+                  SignUpTextField(
+                    icon: Icons.person_outline,
+                    labelText: "اسم المستخدم",
+                    controller: username,
+                  ),
+                  SizedBox(height: paddingBetweenItems),
+                  SignUpTextField(
+                    icon: Icons.mail,
+                    labelText: "البريد الالكتروني",
+                    controller: email,
+                  ),
+                  SizedBox(height: paddingBetweenItems),
+                  SignUpTextField(
+                    icon: Icons.phone_iphone,
+                    labelText: "رقم الهاتف",
+                    controller: phone,
+                  ),
+                  SizedBox(height: paddingBetweenItems),
+                  SignUpTextField(
+                    isPassword: true,
+                    icon: Icons.lock,
+                    labelText: "كلمة السر",
+                    controller: pass,
+                  ),
+                  SizedBox(height: paddingBetweenItems),
+                  SignUpTextField(
+                    isPassword: true,
+                    icon: Icons.lock,
+                    labelText: "تأكيد كلمة السر",
+                    controller: confirmPassword,
+                  ),
+
+                  CustomButton(
+                    buttonText: 'انشاء حساب',
+                    height: 40,
+                    width: MediaQuery.of(context).size.width * 0.7,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ConformEmailPage('', email: email.text)),
+                      );
+                    },
+                  ),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          // Handle navigation to login page here
+                        },
+                        child: Text(
+                          "تسجيل الدخول ",
+                          style: TextStyle(
+                            color: Theme.of(context).primaryColor,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      const Text(
+                        "هل لديك حساب؟",
+                        style: TextStyle(
+                          fontSize: 15,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
