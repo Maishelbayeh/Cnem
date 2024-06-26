@@ -1,0 +1,70 @@
+# C/C++ build system timings
+create_cxx_tasks
+  create-initial-cxx-model
+    create-module-model
+      [gap of 22ms]
+      create-ndk-meta-abi-list 15ms
+    create-module-model completed in 46ms
+    create-ARMEABI_V7A-model 13ms
+    create-ARM64_V8A-model 22ms
+    create-X86-model 11ms
+    create-module-model 12ms
+    create-variant-model 11ms
+    create-ARMEABI_V7A-model 16ms
+    create-X86-model 10ms
+    create-X86_64-model 10ms
+  create-initial-cxx-model completed in 178ms
+create_cxx_tasks completed in 182ms
+
+# C/C++ build system timings
+create_cxx_tasks
+  create-initial-cxx-model
+    create-module-model
+      [gap of 46ms]
+      create-cmake-model 26ms
+    create-module-model completed in 80ms
+    [gap of 25ms]
+    create-X86-model 28ms
+    create-X86_64-model 11ms
+    create-module-model 19ms
+    create-ARMEABI_V7A-model 13ms
+    create-ARM64_V8A-model 10ms
+    create-X86_64-model 15ms
+  create-initial-cxx-model completed in 219ms
+create_cxx_tasks completed in 226ms
+
+# C/C++ build system timings
+create_cxx_tasks
+  create-initial-cxx-model
+    create-module-model
+      [gap of 49ms]
+      create-cmake-model 10ms
+    create-module-model completed in 63ms
+    create-ARMEABI_V7A-model 12ms
+    create-ARM64_V8A-model 18ms
+    create-X86-model 16ms
+    create-X86_64-model 10ms
+    create-module-model 12ms
+    create-variant-model 21ms
+    create-ARMEABI_V7A-model 94ms
+    create-ARM64_V8A-model 11ms
+    create-X86-model 11ms
+    create-X86_64-model 13ms
+  create-initial-cxx-model completed in 296ms
+  [gap of 16ms]
+create_cxx_tasks completed in 312ms
+
+# C/C++ build system timings
+create_cxx_tasks
+  create-initial-cxx-model
+    create-module-model 11ms
+    create-ARMEABI_V7A-model 59ms
+    create-X86-model 19ms
+    create-module-model 10ms
+    create-ARMEABI_V7A-model 30ms
+    create-ARM64_V8A-model 10ms
+    create-X86-model 15ms
+    create-X86_64-model 25ms
+  create-initial-cxx-model completed in 182ms
+create_cxx_tasks completed in 182ms
+

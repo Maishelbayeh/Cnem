@@ -5,27 +5,15 @@ import 'package:cenem/view/intro/components/Icon.dart';
 import 'package:cenem/view/intro/components/combine_subtitle.dart';
 import 'package:cenem/view/intro/components/description_text.dart';
 import 'package:cenem/view/intro/components/headline.dart';
-import 'package:cenem/view/intro/components/intro_body.dart';
-import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
+
 import 'package:cenem/view/main/components/navigation_bar.dart';
 import 'package:cenem/view/main/components/navigation_button_list.dart';
 import 'package:flutter/foundation.dart';
-import 'package:cenem/res/constants.dart';
-import 'package:cenem/view%20model/responsive.dart';
-import 'package:cenem/view/custom%20componant/custom_button.dart';
-import 'package:cenem/view/intro/components/Icon.dart';
-import 'package:cenem/view/intro/components/combine_subtitle.dart';
-import 'package:cenem/view/intro/components/description_text.dart';
-import 'package:cenem/view/intro/components/headline.dart';
-import 'package:cenem/view/intro/components/intro_body.dart';
-import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
-import 'package:cenem/view/main/components/navigation_bar.dart';
-import 'package:flutter/foundation.dart';
+
 import 'package:flutter/material.dart';
 
 import 'package:cenem/view/intro/introduction.dart';
-import 'package:cenem/view/main/main_view.dart';
-import 'package:url_launcher/url_launcher.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatelessWidget {
@@ -60,11 +48,7 @@ class HomePage extends StatelessWidget {
           if (Responsive.isDesktop(context))
             const Expanded(child: Introduction())
           else
-            Expanded(
-              child: SingleChildScrollView(
-                child: NewWidget(size: size, s: s),
-              ),
-            ),
+            Expanded(child: NewWidget(size: size, s: s)),
         ],
       ),
     );

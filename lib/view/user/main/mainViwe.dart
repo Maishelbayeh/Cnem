@@ -3,11 +3,13 @@ import 'package:cenem/view/main/components/drawer/drawer.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
 import 'package:cenem/view/user/main/components/TopNavMember.dart';
 import 'package:flutter/material.dart';
-import 'package:cenem/view%20model/controller.dart';
+
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/main/components/navigation_bar.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
+
+import '../../../view model/controller.dart';
 
 class MainViewMember extends StatelessWidget {
   const MainViewMember({super.key, required this.pages});
