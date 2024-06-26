@@ -1,20 +1,13 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
-import 'package:cenem/view/intro/components/social_media_coloumn.dart';
-import 'package:cenem/view/main/components/drawer/contact_icons.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
+import 'package:cenem/view/main/components/navigation_button_list.dart';
 import 'package:cenem/view/onbonding/sign_dialog.dart';
-
-import 'package:cenem/view/onbonding/sign_in_dialog.dart';
 import 'package:cenem/view/onbonding/sign_page.dart';
 import 'package:cenem/view/onbonding/auth_controller.dart';
-
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';
-import 'package:cenem/view/intro/components/side_menu_button.dart';
 import 'package:get/get.dart';
-
 import '../../../res/constants.dart';
-import 'navigation_button_list.dart';
 
 class TopNavigationBar extends StatelessWidget {
   const TopNavigationBar({super.key});
@@ -24,28 +17,20 @@ class TopNavigationBar extends StatelessWidget {
 
     return Scaffold(
       body: Row(
-<<<<<<< HEAD
-        crossAxisAlignment:CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          
-=======
-        crossAxisAlignment: CrossAxisAlignment.end,
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          const Spacer(),
->>>>>>> origin/gh-pages
           if (Responsive.isExtraLargeScreen(context) ||
-              Responsive.isDesktop(context) ||
-              !Responsive.isTablet(context))
+              Responsive.isDesktop(context)) ...[
+            const Spacer(),
+            Image.asset('assets/images/cnem.png'),
+            const Spacer(),
             const Padding(
-                padding: EdgeInsets.all(defaultPadding),
-                child: CustomIconRow()),
-<<<<<<< HEAD
-          
-=======
+              padding: EdgeInsets.all(defaultPadding),
+              child: NavigationButtonList(),
+            ),
+          ],
           const Spacer(),
->>>>>>> origin/gh-pages
           SizedBox(
             width: !Responsive.isDesktop(context)
                 ? MediaQuery.sizeOf(context).width * 0.4
@@ -95,24 +80,12 @@ class TopNavigationBar extends StatelessWidget {
                   );
                 }
               },
-              buttonText: 'انشاء حساب',
+              buttonText: 'مشترك جديد',
             ),
           ),
-<<<<<<< HEAD
-          //const Spacer(),
-=======
           const Spacer(),
->>>>>>> origin/gh-pages
         ],
       ),
     );
   }
 }
-    // if (Responsive.isLargeMobile(context)) MenuButton(),
-          // const Spacer(
-          //   flex: 2,
-          // ),
-          // if (!Responsive.isLargeMobile(context)) const NavigationButtonList(),
-          // const Spacer(
-          //   flex: 2,
-          // ),
