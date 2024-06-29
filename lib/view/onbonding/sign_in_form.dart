@@ -189,10 +189,10 @@ class _SignInFormState extends State<SignInForm> {
                           width: (widget.emailFieldWidthFactor / 0.9) * 0.44,
                           child: TextFormField(
                             validator: (value) {
-                              // if (value!.isEmpty) {
-                              //   return "";
-                              // }
-                              // return null;
+                              if (value!.isEmpty) {
+                                return "";
+                              }
+                              return null;
                             },
                             controller: username,
                             keyboardType: TextInputType.name,
@@ -206,7 +206,7 @@ class _SignInFormState extends State<SignInForm> {
                                   width: 30,
                                   height: 30,
                                   child: SvgPicture.asset(
-                                    "icons/user.svg",
+                                    "assets/icons/user.svg",
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -243,7 +243,7 @@ class _SignInFormState extends State<SignInForm> {
                                   width: 30,
                                   height: 30,
                                   child: SvgPicture.asset(
-                                    "icons/iphone.svg",
+                                    "assets/icons/iphone.svg",
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -277,7 +277,7 @@ class _SignInFormState extends State<SignInForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/email.svg",
+                                "assets/icons/email.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -312,7 +312,7 @@ class _SignInFormState extends State<SignInForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/email.svg",
+                                "assets/icons/email.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -340,7 +340,7 @@ class _SignInFormState extends State<SignInForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/password.svg",
+                                "assets/icons/password.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -391,7 +391,7 @@ class _SignInFormState extends State<SignInForm> {
                                   width: 30,
                                   height: 30,
                                   child: SvgPicture.asset(
-                                    "icons/password.svg",
+                                    "assets/icons/password.svg",
                                     fit: BoxFit.contain,
                                   ),
                                 ),
@@ -430,7 +430,7 @@ class _SignInFormState extends State<SignInForm> {
                                   width: 30,
                                   height: 30,
                                   child: SvgPicture.asset(
-                                    "icons/password.svg",
+                                    "assets/icons/password.svg",
                                     fit: BoxFit.contain,
                                   ),
                                 ),

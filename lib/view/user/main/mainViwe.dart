@@ -46,15 +46,6 @@ class MainViewMember extends StatelessWidget {
                       child: CustomIconRow()),
                 ],
               ),
-            Expanded(
-              flex: 9,
-              child: PageView(
-                scrollDirection: Axis.vertical,
-                //physics: const NeverScrollableScrollPhysics(),
-                controller: controller,
-                children: [...pages],
-              ),
-            )
           ],
         ),
       ),

@@ -161,7 +161,7 @@ class _SignInPageState extends State<SignInPage> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/email.svg",
+                                "assets/icons/email.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -201,7 +201,7 @@ class _SignInPageState extends State<SignInPage> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/password.svg",
+                                "assets/icons/password.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -237,7 +237,7 @@ class _SignInPageState extends State<SignInPage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => ForgotPasswordScreen(
-                                  isSign: false,
+                                      isSign: false,
                                       confirmEmail: email.text,
                                       onValue: (_) {},
                                     )),

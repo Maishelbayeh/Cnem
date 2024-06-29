@@ -19,7 +19,8 @@ class Config {
 
   static Future<Config> loadFromAsset() async {
     try {
-      final jsonString = await rootBundle.loadString('assets/config.json');
+      final jsonString =
+          await rootBundle.loadString('assets/config/config.json');
       final jsonResponse = json.decode(jsonString);
       if (jsonResponse is! Map<String, dynamic>) {
         throw ArgumentError('Invalid JSON format');

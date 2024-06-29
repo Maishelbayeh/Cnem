@@ -39,9 +39,9 @@
     },
     {
       "name": "chewie",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/chewie-1.5.0",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/chewie-1.8.1",
       "packageUri": "lib/",
-      "languageVersion": "2.13"
+      "languageVersion": "3.3"
     },
     {
       "name": "clock",
@@ -74,6 +74,18 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "dbus",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.10",
+      "packageUri": "lib/",
+      "languageVersion": "2.17"
+    },
+    {
+      "name": "dio",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/dio-5.4.3+1",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
       "name": "fading_edge_scrollview",
       "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/fading_edge_scrollview-3.0.0",
       "packageUri": "lib/",
@@ -93,9 +105,9 @@
     },
     {
       "name": "flick_video_player",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/flick_video_player-0.5.0",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/flick_video_player-0.8.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "3.2"
     },
     {
       "name": "flutter",
@@ -182,12 +194,6 @@
       "languageVersion": "3.0"
     },
     {
-      "name": "js",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/js-0.6.7",
-      "packageUri": "lib/",
-      "languageVersion": "2.19"
-    },
-    {
       "name": "leak_tracker",
       "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-10.0.4",
       "packageUri": "lib/",
@@ -240,6 +246,18 @@
       "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "package_info_plus",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/package_info_plus-8.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.3"
+    },
+    {
+      "name": "package_info_plus_platform_interface",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/package_info_plus_platform_interface-3.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.18"
     },
     {
       "name": "path",
@@ -327,7 +345,7 @@
     },
     {
       "name": "rive",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/rive-0.13.8",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/rive-0.13.9",
       "packageUri": "lib/",
       "languageVersion": "2.17"
     },
@@ -477,13 +495,13 @@
     },
     {
       "name": "video_player",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/video_player-2.8.7",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/video_player-2.9.1",
       "packageUri": "lib/",
       "languageVersion": "3.2"
     },
     {
       "name": "video_player_android",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/video_player_android-2.5.0",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/video_player_android-2.5.1",
       "packageUri": "lib/",
       "languageVersion": "3.4"
     },
@@ -512,34 +530,16 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "wakelock",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock-0.6.2",
+      "name": "wakelock_plus",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_plus-1.2.5",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.3"
     },
     {
-      "name": "wakelock_macos",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_macos-0.4.0",
+      "name": "wakelock_plus_platform_interface",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_plus_platform_interface-1.2.1",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "wakelock_platform_interface",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_platform_interface-0.3.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "wakelock_web",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_web-0.4.0",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
-      "name": "wakelock_windows",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/wakelock_windows-0.2.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "3.3"
     },
     {
       "name": "web",
@@ -549,9 +549,9 @@
     },
     {
       "name": "win32",
-      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/win32-3.1.4",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/win32-5.5.1",
       "packageUri": "lib/",
-      "languageVersion": "2.17"
+      "languageVersion": "3.4"
     },
     {
       "name": "xdg_directories",
@@ -572,7 +572,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-06-26T09:16:49.186672Z",
+  "generated": "2024-06-29T11:08:12.711195Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///C:/flutter_windows_3.13.4-stable/flutter",

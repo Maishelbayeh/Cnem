@@ -40,7 +40,7 @@ class _RegisterFormState extends State<RegisterForm> {
         appBar: AppBar(
           centerTitle: true,
           title: const AnimatedDescriptionText(
-              start: 18, end: 22, text:"انشاء حساب"),
+              start: 18, end: 22, text: "انشاء حساب"),
           leading: IconButton(
             onPressed: () {
               Navigator.pop(context);
@@ -101,7 +101,7 @@ class _RegisterFormState extends State<RegisterForm> {
                   //   ),
                   // ),
                   //SizedBox(height: paddingBetweenItems),
-                    Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
                       child: TextFormField(
@@ -109,10 +109,9 @@ class _RegisterFormState extends State<RegisterForm> {
                         validator: (value) {
                           // Add your validation logic here
                         },
-                        
                         controller: username,
-                          keyboardType: TextInputType.name,
-                            textInputAction: TextInputAction.next,
+                        keyboardType: TextInputType.name,
+                        textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: "اسم المستخدم",
                           prefixIcon: Padding(
@@ -121,7 +120,7 @@ class _RegisterFormState extends State<RegisterForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/user.svg",
+                                "assets/icons/user.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -144,7 +143,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ),
                   SizedBox(height: paddingBetweenItems),
-                    Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
                       child: TextFormField(
@@ -163,7 +162,7 @@ class _RegisterFormState extends State<RegisterForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/email.svg",
+                                "assets/icons/email.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -186,7 +185,7 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ),
                   SizedBox(height: paddingBetweenItems),
-                    Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
                       child: TextFormField(
@@ -194,9 +193,9 @@ class _RegisterFormState extends State<RegisterForm> {
                         validator: (value) {
                           // Add your validation logic here
                         },
-                      controller: phone,
-                            keyboardType: TextInputType.emailAddress,
-                            textInputAction: TextInputAction.next,
+                        controller: phone,
+                        keyboardType: TextInputType.emailAddress,
+                        textInputAction: TextInputAction.next,
                         decoration: InputDecoration(
                           hintText: 'رقم الهاتف',
                           prefixIcon: Padding(
@@ -205,7 +204,7 @@ class _RegisterFormState extends State<RegisterForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                              "icons/iphone.svg",
+                                "assets/icons/iphone.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -228,30 +227,29 @@ class _RegisterFormState extends State<RegisterForm> {
                     ),
                   ),
                   SizedBox(height: paddingBetweenItems),
-                    Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
                       child: TextFormField(
                         cursorColor: Colors.blue,
-                          validator: (value) {
-                              if (value!.isEmpty) {
-                                return "يرجى ادخال كلمة مرور";
-                              }
-                              if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
-                                return "يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل.";
-                              }
-                              if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
-                                return "يجب أن تحتوي كلمات المرور على رقم واحد على الأقل.";
-                              }
-                              if (!RegExp(r'^(?=.*?[!@#\$&*~])')
-                                  .hasMatch(value)) {
-                                return "يجب أن تحتوي كلمات المرور على رمز واحد على الأقل.";
-                              }
-                              if (RegExp(r'[\u0600-\u06FF]').hasMatch(value)) {
-                                return "يجب ألا تحتوي كلمة المرور على أحرف عربية.";
-                              }
-                              return null;
-                            },
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "يرجى ادخال كلمة مرور";
+                          }
+                          if (!RegExp(r'^(?=.*?[A-Z])').hasMatch(value)) {
+                            return "يجب أن تحتوي كلمات المرور على حرف كبير واحد على الأقل.";
+                          }
+                          if (!RegExp(r'^(?=.*?[0-9])').hasMatch(value)) {
+                            return "يجب أن تحتوي كلمات المرور على رقم واحد على الأقل.";
+                          }
+                          if (!RegExp(r'^(?=.*?[!@#\$&*~])').hasMatch(value)) {
+                            return "يجب أن تحتوي كلمات المرور على رمز واحد على الأقل.";
+                          }
+                          if (RegExp(r'[\u0600-\u06FF]').hasMatch(value)) {
+                            return "يجب ألا تحتوي كلمة المرور على أحرف عربية.";
+                          }
+                          return null;
+                        },
                         obscureText: true,
                         textInputAction: TextInputAction.next,
                         controller: pass,
@@ -263,7 +261,7 @@ class _RegisterFormState extends State<RegisterForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/password.svg",
+                                "assets/icons/password.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),
@@ -288,20 +286,20 @@ class _RegisterFormState extends State<RegisterForm> {
                   SizedBox(
                     height: defaultPadding,
                   ),
-                    Padding(
+                  Padding(
                     padding: const EdgeInsets.only(top: 0, bottom: 0),
                     child: SizedBox(
                       child: TextFormField(
                         cursorColor: Colors.blue,
                         validator: (value) {
-                              if (value!.isEmpty) {
-                                return "يرجى تأكيد كلمة المرور الخاصة بكـ";
-                              }
-                              if (value != pass.text) {
-                                return "كلمة المرور غير مطابقة.";
-                              }
-                              return null;
-                            },
+                          if (value!.isEmpty) {
+                            return "يرجى تأكيد كلمة المرور الخاصة بكـ";
+                          }
+                          if (value != pass.text) {
+                            return "كلمة المرور غير مطابقة.";
+                          }
+                          return null;
+                        },
                         obscureText: true,
                         textInputAction: TextInputAction.next,
                         controller: confirmPassword,
@@ -313,7 +311,7 @@ class _RegisterFormState extends State<RegisterForm> {
                               width: 30,
                               height: 30,
                               child: SvgPicture.asset(
-                                "icons/password.svg",
+                                "assets/icons/password.svg",
                                 fit: BoxFit.contain,
                               ),
                             ),

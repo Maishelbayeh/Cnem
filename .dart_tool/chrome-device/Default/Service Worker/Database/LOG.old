@@ -1,8 +1,2 @@
-<<<<<<< HEAD
-2024/06/12-02:58:04.628 2dc4 Creating DB C:\Users\hp\AppData\Local\Temp\flutter_tools.42fae863\flutter_tools_chrome_device.8a833ae5\Default\Service Worker\Database since it was missing.
-2024/06/12-02:58:04.642 2dc4 Reusing MANIFEST C:\Users\hp\AppData\Local\Temp\flutter_tools.42fae863\flutter_tools_chrome_device.8a833ae5\Default\Service Worker\Database/MANIFEST-000001
-=======
-2024/06/13-13:16:55.083 1174 Reusing MANIFEST C:\Users\maysh\AppData\Local\Temp\flutter_tools.6eab36e2\flutter_tools_chrome_device.1c47555a\Default\Service Worker\Database/MANIFEST-000001
-2024/06/13-13:16:55.084 1174 Recovering log #3
-2024/06/13-13:16:55.085 1174 Reusing old log C:\Users\maysh\AppData\Local\Temp\flutter_tools.6eab36e2\flutter_tools_chrome_device.1c47555a\Default\Service Worker\Database/000003.log 
->>>>>>> origin/gh-pages
+2024/06/28-16:38:42.585 63b4 Creating DB C:\Users\maysh\AppData\Local\Temp\flutter_tools.3ab59a9a\flutter_tools_chrome_device.71151681\Default\Service Worker\Database since it was missing.
+2024/06/28-16:38:42.619 63b4 Reusing MANIFEST C:\Users\maysh\AppData\Local\Temp\flutter_tools.3ab59a9a\flutter_tools_chrome_device.71151681\Default\Service Worker\Database/MANIFEST-000001
