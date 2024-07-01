@@ -1,11 +1,20 @@
+import 'package:cenem/res/constants.dart';
 import 'package:cenem/view/home/home.dart';
+import 'package:cenem/view/onbonding/resetPass/forget_pass_dialog.dart';
+import 'package:cenem/view/onbonding/resetPass/set_new_pass_dialog.dart';
+import 'package:cenem/view/onbonding/resetPass/set_pass_form.dart';
+import 'package:cenem/view/onbonding/signup/second_sign_up_dialog.dart';
+import 'package:cenem/view/onbonding/signup/second_sign_up_form.dart';
+import 'package:cenem/view/onbonding/signup/second_sign_up_page.dart';
+import 'package:cenem/view/onbonding/signup/signUp_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_connect/sockets/src/socket_notifier.dart';
 import 'package:pinput/pinput.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/timer_text.dart';
 import 'package:cenem/Api/confirmemailApi.dart';
-import 'package:cenem/view/onbonding/condition_dialog.dart';
-import 'package:cenem/view/onbonding/coniform_email_page.dart';
+import 'package:cenem/view/onbonding/condition/condition_dialog.dart';
+import 'package:cenem/view/onbonding/confirmemail/coniform_email_page.dart';
 import 'package:cenem/view%20model/responsive.dart';
 
 class OTP extends StatelessWidget {
@@ -14,6 +23,7 @@ class OTP extends StatelessWidget {
   final String text;
   final String email;
   final bool isSign;
+  final bool reset;
 
   OTP({
     required this.defaultPinTheme,
@@ -21,6 +31,7 @@ class OTP extends StatelessWidget {
     required this.text,
     required this.email,
     required this.isSign,
+    required this.reset,
   });
 
   @override
@@ -29,7 +40,7 @@ class OTP extends StatelessWidget {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      backgroundColor: Colors.white,
+      backgroundColor: bgColor,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 25),
         alignment: Alignment.center,
@@ -65,18 +76,93 @@ class OTP extends StatelessWidget {
                 onCompleted: (pin) => _otpCode = pin,
               ),
               CustomButton(
-                onTap: () async {
-                  bool success = await _submit(_otpCode, email);
-                  if (success) {
-                    // ignore: use_build_context_synchronously
-                    conditionDialog(
-                      context,
-                      onValue: (_) {},
-                    );
-                  } else {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('Verification failed')),
-                    );
+                onTap: () {
+                  // bool success = await _submit(_otpCode, email);
+                  // if (success) {
+
+                  //   if (!reset) {
+                  //     conditionDialog(
+                  //       context,
+                  //       onValue: (_) {},
+                  //     );
+                  //   } else {
+                  //     ScaffoldMessenger.of(context).showSnackBar(
+                  //       SnackBar(content: Text('Verification failed')),
+                  //     );
+                  //   }
+                  // }
+
+                  if (reset) {
+                    if (Responsive.isDesktop(context)) {
+                      Navigator.pop(context);
+                      setNewPassDialog(
+                        context,
+                        onValue: (_) {},
+                      );
+                    }
+                    if (Responsive.isExtraLargeScreen(context)) {
+                      {
+                        Navigator.pop(context);
+                        setNewPassDialog(
+                          context,
+                          onValue: (_) {},
+                        );
+                      }
+                    }
+                    if (Responsive.isLargeMobile(context)) {
+                      {
+                        SetNewPasswordPage();
+                      }
+                    }
+                    if (Responsive.isMobile(context)) {
+                      {
+                        SetNewPasswordPage();
+                      }
+                    }
+                    if (Responsive.isTablet(context)) {
+                      {
+                        SetNewPasswordPage();
+                      }
+                    }
+                  } else if (!reset) {
+                    if (Responsive.isDesktop(context)) {
+                      Navigator.pop(context);
+                      SecondSignUP(context, onValue: (_) {});
+                    }
+                    if (Responsive.isExtraLargeScreen(context)) {
+                      {
+                        Navigator.pop(context);
+                        SecondSignUP(context, onValue: (_) {});
+                      }
+                    }
+                    if (Responsive.isLargeMobile(context)) {
+                      {
+                        Navigator.pop(context);
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SecondSignUpPage()),
+                        );
+                      }
+                    }
+                    if (Responsive.isMobile(context)) {
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SecondSignUpPage()),
+                        );
+                      }
+                    }
+                    if (Responsive.isTablet(context)) {
+                      {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SecondSignUpPage()),
+                        );
+                      }
+                    }
                   }
                 },
                 buttonText: "تـحـقـق",

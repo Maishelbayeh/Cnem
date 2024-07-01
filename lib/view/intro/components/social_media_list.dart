@@ -29,7 +29,7 @@ class SocialMediaIconList extends StatelessWidget {
               RotatedBox(
                 quarterTurns: -3,
                 child: Text(
-                  'النجاح يبدا بخطوة ..فلا تؤجلها',
+                  'استثمر اوقاتك وحولها الى دولارات',
                   style: Theme.of(context).textTheme.titleSmall!.copyWith(
                       color: const Color.fromARGB(255, 10, 10, 10),
                       fontWeight: FontWeight.w700,
@@ -42,7 +42,7 @@ class SocialMediaIconList extends StatelessWidget {
                 margin:
                     const EdgeInsets.symmetric(vertical: defaultPadding * 0.5),
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 9, 9, 9),
+                    color: second,
                     borderRadius: BorderRadius.circular(defaultPadding)),
               ),
               //const SocialMediaIconColumn(),

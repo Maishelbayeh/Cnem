@@ -4,8 +4,8 @@ import 'package:pinput/pinput.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/custom%20componant/timer_text.dart';
 import 'package:cenem/Api/confirmemailApi.dart';
-import 'package:cenem/view/onbonding/condition_dialog.dart';
-import 'package:cenem/view/onbonding/coniform_email_page.dart';
+import 'package:cenem/view/onbonding/condition/condition_dialog.dart';
+import 'package:cenem/view/onbonding/confirmemail/coniform_email_page.dart';
 import 'package:cenem/view%20model/responsive.dart';
 
 class Forgetpassotp extends StatelessWidget {

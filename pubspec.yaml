@@ -52,6 +52,7 @@ dependencies:
 
   chewie: ^1.8.1
   flick_video_player: ^0.8.0
+  date_field: ^5.2.1
 
 
 

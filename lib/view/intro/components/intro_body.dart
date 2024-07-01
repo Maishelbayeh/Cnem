@@ -34,21 +34,40 @@ class IntroBody extends StatelessWidget {
               ),
             const CombineSubtitleText(),
             const SizedBox(height: defaultPadding * 2),
-            Responsive(
-              desktop: AnimatedDescriptionText(start: 14, end: 12, text: s),
-              largeMobile: AnimatedDescriptionText(start: 14, end: 12, text: s),
-              mobile: Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: AnimatedDescriptionText(start: 10, end: 12, text: s),
-              ),
-              tablet: AnimatedDescriptionText(start: 17, end: 14, text: s),
-            ),
-            CustomButton(
-              onTap: () => launchUrl(Uri.parse(
-                  "https://drive.google.com/file/d/1tT_sNbd3EAyDwoIhIgdsoOeKyb6-aBxh/view?usp=drive_link")),
-              buttonText: "الفيديو التعريفي",
-              height: 40,
-              width: 150,
+            const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Column(
+                  children: [
+                    AnimatedDescriptionText(
+                        start: 15, end: 20, text: "كن شريكا في النجاح"),
+                    SizedBox(
+                      height: defaultPadding * 2,
+                      width: defaultPadding * 2,
+                    ),
+                    AnimatedDescriptionText(
+                        start: 15, end: 20, text: " للباحثين عن العمل "),
+                  ],
+                ),
+                SizedBox(
+                  height: defaultPadding * 2,
+                  width: defaultPadding * 2,
+                ),
+                Column(
+                  children: [
+                    AnimatedDescriptionText(
+                        start: 15, end: 20, text: "للباحثين عن عمل اضافي  "),
+                    SizedBox(
+                      height: defaultPadding * 2,
+                      width: defaultPadding * 2,
+                    ),
+                    AnimatedDescriptionText(
+                        start: 20,
+                        end: 25,
+                        text: "للمتعلمين و لغير المتعلمين "),
+                  ],
+                ),
+              ],
             ),
             const SizedBox(
               height: defaultPadding * 2,

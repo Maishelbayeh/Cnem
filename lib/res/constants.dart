@@ -12,3 +12,6 @@ const dark = Color(0xFF363740);
 const active = Color.fromARGB(255, 54, 5, 231);
 String baseurl = '';
 String proxyurl = '';
+const first = Color.fromARGB(255, 171, 171, 172);
+
+const second = Color.fromARGB(255, 34, 74, 106);

@@ -1,3 +1,4 @@
+import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:cenem/view/custom%20componant/subtitle_text.dart';
@@ -14,8 +15,8 @@ class CombineSubtitleText extends StatelessWidget {
         ShaderMask(
           shaderCallback: (bounds) {
             return const LinearGradient(colors: [
-              Colors.pink,
-              Colors.blue,
+              first,
+              second,
             ]).createShader(bounds);
           },
           child: const Responsive(

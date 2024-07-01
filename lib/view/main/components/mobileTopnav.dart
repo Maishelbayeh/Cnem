@@ -1,9 +1,9 @@
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/main/components/drawer/socialmediaRow.dart';
-import 'package:cenem/view/onbonding/sign_dialog.dart';
+import 'package:cenem/view/onbonding/signin/sign_dialog.dart';
 
-import 'package:cenem/view/onbonding/sign_page.dart';
-import 'package:cenem/view/onbonding/auth_controller.dart';
+import 'package:cenem/view/onbonding/signin/sign_page.dart';
+import 'package:cenem/view/onbonding/signin/auth_controller.dart';
 
 import 'package:flutter/material.dart';
 import 'package:cenem/view%20model/responsive.dart';

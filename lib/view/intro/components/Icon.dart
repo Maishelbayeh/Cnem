@@ -48,17 +48,17 @@ class AnimatedImageContainerState extends State<AnimatedImageContainer>
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               gradient: const LinearGradient(colors: [
-                Colors.pinkAccent,
-                Colors.blue,
+                first,
+                second,
               ]),
               boxShadow: const [
                 BoxShadow(
-                  color: Colors.pink,
+                  color: first,
                   offset: Offset(-2, 0),
                   blurRadius: 20,
                 ),
                 BoxShadow(
-                  color: Colors.blue,
+                  color: second,
                   offset: Offset(2, 0),
                   blurRadius: 20,
                 ),

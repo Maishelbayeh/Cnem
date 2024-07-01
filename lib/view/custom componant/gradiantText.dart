@@ -15,25 +15,28 @@ class TextWithGradient extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
-      tween: Tween(begin: start, end: end),
+      // Use Tween<double> instead of Tween(begin: start, end: end)
+      tween: Tween<double>(begin: start, end: end),
       duration: const Duration(milliseconds: 200),
       builder: (context, value, child) {
+        // Adjust LinearGradient to match your intended gradient colors
         return ShaderMask(
-          shaderCallback: (bounds) {
-            return const LinearGradient(
+          shaderCallback: (Rect bounds) {
+            return LinearGradient(
+              // Adjust colors and positions as needed
               colors: [
-                Colors.pink, // Example start color
-                Colors.blue, // Example end color
+                Colors.red, // Replace with your 'first' color
+                Colors.blue, // Replace with your 'second' color
               ],
-            ).createShader(Rect.fromLTWH(0, 0, bounds.width, bounds.height));
+              stops: [0.0, 1.0],
+            ).createShader(bounds);
           },
           child: Text(
             text,
-            style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+            style: Theme.of(context).textTheme.titleLarge!.copyWith(
                   fontWeight: FontWeight.w900,
-                  height: 0,
-                  color: Color.fromARGB(255, 255, 255, 255),
-                  fontSize: value,
+                  fontSize: value, // Use the animated value for fontSize
+                  color: Colors.white, // Simplified color setting
                 ),
           ),
         );

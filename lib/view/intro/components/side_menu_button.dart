@@ -16,16 +16,15 @@ class MenuButton extends StatelessWidget {
         //   padding: const EdgeInsets.all(defaultPadding / 6),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(50),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
-              Colors.pink,
-              Colors.blue.shade900,
+              first,
+              second,
             ],
           ),
           boxShadow: const [
-            BoxShadow(color: Colors.pink, blurRadius: 10, offset: Offset(0, 2)),
-            BoxShadow(
-                color: Colors.blue, blurRadius: 10, offset: Offset(0, -2)),
+            BoxShadow(color: first, blurRadius: 10, offset: Offset(0, 2)),
+            BoxShadow(color: second, blurRadius: 10, offset: Offset(0, -2)),
           ],
         ),
         child: Container(

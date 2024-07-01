@@ -28,20 +28,20 @@ class CustomButton extends StatelessWidget {
           width: width,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(defaultPadding),
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               colors: [
-                const Color.fromARGB(255, 255, 1, 86),
-                Colors.blue.shade900,
+                first,
+                second,
               ],
             ),
             boxShadow: const [
               BoxShadow(
-                color: Colors.blue,
+                color: second,
                 offset: Offset(0, -1),
                 blurRadius: defaultPadding / 4,
               ),
               BoxShadow(
-                color: Colors.red,
+                color: first,
                 offset: Offset(0, 1),
                 blurRadius: defaultPadding / 4,
               ),

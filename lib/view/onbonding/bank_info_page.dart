@@ -1,6 +1,6 @@
+import 'package:cenem/res/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-
 
 class bankInfo extends StatefulWidget {
   const bankInfo({super.key});
@@ -35,7 +35,8 @@ class MySampleState extends State<bankInfo> {
         textTheme: const TextTheme(
           // Update the text styles to use the 2021 terms
           titleLarge: TextStyle(color: Colors.black, fontSize: 18),
-          bodyLarge: TextStyle(color: Colors.black), // Use bodyLarge for input text style
+          bodyLarge: TextStyle(
+              color: Colors.black), // Use bodyLarge for input text style
         ),
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.light,
@@ -53,8 +54,9 @@ class MySampleState extends State<bankInfo> {
       darkTheme: ThemeData(
         textTheme: const TextTheme(
           // Update the text styles to use the 2021 terms
-          titleLarge: TextStyle(color: Color.fromARGB(255, 7, 7, 7), fontSize: 18),
-          bodyLarge: TextStyle(color: Colors.black), 
+          titleLarge:
+              TextStyle(color: Color.fromARGB(255, 7, 7, 7), fontSize: 18),
+          bodyLarge: TextStyle(color: Colors.black),
         ),
         colorScheme: ColorScheme.fromSeed(
           brightness: Brightness.dark,
@@ -106,8 +108,9 @@ class MySampleState extends State<bankInfo> {
                       obscureCardCvv: true,
                       isHolderNameVisible: true,
                       cardBgColor: const Color(0xff999999),
-                      backgroundImage:
-                          useBackgroundImage ? '../assets/images/card_bg.png' : null,
+                      backgroundImage: useBackgroundImage
+                          ? '../assets/images/card_bg.png'
+                          : null,
                       isSwipeGestureEnabled: true,
                       onCreditCardWidgetChange:
                           (CreditCardBrand creditCardBrand) {},
@@ -172,30 +175,31 @@ class MySampleState extends State<bankInfo> {
                                   horizontal: 16,
                                   vertical: 8,
                                 ),
-                                decoration:  BoxDecoration(
+                                decoration: const BoxDecoration(
                                   gradient: LinearGradient(
-              colors: [
-                const Color.fromARGB(255, 255, 1, 86),
-                Colors.blue.shade900,
-              ],
-            ),
-            boxShadow: const [
-              BoxShadow(
-                color: Colors.blue,
-                offset: Offset(0, -1),
-                blurRadius: 30 / 4,
-              ),
-              BoxShadow(
-                color: Colors.red,
-                offset: Offset(0, 1),
-                blurRadius: 30 / 4,
-              ),
-            ],
+                                    colors: [
+                                      first,
+                                      second,
+                                    ],
+                                  ),
+                                  boxShadow: const [
+                                    BoxShadow(
+                                      color: first,
+                                      offset: Offset(0, -1),
+                                      blurRadius: 30 / 4,
+                                    ),
+                                    BoxShadow(
+                                      color: second,
+                                      offset: Offset(0, 1),
+                                      blurRadius: 30 / 4,
+                                    ),
+                                  ],
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(8),
                                   ),
                                 ),
-                                padding: const EdgeInsets.symmetric(vertical: 15),
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 15),
                                 alignment: Alignment.center,
                                 child: const Text(
                                   'Validate',

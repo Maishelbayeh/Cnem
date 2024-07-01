@@ -74,6 +74,12 @@
       "languageVersion": "3.1"
     },
     {
+      "name": "date_field",
+      "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/date_field-5.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
       "name": "dbus",
       "rootUri": "file:///C:/Users/maysh/AppData/Local/Pub/Cache/hosted/pub.dev/dbus-0.7.10",
       "packageUri": "lib/",
@@ -572,7 +578,7 @@
       "languageVersion": "3.0"
     }
   ],
-  "generated": "2024-06-29T11:33:17.025101Z",
+  "generated": "2024-07-01T11:20:36.584135Z",
   "generator": "pub",
   "generatorVersion": "3.4.3",
   "flutterRoot": "file:///C:/flutter_windows_3.13.4-stable/flutter",

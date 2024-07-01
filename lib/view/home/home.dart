@@ -1,5 +1,7 @@
 import 'package:cenem/res/constants.dart';
 import 'package:cenem/view%20model/responsive.dart';
+import 'package:cenem/view/custom%20componant/Addvertismentmobile.dart';
+import 'package:cenem/view/custom%20componant/advertisement.dart';
 import 'package:cenem/view/custom%20componant/custom_button.dart';
 import 'package:cenem/view/intro/components/Icon.dart';
 import 'package:cenem/view/intro/components/combine_subtitle.dart';
@@ -67,40 +69,175 @@ class NewWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const SizedBox(
-            height: 50,
-          ),
-          const AnimatedImageContainer(
-            width: 150,
-            height: 200,
-          ),
-          SizedBox(
-            height: size.height * 0.04,
-          ),
-          const CombinetitleText(),
-          const SizedBox(
-            height: 5,
-          ),
-          const CombineSubtitleText(),
-          const SizedBox(height: defaultPadding * 2),
-          Responsive(
-            desktop: AnimatedDescriptionText(start: 14, end: 12, text: s),
-            largeMobile: AnimatedDescriptionText(start: 14, end: 12, text: s),
-            mobile: AnimatedDescriptionText(start: 10, end: 12, text: s),
-            tablet: AnimatedDescriptionText(start: 20, end: 25, text: s),
-          ),
-          CustomButton(
-            onTap: () => launchUrl(Uri.parse(
-                "https://drive.google.com/file/d/1tT_sNbd3EAyDwoIhIgdsoOeKyb6-aBxh/view?usp=drive_link")),
-            buttonText: "الفيديو التعريفي",
-            width: 150,
-            height: 30,
-          )
-        ],
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const SizedBox(
+              height: 50,
+            ),
+            const AnimatedImageContainer(
+              width: 150,
+              height: 200,
+            ),
+            SizedBox(
+              height: size.height * 0.04,
+            ),
+            const CombinetitleText(),
+            const SizedBox(
+              height: 5,
+            ),
+            const CombineSubtitleText(),
+            const SizedBox(height: defaultPadding * 2),
+            const Responsive(
+              desktop: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: "كن شريكا في النجاح"),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن العمل "),
+                    ],
+                  ),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                    width: defaultPadding / 2,
+                  ),
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: "للباحثين عن عمل اضافي  "),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 20,
+                          end: 25,
+                          text: "للمتعلمين و لغير المتعلمين "),
+                    ],
+                  ),
+                ],
+              ),
+              largeMobile: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " كن شريكا في النجاح"),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن العمل "),
+                    ],
+                  ),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                    width: defaultPadding / 2,
+                  ),
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: "للباحثين عن عمل اضافي  "),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 14,
+                          end: 12,
+                          text: "للمتعلمين و لغير المتعلمين "),
+                    ],
+                  ),
+                ],
+              ),
+              mobile: Column(
+                children: [
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " كن شريكا في النجاح"),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن العمل "),
+                    ],
+                  ),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                    width: defaultPadding / 2,
+                  ),
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن عمل اضافي  "),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10,
+                          end: 12,
+                          text: "للمتعلمين و لغير المتعلمين "),
+                    ],
+                  ),
+                ],
+              ),
+              tablet: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " كن شريكا في النجاح"),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن العمل "),
+                    ],
+                  ),
+                  SizedBox(
+                    height: defaultPadding / 2,
+                    width: defaultPadding / 2,
+                  ),
+                  Column(
+                    children: [
+                      AnimatedDescriptionText(
+                          start: 10, end: 12, text: " للباحثين عن عمل اضافي  "),
+                      SizedBox(
+                        height: defaultPadding / 2,
+                        width: defaultPadding / 2,
+                      ),
+                      AnimatedDescriptionText(
+                          start: 10,
+                          end: 12,
+                          text: "للمتعلمين و لغير المتعلمين "),
+                    ],
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+      bottomNavigationBar: Container(
+        padding: EdgeInsets.all(8.0),
+
+        child: AddScreenMobile(), // Your ad screen widget
       ),
     );
   }
